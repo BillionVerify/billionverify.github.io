@@ -2,7 +2,7 @@
 
 This repository hosts the public documentation site for [EmailVerify.ai](https://emailverify.ai).
 
-**Live site:** https://emailverify-ai.github.io
+**Live site:** https://emailverifysdk.github.io
 
 ## About
 
