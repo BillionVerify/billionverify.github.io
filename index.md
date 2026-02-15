@@ -1,21 +1,21 @@
 ---
 layout: default
-title: EmailVerify.ai - Email Verification API & SDKs
+title: BillionVerify.ai - Email Verification API & SDKs
 ---
 
-<img src="/assets/images/logo-text.svg" alt="EmailVerify.ai" class="logo">
+<img src="/assets/images/logo-text.svg" alt="BillionVerify.ai" class="logo">
 
 **Professional Email Verification API with 99.9% Accuracy**
 
 Validate email addresses in real-time or clean millions of records with our fast, reliable, and affordable email verification service.
 
-[Get Started Free](https://emailverify.ai){: .btn} [View API Docs](https://emailverify.ai/docs){: .btn}
+[Get Started Free](https://billionverify.com){: .btn} [View API Docs](https://billionverify.com/docs){: .btn}
 
 ---
 
-## Why EmailVerify.ai?
+## Why BillionVerify.ai?
 
-| Feature | EmailVerify.ai |
+| Feature | BillionVerify.ai |
 |---------|----------------|
 | **Accuracy** | 99.9% verification accuracy |
 | **Speed** | Sub-300ms response time |
@@ -41,7 +41,7 @@ Our REST API enables custom integrations with any platform. Simple HTTP requests
 ### Quick Example
 
 ```bash
-curl -X GET "https://api.emailverify.ai/v1/verify?email=test@example.com" \
+curl -X GET "https://api.billionverify.com/v1/verify?email=test@example.com" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -59,7 +59,7 @@ curl -X GET "https://api.emailverify.ai/v1/verify?email=test@example.com" \
 }
 ```
 
-[Full API Reference →](https://emailverify.ai/docs/api-reference)
+[Full API Reference →](https://billionverify.com/docs/api-reference)
 
 ---
 
@@ -78,15 +78,15 @@ yarn add @emailverify/node
 ```
 
 ```javascript
-import { EmailVerify } from '@emailverify/node';
+import { BillionVerify } from '@emailverify/node';
 
-const client = new EmailVerify('YOUR_API_KEY');
+const client = new BillionVerify('YOUR_API_KEY');
 const result = await client.verify('test@example.com');
 
 console.log(result.is_valid);
 ```
 
-[Node.js SDK Docs →](https://emailverify.ai/docs/sdks/node)
+[Node.js SDK Docs →](https://billionverify.com/docs/sdks/node)
 
 ---
 
@@ -99,15 +99,15 @@ pip install emailverify
 ```
 
 ```python
-from emailverify import EmailVerify
+from emailverify import BillionVerify
 
-client = EmailVerify('YOUR_API_KEY')
+client = BillionVerify('YOUR_API_KEY')
 result = client.verify('test@example.com')
 
 print(result.is_valid)
 ```
 
-[Python SDK Docs →](https://emailverify.ai/docs/sdks/python)
+[Python SDK Docs →](https://billionverify.com/docs/sdks/python)
 
 ---
 
@@ -132,7 +132,7 @@ func main() {
 }
 ```
 
-[Go SDK Docs →](https://emailverify.ai/docs/sdks/go)
+[Go SDK Docs →](https://billionverify.com/docs/sdks/go)
 
 ---
 
@@ -146,7 +146,7 @@ composer require emailverify/php-sdk
 
 ```php
 <?php
-use EmailVerify\Client;
+use BillionVerify\Client;
 
 $client = new Client('YOUR_API_KEY');
 $result = $client->verify('test@example.com');
@@ -154,7 +154,7 @@ $result = $client->verify('test@example.com');
 echo $result->isValid;
 ```
 
-[PHP SDK Docs →](https://emailverify.ai/docs/sdks/php)
+[PHP SDK Docs →](https://billionverify.com/docs/sdks/php)
 
 ---
 
@@ -171,15 +171,15 @@ Java SDK supporting Spring Boot applications.
 ```
 
 ```java
-import com.emailverify.EmailVerifyClient;
+import com.emailverify.BillionVerifyClient;
 
-EmailVerifyClient client = new EmailVerifyClient("YOUR_API_KEY");
+BillionVerifyClient client = new BillionVerifyClient("YOUR_API_KEY");
 VerificationResult result = client.verify("test@example.com");
 
 System.out.println(result.isValid());
 ```
 
-[Java SDK Docs →](https://emailverify.ai/docs/sdks/java)
+[Java SDK Docs →](https://billionverify.com/docs/sdks/java)
 
 ---
 
@@ -215,7 +215,7 @@ Transparent credit-based pricing that scales with your needs.
 
 **50% off annual plans** • Credits never expire • 100 free credits on signup
 
-[View All Plans →](https://emailverify.ai/pricing)
+[View All Plans →](https://billionverify.com/pricing)
 
 ---
 
@@ -235,21 +235,21 @@ Native integrations with 25+ platforms:
 
 ## Get Started
 
-1. **Sign Up** - Create an account at [emailverify.ai](https://emailverify.ai)
+1. **Sign Up** - Create an account at [billionverify.com](https://billionverify.com)
 2. **Get API Key** - Find your key in the dashboard
 3. **Install SDK** - Choose your language and install
 4. **Start Verifying** - Make your first API call
 
 **100 free credits** on signup. No credit card required.
 
-[Create Free Account →](https://emailverify.ai)
+[Create Free Account →](https://billionverify.com)
 
 ---
 
 ## Resources
 
-- [API Documentation](https://emailverify.ai/docs)
-- [SDK Reference](https://emailverify.ai/docs/sdks)
-- [Pricing](https://emailverify.ai/pricing)
-- [Blog](https://emailverify.ai/blog)
-- [Support](mailto:support@emailverify.ai)
+- [API Documentation](https://billionverify.com/docs)
+- [SDK Reference](https://billionverify.com/docs/sdks)
+- [Pricing](https://billionverify.com/pricing)
+- [Blog](https://billionverify.com/blog)
+- [Support](mailto:support@billionverify.com)

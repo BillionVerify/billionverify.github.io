@@ -1,12 +1,12 @@
-# EmailVerify.ai GitHub Pages
+# BillionVerify.ai GitHub Pages
 
-This repository hosts the public documentation site for [EmailVerify.ai](https://emailverify.ai).
+This repository hosts the public documentation site for [BillionVerify.ai](https://billionverify.com).
 
 **Live site:** https://emailverifysdk.github.io
 
 ## About
 
-EmailVerify.ai is a professional email verification API with 99.9% accuracy. This site provides:
+BillionVerify.ai is a professional email verification API with 99.9% accuracy. This site provides:
 
 - Product overview
 - API documentation
@@ -33,6 +33,6 @@ bundle exec jekyll serve
 
 ## Links
 
-- [Main Website](https://emailverify.ai)
-- [API Documentation](https://emailverify.ai/docs)
-- [Pricing](https://emailverify.ai/pricing)
+- [Main Website](https://billionverify.com)
+- [API Documentation](https://billionverify.com/docs)
+- [Pricing](https://billionverify.com/pricing)
