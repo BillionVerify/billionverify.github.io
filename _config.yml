@@ -1,13 +1,13 @@
-title: EmailVerify.ai
+title: BillionVerify
 description: Professional Email Verification API with 99.9% Accuracy
-url: "https://emailverifysdk.github.io"
+url: "https://billionverify.github.io/"
 baseurl: ""
 
 # Build settings
 markdown: kramdown
 
 # SEO
-author: EmailVerify.ai
+author: BillionVerify.com
 
 # Exclude files
 exclude:
