@@ -1,5 +1,6 @@
-<svg viewBox="0 0 475 110" xmlns="http://www.w3.org/2000/svg">
-  <!-- EmailVerify 横版 Logo - 浅色模式 -->
+<svg viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+  <!-- BillionVerify 横版 Logo - 浅色模式 -->
+  <rect x="0" y="0" width="500" height="110" fill="white"/>
   <defs>
     <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#22c55e"/>
@@ -34,6 +35,6 @@
         font-weight="700"
         text-anchor="start"
         dominant-baseline="middle">
-    <tspan fill="#1a1a1a">Email</tspan><tspan fill="#22c55e">Verify</tspan>
+    <tspan fill="#1a1a1a">Billion</tspan><tspan fill="#22c55e">Verify</tspan>
   </text>
 </svg>
