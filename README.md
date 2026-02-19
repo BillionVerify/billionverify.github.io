@@ -1,12 +1,12 @@
-# BillionVerify.ai GitHub Pages
+# BillionVerify GitHub Pages
 
-This repository hosts the public documentation site for [BillionVerify.ai](https://billionverify.com).
+This repository hosts the public documentation site for [BillionVerify](https://billionverify.com).
 
-**Live site:** https://emailverifysdk.github.io
+**Live site:** https://billionverify.github.io
 
 ## About
 
-BillionVerify.ai is a professional email verification API with 99.9% accuracy. This site provides:
+BillionVerify is a professional email verification API with 99.9% accuracy. This site provides:
 
 - Product overview
 - API documentation

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: BillionVerify.ai - Email Verification API & SDKs
+title: BillionVerify - Email Verification API & SDKs
 ---
 
-<img src="/assets/images/logo-text.svg" alt="BillionVerify.ai" class="logo">
+<img src="/assets/images/logo-text.svg" alt="BillionVerify.com" class="logo">
 
 **Professional Email Verification API with 99.9% Accuracy**
 
@@ -13,9 +13,9 @@ Validate email addresses in real-time or clean millions of records with our fast
 
 ---
 
-## Why BillionVerify.ai?
+## Why BillionVerify?
 
-| Feature | BillionVerify.ai |
+| Feature | BillionVerify |
 |---------|----------------|
 | **Accuracy** | 99.9% verification accuracy |
 | **Speed** | Sub-300ms response time |
