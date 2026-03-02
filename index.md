@@ -72,13 +72,13 @@ We provide official SDKs for popular programming languages. Each SDK includes si
 Full JavaScript and TypeScript support for Node.js applications.
 
 ```bash
-npm install @emailverify/node
+npm install billionverify-sdk
 # or
-yarn add @emailverify/node
+yarn add billionverify-sdk
 ```
 
 ```javascript
-import { BillionVerify } from '@emailverify/node';
+import { BillionVerify } from 'billionverify-sdk';
 
 const client = new BillionVerify('YOUR_API_KEY');
 const result = await client.verify('test@example.com');
@@ -95,11 +95,11 @@ console.log(result.is_valid);
 Clean Pythonic interface for scripts and applications.
 
 ```bash
-pip install emailverify
+pip install billionverify
 ```
 
 ```python
-from emailverify import BillionVerify
+from billionverify import BillionVerify
 
 client = BillionVerify('YOUR_API_KEY')
 result = client.verify('test@example.com')
@@ -116,16 +116,16 @@ print(result.is_valid)
 Native Go SDK with goroutine concurrency support.
 
 ```bash
-go get github.com/emailverify/go-sdk
+go get github.com/BillionVerify/billionverify-go
 ```
 
 ```go
 package main
 
-import "github.com/emailverify/go-sdk"
+import billionverify "github.com/BillionVerify/billionverify-go"
 
 func main() {
-    client := emailverify.NewClient("YOUR_API_KEY")
+    client, _ := billionverify.NewClient(billionverify.Config{APIKey: "YOUR_API_KEY"})
     result, _ := client.Verify("test@example.com")
 
     fmt.Println(result.IsValid)
@@ -141,7 +141,7 @@ func main() {
 PHP SDK with Laravel framework integration.
 
 ```bash
-composer require emailverify/php-sdk
+composer require billionverify/billionverify-php
 ```
 
 ```php
@@ -164,14 +164,14 @@ Java SDK supporting Spring Boot applications.
 
 ```xml
 <dependency>
-  <groupId>com.emailverify</groupId>
-  <artifactId>emailverify-java</artifactId>
+  <groupId>io.github.billionverifier</groupId>
+  <artifactId>billionverify-java</artifactId>
   <version>1.0.0</version>
 </dependency>
 ```
 
 ```java
-import com.emailverify.BillionVerifyClient;
+import com.billionverify.sdk.BillionVerifyClient;
 
 BillionVerifyClient client = new BillionVerifyClient("YOUR_API_KEY");
 VerificationResult result = client.verify("test@example.com");
