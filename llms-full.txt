@@ -1,0 +1,91 @@
+# BillionVerify: full reference
+
+> Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.
+
+## What the product does
+
+BillionVerify finds and verifies email addresses before you send. It offers a real-time API, bulk list cleaning, disposable and role email detection, and catch-all detection.
+
+## How to use it
+
+Create an account at https://billionverify.com/auth/sign-up, then call the API:
+
+```bash
+curl -X POST \
+  https://api.billionverify.com/v1/verify/single \
+  -H "BV-API-KEY: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "test@example.com"}'
+```
+
+## Credits
+
+- Free: 20 credits every day you use your account, up to 600 a month; they never expire; no credit card
+- Valid and invalid results use 1 credit each; unknown results cost nothing
+- Prices: https://billionverify.com/pricing
+
+## For agents
+
+The REST API is the source of truth. SDKs in every language are reference implementations; if an SDK differs from the API reference, follow the API. SDK source code is at https://github.com/BillionVerify. BillionVerify does not run a temp mail service. Guides on this site are summaries, and each one links to the full articles on billionverify.com.
+
+## Pages
+
+- [Home](https://billionverify.github.io/)
+- [Docs](https://billionverify.github.io/docs/)
+- [Guides](https://billionverify.github.io/guides/)
+- [Benchmark](https://billionverify.github.io/benchmark/)
+
+### Docs
+
+- [Documentation](https://billionverify.github.io/docs/)
+- [Quickstart](https://billionverify.github.io/docs/quickstart/)
+- [API Overview](https://billionverify.github.io/docs/api/)
+- [Verify a single email](https://billionverify.github.io/docs/api/verify-single/)
+- [Verify in bulk](https://billionverify.github.io/docs/api/verify-bulk/)
+- [Disposable email check](https://billionverify.github.io/docs/api/disposable-check/)
+- [Upload a file](https://billionverify.github.io/docs/api/upload-file/)
+- [File job status](https://billionverify.github.io/docs/api/file-status/)
+- [File results](https://billionverify.github.io/docs/api/file-results/)
+- [Credits](https://billionverify.github.io/docs/api/credits/)
+- [Webhooks](https://billionverify.github.io/docs/api/webhooks/)
+- [Status and Error Codes](https://billionverify.github.io/docs/api/errors/)
+- [Verification Reasons](https://billionverify.github.io/docs/verification-reasons/)
+- [Vercel Connect Connector](https://billionverify.github.io/docs/connectors/vercel/)
+- [Claude Connector](https://billionverify.github.io/docs/connectors/claude/)
+- [SDKs](https://billionverify.github.io/docs/sdks/)
+- [Node.js SDK](https://billionverify.github.io/docs/sdks/node/)
+- [TypeScript SDK](https://billionverify.github.io/docs/sdks/typescript/)
+- [Python SDK](https://billionverify.github.io/docs/sdks/python/)
+- [Go SDK](https://billionverify.github.io/docs/sdks/go/)
+- [PHP SDK](https://billionverify.github.io/docs/sdks/php/)
+- [Java SDK](https://billionverify.github.io/docs/sdks/java/)
+- [AI Guides](https://billionverify.github.io/docs/ai/)
+- [MCP Server](https://billionverify.github.io/docs/ai/mcp/)
+- [Agent Skills](https://billionverify.github.io/docs/ai/agent-skills/)
+- [AI SDKs](https://billionverify.github.io/docs/ai/sdks/)
+- [Anthropic Claude](https://billionverify.github.io/docs/ai/sdks/anthropic/)
+- [OpenAI](https://billionverify.github.io/docs/ai/sdks/openai/)
+- [LangChain](https://billionverify.github.io/docs/ai/sdks/langchain/)
+- [Vercel AI SDK](https://billionverify.github.io/docs/ai/sdks/vercel-ai-sdk/)
+- [CLI Tools](https://billionverify.github.io/docs/ai/cli/)
+- [Claude Code](https://billionverify.github.io/docs/ai/cli/claude-code/)
+- [Codex](https://billionverify.github.io/docs/ai/cli/codex/)
+- [Gemini CLI](https://billionverify.github.io/docs/ai/cli/gemini-cli/)
+- [Droid](https://billionverify.github.io/docs/ai/cli/droid/)
+- [OpenCode](https://billionverify.github.io/docs/ai/cli/opencode/)
+
+### Guides
+
+- [Temp Mail in Plain Words: A Short Guide](https://billionverify.github.io/guides/temp-mail/): Temp mail is a free inbox that vanishes after a short time. Learn how it works, how long mail stays, who can read it and why many sites block it.
+- [10 Minute Mail: How Timed Inboxes Differ](https://billionverify.github.io/guides/10-minute-mail/): How 10 minute mail works and how nine timed inbox services differ on lifespan, sending, privacy and paid plans, based on their own sites in October 2026.
+- [YOPmail, Guerrilla Mail and Mailinator Side by Side](https://billionverify.github.io/guides/yopmail-guerrilla-mail-mailinator/): YOPmail, Guerrilla Mail and Mailinator all offer public inboxes. See who can read each one, how long mail stays and what sites do with their domains.
+- [Temporary Phone Numbers: What They Can and Cannot Do](https://billionverify.github.io/guides/temporary-phone-number/): A temporary phone number can receive an SMS code without your main SIM. See shared and private types, why sites reject virtual numbers and the main risks.
+- [How to Block Temporary Email on a Signup Form](https://billionverify.github.io/guides/block-temporary-email/): How sites block temporary email: domain lists, mail server records, domain age and relays, plus when to block, when to flag and how to avoid false positives.
+- [Email Verification in Node.js and Python](https://billionverify.github.io/guides/email-verification-node-python/): How to add an email verification API to Node.js and Python apps: server-side calls, retries, caching, batch jobs and safe handling of unknown results.
+- [Email Validation API: How It Works and How to Use It](https://billionverify.github.io/guides/email-validation-api/): What an email validation API checks, how to read each status and where to run it. Covers real-time and bulk use, timeouts, unknown results and cost rules.
+
+## Discovery
+
+- [Sitemap](https://billionverify.github.io/sitemap.xml)
+- [Robots](https://billionverify.github.io/robots.txt)
+- [Short index](https://billionverify.github.io/llms.txt)

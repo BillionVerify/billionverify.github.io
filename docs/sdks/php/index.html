@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP SDK | BillionVerify Docs</title>
+    <meta name="description" content="Reference PHP SDK for the BillionVerify API: Composer install, verify emails, run file jobs, webhooks and exception handling, with Laravel examples.">
+    
+    
+    <link rel="canonical" href="https://billionverify.github.io/docs/sdks/php/">
+    <link rel="alternate" hreflang="en" href="https://billionverify.github.io/docs/sdks/php/">
+    <link rel="alternate" hreflang="x-default" href="https://billionverify.github.io/docs/sdks/php/">
+    <link rel="alternate" type="text/markdown" href="/docs/sdks/php.md">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="sitemap" href="/sitemap.xml">
+    <meta property="og:type" content="article">
+    <meta property="article:modified_time" content="2026-10-31">
+    <meta property="og:site_name" content="BillionVerify">
+    <meta property="og:title" content="PHP SDK | BillionVerify Docs">
+    <meta property="og:description" content="Reference PHP SDK for the BillionVerify API: Composer install, verify emails, run file jobs, webhooks and exception handling, with Laravel examples.">
+    <meta property="og:url" content="https://billionverify.github.io/docs/sdks/php/">
+    <meta property="og:image" content="https://billionverify.github.io/og.png">
+    <meta property="og:image:alt" content="BillionVerify email verification">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PHP SDK | BillionVerify Docs">
+    <meta name="twitter:description" content="Reference PHP SDK for the BillionVerify API: Composer install, verify emails, run file jobs, webhooks and exception handling, with Laravel examples.">
+    <meta name="twitter:image" content="https://billionverify.github.io/og.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BillionVerify","url":"https://billionverify.github.io/","publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com","logo":"https://billionverify.com/billionverify.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@billionverify.com"},"sameAs":["https://github.com/BillionVerify","https://x.com/billionvfy","https://www.linkedin.com/company/billionverify"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"PHP SDK","description":"Reference PHP SDK for the BillionVerify API: Composer install, verify emails, run file jobs, webhooks and exception handling, with Laravel examples.","datePublished":"2026-10-31","dateModified":"2026-10-31","mainEntityOfPage":"https://billionverify.github.io/docs/sdks/php/","author":{"@type":"Organization","name":"BillionVerify Team","url":"https://billionverify.com/about"},"publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Docs","item":"https://billionverify.github.io/docs/"},{"@type":"ListItem","position":2,"name":"PHP SDK","item":"https://billionverify.github.io/docs/sdks/php/"}]}</script>
+  <link rel="stylesheet" href="/_astro/Layout.Crcko9GI.css"></head>
+  <body class="flex min-h-dvh flex-col">
+    <header class="sticky top-0 z-40 bg-white">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-7 gap-y-2 px-4 py-3.5 sm:px-6">
+    <a href="/" aria-label="BillionVerify home">
+      <img src="/logo-text.svg" alt="BillionVerify" width="136" height="30" class="h-[30px] w-auto">
+    </a>
+    <nav class="order-3 flex w-full gap-6 text-[15px] font-medium sm:order-none sm:w-auto" aria-label="Main">
+      <a href="/docs/" aria-current="page" class="font-semibold text-accent">
+            Docs
+          </a><a href="/guides/" class="text-body hover:text-ink">
+            Guides
+          </a><a href="/benchmark/" class="text-body hover:text-ink">
+            Benchmark
+          </a>
+    </nav>
+    <a href="https://billionverify.com/auth/sign-up?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=header" class="btn ml-auto">Get Started Free</a>
+  </div>
+</header>
+    <main class="flex-1">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-10 px-4 sm:px-6 xl:grid-cols-[220px_minmax(0,1fr)_220px]">
+    <aside id="docs-aside" class="pt-4 xl:sticky xl:top-[72px] xl:max-h-[calc(100dvh-72px)] xl:self-start xl:overflow-y-auto xl:pt-6 xl:pb-6">
+      <label class="block">
+        <span class="sr-only">Search docs</span>
+        <input id="docs-search" type="search" placeholder="Search docs" autocomplete="off" class="h-11 w-full rounded-[10px] bg-tint px-3.5 text-[15px]">
+      </label>
+      <div id="docs-results" hidden class="mt-2 rounded-[10px] bg-tint p-2 text-sm"></div>
+
+      <details id="docs-nav" class="mt-3 xl:mt-1">
+        <summary class="cursor-pointer text-sm font-semibold xl:hidden">Browse docs</summary>
+        <nav aria-label="Docs" class="text-[15px]">
+          <div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">Getting Started</p>
+                <a href="/docs/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/quickstart/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Quickstart
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">API Reference</p>
+                <a href="/docs/api/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/api/verify-single/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify a single email
+                  </a><a href="/docs/api/verify-bulk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify in bulk
+                  </a><a href="/docs/api/disposable-check/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Disposable email check
+                  </a><a href="/docs/api/upload-file/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Upload a file
+                  </a><a href="/docs/api/file-status/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File job status
+                  </a><a href="/docs/api/file-results/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File results
+                  </a><a href="/docs/api/credits/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Credits
+                  </a><a href="/docs/api/webhooks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Webhooks
+                  </a><a href="/docs/api/errors/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Status and errors
+                  </a><a href="/docs/verification-reasons/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verification reasons
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">SDKs</p>
+                <a href="/docs/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    All SDKs
+                  </a><a href="/docs/sdks/node/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Node.js
+                  </a><a href="/docs/sdks/typescript/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    TypeScript
+                  </a><a href="/docs/sdks/python/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Python
+                  </a><a href="/docs/sdks/go/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Go
+                  </a><a href="/docs/sdks/php/" aria-current="page" class="block rounded-lg px-2.5 py-1.5 bg-tint font-semibold text-accent">
+                    PHP
+                  </a><a href="/docs/sdks/java/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Java
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Connectors</p>
+                <a href="/docs/connectors/vercel/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel Connect
+                  </a><a href="/docs/connectors/claude/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Integration</p>
+                <a href="/docs/ai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/ai/mcp/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    MCP server
+                  </a><a href="/docs/ai/agent-skills/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Agent Skills
+                  </a><a href="/docs/ai/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    AI SDKs
+                  </a><a href="/docs/ai/sdks/anthropic/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Anthropic
+                  </a><a href="/docs/ai/sdks/openai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenAI
+                  </a><a href="/docs/ai/sdks/langchain/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    LangChain
+                  </a><a href="/docs/ai/sdks/vercel-ai-sdk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel AI SDK
+                  </a><a href="/docs/ai/cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    CLI tools
+                  </a><a href="/docs/ai/cli/claude-code/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude Code
+                  </a><a href="/docs/ai/cli/codex/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Codex
+                  </a><a href="/docs/ai/cli/gemini-cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Gemini CLI
+                  </a><a href="/docs/ai/cli/droid/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Droid
+                  </a><a href="/docs/ai/cli/opencode/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenCode
+                  </a>
+              </div>
+        </nav>
+      </details>
+      <script>
+        (() => {
+          const key = 'docs-nav-scroll';
+          const aside = document.getElementById('docs-aside');
+          const wide = matchMedia('(min-width: 1280px)').matches;
+          document.getElementById('docs-nav').open = wide;
+          if (!wide) return;
+
+          let stored = null;
+          try {
+            stored = sessionStorage.getItem(key);
+          } catch {}
+
+          const current = aside.querySelector('[aria-current="page"]');
+          aside.scrollTop = stored === null ? current.offsetTop - aside.clientHeight / 2 : Number(stored);
+
+          aside.querySelectorAll('nav a').forEach((link) => {
+            link.addEventListener('click', () => {
+              try {
+                sessionStorage.setItem(key, String(aside.scrollTop));
+              } catch {}
+            });
+          });
+        })();
+      </script>
+    </aside>
+
+    <article data-pagefind-body class="min-w-0 pt-6">
+      <p class="text-sm text-muted">SDKs</p>
+      <h1 class="mt-1.5 text-[2.375rem] leading-tight font-extrabold tracking-tight max-sm:text-[2rem]">PHP SDK</h1>
+      <p class="mt-2 text-sm text-muted">By BillionVerify Team · Last reviewed <time datetime="2026-10-31">October 31, 2026</time></p>
+      <div class="prose-bv mt-5"><blockquote>
+<p>The REST API is the source of truth. This SDK is a reference implementation, so if it differs from the <a href="/docs/api/">API reference</a>, follow the API.</p>
+</blockquote>
+<p><strong>Source code:</strong> <a href="https://github.com/BillionVerify/billionverify-php">github.com/BillionVerify/billionverify-php</a></p>
+<p>The PHP SDK is a thin client built on Guzzle. Methods return the decoded JSON response as a PHP array, so results are read as <code>$result['data']['status']</code>. The SDK has no Laravel package; the Laravel section below shows how to wire the client into an app yourself.</p>
+<h2 id="installation">Installation</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FFA657">composer</span><span style="color:#A5D6FF"> require</span><span style="color:#A5D6FF"> billionverify/billionverify-php:dev-main</span></span></code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>PHP 8.1 or higher</li>
+<li>Composer</li>
+<li>Guzzle 7 (installed by Composer)</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">require</span><span style="color:#A5D6FF"> 'vendor/autoload.php'</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$client </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">getenv</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_API_KEY'</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Status: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">][</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Score: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">][</span><span style="color:#A5D6FF">'score'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span></code></pre>
+<h2 id="configuration">Configuration</h2>
+<h3 id="client-options">Client Options</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$client </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FFA657">    apiKey</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">getenv</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_API_KEY'</span><span style="color:#E6EDF3">),                 </span><span style="color:#8B949E">// Required</span></span>
+<span class="line"><span style="color:#FFA657">    baseUrl</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'https://api.billionverify.com/v1'</span><span style="color:#E6EDF3">,  </span><span style="color:#8B949E">// Optional, default shown (includes /v1)</span></span>
+<span class="line"><span style="color:#FFA657">    timeout</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">30</span><span style="color:#E6EDF3">,                                  </span><span style="color:#8B949E">// Optional: request timeout in seconds (default: 30)</span></span>
+<span class="line"><span style="color:#FFA657">    retries</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">3</span><span style="color:#8B949E">                                    // Optional: maximum attempts for retryable errors (default: 3)</span></span>
+<span class="line"><span style="color:#E6EDF3">);</span></span></code></pre>
+<p>An empty <code>$apiKey</code> throws <code>AuthenticationException</code>.</p>
+<h3 id="environment-configuration">Environment Configuration</h3>
+<p>The SDK does not read environment variables by itself. Keep the key in one and pass it in:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#8B949E"># .env</span></span>
+<span class="line"><span style="color:#E6EDF3">BV_API_KEY</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">your_api_key_here</span></span></code></pre>
+<h2 id="single-verification">Single Verification</h2>
+<h3 id="basic-verification">Basic Verification</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">$data </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Email: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Status: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Score: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'score'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Deliverable: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> ($data[</span><span style="color:#A5D6FF">'is_deliverable'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">?</span><span style="color:#A5D6FF"> 'Yes'</span><span style="color:#FF7B72"> :</span><span style="color:#A5D6FF"> 'No'</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Disposable: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> ($data[</span><span style="color:#A5D6FF">'is_disposable'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">?</span><span style="color:#A5D6FF"> 'Yes'</span><span style="color:#FF7B72"> :</span><span style="color:#A5D6FF"> 'No'</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span></code></pre>
+<h3 id="verification-with-options">Verification with Options</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">, </span><span style="color:#FFA657">checkSmtp</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">); </span><span style="color:#8B949E">// default: true</span></span></code></pre>
+<h3 id="response-structure">Response Structure</h3>
+<p><code>$result['data']</code> contains these fields (optional fields can be missing):</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">[</span></span>
+<span class="line"><span style="color:#A5D6FF">    'email'</span><span style="color:#FF7B72">             =></span><span style="color:#A5D6FF"> 'user@example.com'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'status'</span><span style="color:#FF7B72">            =></span><span style="color:#A5D6FF"> 'valid'</span><span style="color:#E6EDF3">,   </span><span style="color:#8B949E">// 'valid', 'invalid', 'unknown', 'risky', 'disposable', 'catchall', 'role'</span></span>
+<span class="line"><span style="color:#A5D6FF">    'score'</span><span style="color:#FF7B72">             =></span><span style="color:#79C0FF"> 0.95</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'is_deliverable'</span><span style="color:#FF7B72">    =></span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'is_disposable'</span><span style="color:#FF7B72">     =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'is_catchall'</span><span style="color:#FF7B72">       =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'is_role'</span><span style="color:#FF7B72">           =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'is_free'</span><span style="color:#FF7B72">           =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'domain'</span><span style="color:#FF7B72">            =></span><span style="color:#A5D6FF"> 'example.com'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'domain_age'</span><span style="color:#FF7B72">        =></span><span style="color:#79C0FF"> 9500</span><span style="color:#E6EDF3">,      </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#A5D6FF">    'mx_records'</span><span style="color:#FF7B72">        =></span><span style="color:#E6EDF3"> [</span><span style="color:#A5D6FF">'mx1.example.com'</span><span style="color:#E6EDF3">], </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#A5D6FF">    'domain_reputation'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [          </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#A5D6FF">        'mx_ip'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> '93.184.216.34'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">        'is_listed'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">        'blacklists'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [],</span></span>
+<span class="line"><span style="color:#A5D6FF">        'checked'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    ],</span></span>
+<span class="line"><span style="color:#A5D6FF">    'smtp_check'</span><span style="color:#FF7B72">        =></span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'reason'</span><span style="color:#FF7B72">            =></span><span style="color:#A5D6FF"> ''</span><span style="color:#E6EDF3">,        </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#A5D6FF">    'suggestion'</span><span style="color:#FF7B72">        =></span><span style="color:#A5D6FF"> ''</span><span style="color:#E6EDF3">,        </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#A5D6FF">    'response_time'</span><span style="color:#FF7B72">     =></span><span style="color:#79C0FF"> 1234</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'credits_used'</span><span style="color:#FF7B72">      =></span><span style="color:#79C0FF"> 1</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">]</span></span></code></pre>
+<h2 id="bulk-verification">Bulk Verification</h2>
+<h3 id="verify-a-batch-synchronously">Verify a Batch Synchronously</h3>
+<p><code>verifyBatch()</code> verifies up to 50 emails in one request and returns the results directly. With more than 50 emails it throws <code>ValidationException</code> before calling the API.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$emails </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">    'user1@example.com'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'user2@example.com'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    'user3@example.com'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$batch </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verifyBatch</span><span style="color:#E6EDF3">($emails)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Total: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $batch[</span><span style="color:#A5D6FF">'total_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> ", valid: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $batch[</span><span style="color:#A5D6FF">'valid_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> ", invalid: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $batch[</span><span style="color:#A5D6FF">'invalid_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">foreach</span><span style="color:#E6EDF3"> ($batch[</span><span style="color:#A5D6FF">'results'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">as</span><span style="color:#E6EDF3"> $item) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#E6EDF3"> $item[</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> ": "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $item[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="upload-a-file-for-larger-lists">Upload a File for Larger Lists</h3>
+<p>For larger lists, upload a file (CSV, Excel or TXT). The job runs asynchronously. <code>uploadFile()</code> takes a path on disk.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$upload </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">uploadFile</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FFA657">    filePath</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'emails.csv'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">    checkSmtp</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">    emailColumn</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">,      </span><span style="color:#8B949E">// Optional: auto-detected when null</span></span>
+<span class="line"><span style="color:#FFA657">    preserveOriginal</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#8B949E">     // Keep the original columns in the results (default: true)</span></span>
+<span class="line"><span style="color:#E6EDF3">)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Task ID: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span></code></pre>
+<h3 id="check-status">Check Status</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$status </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getFileJobStatus</span><span style="color:#E6EDF3">($upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">])[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Status: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $status[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">; </span><span style="color:#8B949E">// 'pending', 'processing', 'completed', 'failed'</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Progress: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $status[</span><span style="color:#A5D6FF">'processed_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "/"</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $status[</span><span style="color:#A5D6FF">'total_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Valid: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $status[</span><span style="color:#A5D6FF">'valid_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Invalid: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $status[</span><span style="color:#A5D6FF">'invalid_emails'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span></code></pre>
+<p><code>getFileJobStatus($jobId, $timeout)</code> long-polls for up to <code>$timeout</code> seconds (capped at 300) instead of returning immediately.</p>
+<h3 id="get-results">Get Results</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#8B949E">// Poll every 5 s, up to 600 s by default</span></span>
+<span class="line"><span style="color:#E6EDF3">$done </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">waitForFileJobCompletion</span><span style="color:#E6EDF3">($upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> ($done[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">][</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'completed'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#8B949E">    // Returns the result CSV as a string. Filters are optional.</span></span>
+<span class="line"><span style="color:#E6EDF3">    $csv </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getFileJobResults</span><span style="color:#E6EDF3">($upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">], </span><span style="color:#FFA657">valid</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#79C0FF">    file_put_contents</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'results.csv'</span><span style="color:#E6EDF3">, $csv);</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p><code>waitForFileJobCompletion($jobId, $pollInterval, $maxWait)</code> takes seconds and throws <code>TimeoutException</code> if the job is still running after <code>$maxWait</code>.</p>
+<h3 id="with-webhook">With Webhook</h3>
+<p>Instead of polling, register a webhook. It is called when a file job finishes (<code>file.completed</code>) or fails (<code>file.failed</code>):</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$webhook </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">createWebhook</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#A5D6FF">    'https://your-domain.com/webhooks/billionverify'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    [</span><span style="color:#A5D6FF">'file.completed'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'file.failed'</span><span style="color:#E6EDF3">]</span></span>
+<span class="line"><span style="color:#E6EDF3">)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#E6EDF3"> $webhook[</span><span style="color:#A5D6FF">'id'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#E6EDF3"> $webhook[</span><span style="color:#A5D6FF">'secret'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">; </span><span style="color:#8B949E">// Returned only when the webhook is created. Store it.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$list </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">listWebhooks</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">$client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">deleteWebhook</span><span style="color:#E6EDF3">($webhook[</span><span style="color:#A5D6FF">'id'</span><span style="color:#E6EDF3">]);</span></span></code></pre>
+<p>Each delivery is a <code>POST</code> with a JSON body of the form <code>{event, timestamp, data}</code>. The API signs it with HMAC-SHA256 over <code>"&#x3C;timestamp>.&#x3C;raw body>"</code>, using the webhook secret, and sends these headers:</p>
+<ul>
+<li><code>X-Webhook-Signature</code>: <code>sha256=&#x3C;hex digest></code></li>
+<li><code>X-Webhook-Timestamp</code>: Unix time in seconds, the value used in the signature</li>
+<li><code>X-Webhook-Event</code>: the event name</li>
+</ul>
+<p>Verify against the raw body before parsing it:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$rawBody   </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> file_get_contents</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'php://input'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">$timestamp </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $_SERVER[</span><span style="color:#A5D6FF">'HTTP_X_WEBHOOK_TIMESTAMP'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">??</span><span style="color:#A5D6FF"> ''</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">$received  </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $_SERVER[</span><span style="color:#A5D6FF">'HTTP_X_WEBHOOK_SIGNATURE'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">??</span><span style="color:#A5D6FF"> ''</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$expected </span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF"> 'sha256='</span><span style="color:#FF7B72"> .</span><span style="color:#79C0FF"> hash_hmac</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'sha256'</span><span style="color:#E6EDF3">, $timestamp </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> '.'</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $rawBody, $webhookSecret);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> (</span><span style="color:#FF7B72">!</span><span style="color:#79C0FF">hash_equals</span><span style="color:#E6EDF3">($expected, $received)) {</span></span>
+<span class="line"><span style="color:#79C0FF">    http_response_code</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">401</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#FF7B72">    exit</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$payload </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> json_decode</span><span style="color:#E6EDF3">($rawBody, </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">);</span></span></code></pre>
+<blockquote>
+<p>The SDK’s <code>Client::verifyWebhookSignature($payload, $signature, $secret)</code> signs the body only, without the timestamp prefix, so it does not match what the API sends. Use the code above for real deliveries.</p>
+</blockquote>
+<h2 id="credit-management">Credit Management</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#E6EDF3">$credits </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getCredits</span><span style="color:#E6EDF3">()[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Balance: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $credits[</span><span style="color:#A5D6FF">'credits_balance'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Consumed: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $credits[</span><span style="color:#A5D6FF">'credits_consumed'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#79C0FF">echo</span><span style="color:#A5D6FF"> "Added: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $credits[</span><span style="color:#A5D6FF">'credits_added'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span></code></pre>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="exception-types">Exception Types</h3>
+<p>All exceptions are in the <code>BillionVerify\Exception</code> namespace and extend <code>BillionVerifyException</code>, which has <code>getErrorCode()</code>, <code>getStatusCode()</code> and <code>getDetails()</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Exception</th><th>HTTP status</th><th>Notes</th></tr></thead><tbody><tr><td><code>AuthenticationException</code></td><td>401</td><td>Missing or invalid API key</td></tr><tr><td><code>InsufficientCreditsException</code></td><td>402</td><td>Not enough credits</td></tr><tr><td><code>NotFoundException</code></td><td>404</td><td>For example an unknown job ID</td></tr><tr><td><code>ValidationException</code></td><td>400</td><td>Also thrown locally for more than 50 emails or a missing file</td></tr><tr><td><code>RateLimitException</code></td><td>429</td><td><code>getRetryAfter()</code> returns seconds</td></tr><tr><td><code>TimeoutException</code></td><td>504</td><td>Connection failed or timed out, or <code>waitForFileJobCompletion()</code> ran out of time</td></tr></tbody></table>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\AuthenticationException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\InsufficientCreditsException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\RateLimitException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\ValidationException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\BillionVerifyException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    $result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">AuthenticationException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#A5D6FF"> "Invalid API key</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">InsufficientCreditsException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#A5D6FF"> "Not enough credits</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">RateLimitException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#A5D6FF"> "Rate limited. Retry after "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $e</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getRetryAfter</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> " seconds</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">ValidationException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#A5D6FF"> "Invalid input: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $e</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">BillionVerifyException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#A5D6FF"> "API error: "</span><span style="color:#FF7B72"> .</span><span style="color:#E6EDF3"> $e</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">.</span><span style="color:#A5D6FF"> "</span><span style="color:#FF7B72">\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p>The SDK retries 429, 500, 502 and 503 responses with exponential backoff (<code>2^attempt</code> seconds, or the <code>Retry-After</code> header on 429) before it throws. <code>retries</code> is the maximum number of attempts, including the first one.</p>
+<h2 id="laravel-integration">Laravel Integration</h2>
+<p>The SDK ships no service provider, facade or validation rule. The examples below use the plain <code>Client</code> class and add the Laravel glue in your own app.</p>
+<h3 id="service-provider">Service Provider</h3>
+<p>Register the client as a singleton, for example in <code>app/Providers/AppServiceProvider.php</code>:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> register</span><span style="color:#E6EDF3">()</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> void</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#79C0FF">    $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">app</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">singleton</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Client</span><span style="color:#FF7B72">::class</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">function</span><span style="color:#E6EDF3"> () {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FFA657">            apiKey</span><span style="color:#E6EDF3">: </span><span style="color:#D2A8FF">config</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'services.billionverify.key'</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#FFA657">            timeout</span><span style="color:#E6EDF3">: (</span><span style="color:#FF7B72">int</span><span style="color:#E6EDF3">) </span><span style="color:#D2A8FF">config</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'services.billionverify.timeout'</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">30</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#FFA657">            retries</span><span style="color:#E6EDF3">: (</span><span style="color:#FF7B72">int</span><span style="color:#E6EDF3">) </span><span style="color:#D2A8FF">config</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'services.billionverify.retries'</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">3</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#E6EDF3">        );</span></span>
+<span class="line"><span style="color:#E6EDF3">    });</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="configuration-1">Configuration</h3>
+<p>Add the settings to <code>config/services.php</code>:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#A5D6FF">'billionverify'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">    'key'</span><span style="color:#FF7B72"> =></span><span style="color:#D2A8FF"> env</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_API_KEY'</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#A5D6FF">    'timeout'</span><span style="color:#FF7B72"> =></span><span style="color:#D2A8FF"> env</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_TIMEOUT'</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">30</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#A5D6FF">    'retries'</span><span style="color:#FF7B72"> =></span><span style="color:#D2A8FF"> env</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_RETRIES'</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">3</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#E6EDF3">],</span></span></code></pre>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> UserController</span><span style="color:#FF7B72"> extends</span><span style="color:#79C0FF"> Controller</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3"> $client</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> register</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Request</span><span style="color:#E6EDF3"> $request)</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#E6EDF3">        $result </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($request</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'invalid'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#D2A8FF"> back</span><span style="color:#E6EDF3">()</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">withErrors</span><span style="color:#E6EDF3">([</span><span style="color:#A5D6FF">'email'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Invalid email address'</span><span style="color:#E6EDF3">]);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Continue registration...</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="validation-rule">Validation Rule</h3>
+<p>A custom rule in your app (<code>php artisan make:rule ValidEmail</code>) that calls the client:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">namespace</span><span style="color:#FFA657"> App\Rules</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\BillionVerifyException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Closure</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Contracts\Validation\ValidationRule</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> ValidEmail</span><span style="color:#FF7B72"> implements</span><span style="color:#79C0FF"> ValidationRule</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#FF7B72"> bool</span><span style="color:#E6EDF3"> $rejectDisposable </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#FF7B72"> bool</span><span style="color:#E6EDF3"> $rejectRole </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> validate</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $attribute, </span><span style="color:#FF7B72">mixed</span><span style="color:#E6EDF3"> $value, </span><span style="color:#79C0FF">Closure</span><span style="color:#E6EDF3"> $fail)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> void</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">            $result </span><span style="color:#FF7B72">=</span><span style="color:#D2A8FF"> app</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Client</span><span style="color:#FF7B72">::class</span><span style="color:#E6EDF3">)</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($value)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">BillionVerifyException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3">; </span><span style="color:#8B949E">// Do not block users when the API is unavailable</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'invalid'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            $fail(</span><span style="color:#A5D6FF">'The :attribute is not a valid email address.'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">elseif</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">$this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">rejectDisposable </span><span style="color:#FF7B72">&#x26;&#x26;</span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'is_disposable'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            $fail(</span><span style="color:#A5D6FF">'Disposable email addresses are not allowed.'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">elseif</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">$this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">rejectRole </span><span style="color:#FF7B72">&#x26;&#x26;</span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'is_role'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            $fail(</span><span style="color:#A5D6FF">'Role-based email addresses are not allowed.'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p>Use it in a controller:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> App\Rules\ValidEmail</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$request</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">validate</span><span style="color:#E6EDF3">([</span></span>
+<span class="line"><span style="color:#A5D6FF">    'email'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [</span><span style="color:#A5D6FF">'required'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">new</span><span style="color:#79C0FF"> ValidEmail</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">rejectDisposable</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">, </span><span style="color:#FFA657">rejectRole</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">)],</span></span>
+<span class="line"><span style="color:#E6EDF3">]);</span></span></code></pre>
+<h3 id="form-request">Form Request</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">namespace</span><span style="color:#FFA657"> App\Http\Requests</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> App\Rules\ValidEmail</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Foundation\Http\FormRequest</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> RegisterRequest</span><span style="color:#FF7B72"> extends</span><span style="color:#79C0FF"> FormRequest</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> rules</span><span style="color:#E6EDF3">()</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> array</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">            'name'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [</span><span style="color:#A5D6FF">'required'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'string'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'max:255'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'email'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">                'required'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'email'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'unique:users'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FF7B72">                new</span><span style="color:#79C0FF"> ValidEmail</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">rejectDisposable</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">),</span></span>
+<span class="line"><span style="color:#E6EDF3">            ],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'password'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> [</span><span style="color:#A5D6FF">'required'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'min:8'</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">'confirmed'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">        ];</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="queued-verification">Queued Verification</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">namespace</span><span style="color:#FFA657"> App\Jobs</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Bus\Queueable</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Contracts\Queue\ShouldQueue</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Foundation\Bus\Dispatchable</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Queue\InteractsWithQueue</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Queue\SerializesModels</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> VerifyUserEmail</span><span style="color:#FF7B72"> implements</span><span style="color:#79C0FF"> ShouldQueue</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    use</span><span style="color:#79C0FF"> Dispatchable</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">InteractsWithQueue</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">Queueable</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">SerializesModels</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#FF7B72"> int</span><span style="color:#E6EDF3"> $userId,</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#FF7B72"> string</span><span style="color:#E6EDF3"> $email</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> handle</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Client</span><span style="color:#E6EDF3"> $client)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> void</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#E6EDF3">        $result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">$this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">        \App\Models\User</span><span style="color:#FF7B72">::</span><span style="color:#D2A8FF">where</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'id'</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">$this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">userId)</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">update</span><span style="color:#E6EDF3">([</span></span>
+<span class="line"><span style="color:#A5D6FF">            'email_verified'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'valid'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">            'email_score'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'score'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'email_disposable'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'is_disposable'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">        ]);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Dispatch</span></span>
+<span class="line"><span style="color:#79C0FF">VerifyUserEmail</span><span style="color:#FF7B72">::</span><span style="color:#D2A8FF">dispatch</span><span style="color:#E6EDF3">($user</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">id, $user</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">email);</span></span></code></pre>
+<h3 id="middleware">Middleware</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">namespace</span><span style="color:#FFA657"> App\Http\Middleware</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Closure</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Http\Request</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> VerifyEmailMiddleware</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3"> $client</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> handle</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Request</span><span style="color:#E6EDF3"> $request, </span><span style="color:#79C0FF">Closure</span><span style="color:#E6EDF3"> $next)</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($request</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">has</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">)) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            $result </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($request</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">            if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'invalid'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">                return</span><span style="color:#D2A8FF"> response</span><span style="color:#E6EDF3">()</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">json</span><span style="color:#E6EDF3">([</span></span>
+<span class="line"><span style="color:#A5D6FF">                    'error'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Invalid email address'</span></span>
+<span class="line"><span style="color:#E6EDF3">                ], </span><span style="color:#79C0FF">422</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">            if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'is_disposable'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#FF7B72">                return</span><span style="color:#D2A8FF"> response</span><span style="color:#E6EDF3">()</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">json</span><span style="color:#E6EDF3">([</span></span>
+<span class="line"><span style="color:#A5D6FF">                    'error'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Disposable emails are not allowed'</span></span>
+<span class="line"><span style="color:#E6EDF3">                ], </span><span style="color:#79C0FF">422</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">            }</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> $next($request);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="complete-examples">Complete Examples</h2>
+<h3 id="registration-validation">Registration Validation</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> EmailValidator</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3"> $client</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> validateForRegistration</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $email)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> array</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#E6EDF3">        $result </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Reject invalid emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'invalid'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">                'valid'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'reason'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'invalid_email'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'message'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'This email address is invalid'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            ];</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Reject disposable emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'is_disposable'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">                'valid'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'reason'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'disposable'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'message'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Please use a permanent email address'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            ];</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Warn about role-based emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($result[</span><span style="color:#A5D6FF">'is_role'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">                'valid'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'warning'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'role_based'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                'message'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Using a personal email is recommended'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            ];</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">            'valid'</span><span style="color:#FF7B72"> =></span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">            'score'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $result[</span><span style="color:#A5D6FF">'score'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">        ];</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Usage</span></span>
+<span class="line"><span style="color:#E6EDF3">$validator </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> EmailValidator</span><span style="color:#E6EDF3">($client);</span></span>
+<span class="line"><span style="color:#E6EDF3">$validation </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $validator</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">validateForRegistration</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> (</span><span style="color:#FF7B72">!</span><span style="color:#E6EDF3">$validation[</span><span style="color:#A5D6FF">'valid'</span><span style="color:#E6EDF3">]) {</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#E6EDF3"> $validation[</span><span style="color:#A5D6FF">'message'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="bulk-list-cleaning">Bulk List Cleaning</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> ListCleaner</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#79C0FF"> __construct</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#FF7B72">        private</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3"> $client</span></span>
+<span class="line"><span style="color:#E6EDF3">    ) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">    /** Upload a CSV, wait for the job and save the result CSV. */</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> cleanFile</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $inputFile, </span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $outputFile)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> array</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#E6EDF3">        $upload </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">uploadFile</span><span style="color:#E6EDF3">($inputFile, </span><span style="color:#FFA657">emailColumn</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">        $done </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> $this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">waitForFileJobCompletion</span><span style="color:#E6EDF3">($upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">])[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> ($done[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'failed'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            throw</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> \RuntimeException</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'File job failed'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">        file_put_contents</span><span style="color:#E6EDF3">($outputFile, </span><span style="color:#79C0FF">$this</span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3">client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getFileJobResults</span><span style="color:#E6EDF3">($upload[</span><span style="color:#A5D6FF">'task_id'</span><span style="color:#E6EDF3">]));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#A5D6FF">            'total'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $done[</span><span style="color:#A5D6FF">'total_emails'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'valid'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $done[</span><span style="color:#A5D6FF">'valid_emails'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'invalid'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $done[</span><span style="color:#A5D6FF">'invalid_emails'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">        ];</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="api-endpoint">API Endpoint</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">&#x3C;?</span><span style="color:#79C0FF">php</span></span>
+<span class="line"><span style="color:#8B949E">// api/verify.php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">require</span><span style="color:#79C0FF"> __DIR__</span><span style="color:#FF7B72"> .</span><span style="color:#A5D6FF"> '/../vendor/autoload.php'</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Client</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79C0FF">header</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'Content-Type: application/json'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$client </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> new</span><span style="color:#79C0FF"> Client</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">getenv</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'BV_API_KEY'</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> ($_SERVER[</span><span style="color:#A5D6FF">'REQUEST_METHOD'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">!==</span><span style="color:#A5D6FF"> 'POST'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">    http_response_code</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">405</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#79C0FF"> json_encode</span><span style="color:#E6EDF3">([</span><span style="color:#A5D6FF">'error'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Method not allowed'</span><span style="color:#E6EDF3">]);</span></span>
+<span class="line"><span style="color:#FF7B72">    exit</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">$input </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> json_decode</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">file_get_contents</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'php://input'</span><span style="color:#E6EDF3">), </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">$email </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $input[</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">] </span><span style="color:#FF7B72">??</span><span style="color:#79C0FF"> null</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> (</span><span style="color:#FF7B72">!</span><span style="color:#E6EDF3">$email) {</span></span>
+<span class="line"><span style="color:#79C0FF">    http_response_code</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">400</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#79C0FF"> json_encode</span><span style="color:#E6EDF3">([</span><span style="color:#A5D6FF">'error'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Email is required'</span><span style="color:#E6EDF3">]);</span></span>
+<span class="line"><span style="color:#FF7B72">    exit</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    $data </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#79C0FF"> json_encode</span><span style="color:#E6EDF3">([</span></span>
+<span class="line"><span style="color:#A5D6FF">        'email'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">        'status'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'status'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">        'score'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'score'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">        'deliverable'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $data[</span><span style="color:#A5D6FF">'is_deliverable'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">    ]);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">\Exception</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">    http_response_code</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">500</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#79C0FF">    echo</span><span style="color:#79C0FF"> json_encode</span><span style="color:#E6EDF3">([</span><span style="color:#A5D6FF">'error'</span><span style="color:#FF7B72"> =></span><span style="color:#A5D6FF"> 'Verification failed'</span><span style="color:#E6EDF3">]);</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-cache-results">1. Cache Results</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Support\Facades\Cache</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">function</span><span style="color:#D2A8FF"> verifyWithCache</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Client</span><span style="color:#E6EDF3"> $client, </span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $email)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> array</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#E6EDF3">    $cacheKey </span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF"> 'email_verification_'</span><span style="color:#FF7B72"> .</span><span style="color:#79C0FF"> md5</span><span style="color:#E6EDF3">($email);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    return</span><span style="color:#79C0FF"> Cache</span><span style="color:#FF7B72">::</span><span style="color:#D2A8FF">remember</span><span style="color:#E6EDF3">($cacheKey, </span><span style="color:#79C0FF">3600</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">function</span><span style="color:#E6EDF3"> () </span><span style="color:#FF7B72">use</span><span style="color:#E6EDF3"> ($client, $email) {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"><span style="color:#E6EDF3">    });</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="2-handle-errors-gracefully">2. Handle Errors Gracefully</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\BillionVerifyException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> BillionVerify\Exception\RateLimitException</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">use</span><span style="color:#79C0FF"> Illuminate\Support\Facades\Log</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">function</span><span style="color:#D2A8FF"> safeVerify</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">Client</span><span style="color:#E6EDF3"> $client, </span><span style="color:#FF7B72">string</span><span style="color:#E6EDF3"> $email)</span><span style="color:#FF7B72">:</span><span style="color:#FF7B72"> ?array</span></span>
+<span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#FF7B72">    try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> $client</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">($email)[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">];</span></span>
+<span class="line"><span style="color:#E6EDF3">    } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">RateLimitException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">        Log</span><span style="color:#FF7B72">::</span><span style="color:#D2A8FF">warning</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'Rate limited'</span><span style="color:#E6EDF3">, [</span><span style="color:#A5D6FF">'retry_after'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $e</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getRetryAfter</span><span style="color:#E6EDF3">()]);</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#79C0FF"> null</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">    } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">BillionVerifyException</span><span style="color:#E6EDF3"> $e) {</span></span>
+<span class="line"><span style="color:#79C0FF">        Log</span><span style="color:#FF7B72">::</span><span style="color:#D2A8FF">error</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'Verification failed'</span><span style="color:#E6EDF3">, [</span><span style="color:#A5D6FF">'error'</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> $e</span><span style="color:#FF7B72">-></span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">()]);</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#79C0FF"> null</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="/docs/api/">API Reference</a>: Detailed API documentation</li>
+<li><a href="https://billionverify.com/docs/integration-guides/web-frameworks/laravel?utm_source=billionverify.github.io&#x26;utm_medium=referral&#x26;utm_campaign=content-site&#x26;utm_content=php">Laravel Integration</a>: Advanced Laravel patterns</li>
+</ul></div>
+    </article>
+
+    <nav aria-label="On this page" class="hidden pt-6 text-sm xl:sticky xl:top-[72px] xl:block xl:self-start">
+      
+            <p class="mb-2.5 font-bold">On this page</p>
+            <a href="#installation" class="block py-1 text-body hover:text-accent">
+                Installation
+              </a><a href="#requirements" class="block py-1 text-body hover:text-accent">
+                Requirements
+              </a><a href="#quick-start" class="block py-1 text-body hover:text-accent">
+                Quick Start
+              </a><a href="#configuration" class="block py-1 text-body hover:text-accent">
+                Configuration
+              </a><a href="#single-verification" class="block py-1 text-body hover:text-accent">
+                Single Verification
+              </a><a href="#bulk-verification" class="block py-1 text-body hover:text-accent">
+                Bulk Verification
+              </a><a href="#credit-management" class="block py-1 text-body hover:text-accent">
+                Credit Management
+              </a><a href="#error-handling" class="block py-1 text-body hover:text-accent">
+                Error Handling
+              </a><a href="#laravel-integration" class="block py-1 text-body hover:text-accent">
+                Laravel Integration
+              </a><a href="#complete-examples" class="block py-1 text-body hover:text-accent">
+                Complete Examples
+              </a><a href="#best-practices" class="block py-1 text-body hover:text-accent">
+                Best Practices
+              </a><a href="#next-steps" class="block py-1 text-body hover:text-accent">
+                Next Steps
+              </a>
+          
+    </nav>
+  </div>
+
+  <script type="module">
+    const input = document.getElementById('docs-search');
+    const results = document.getElementById('docs-results');
+    let pagefind;
+
+    input.addEventListener('input', async () => {
+      pagefind ??= await import('/pagefind/pagefind.js');
+      const query = input.value.trim();
+      if (!query) {
+        results.hidden = true;
+        return;
+      }
+      const search = await pagefind.search(query);
+      const items = await Promise.all(search.results.slice(0, 6).map((result) => result.data()));
+      results.replaceChildren(
+        ...items.map((item) => {
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.meta.title;
+          link.className = 'block rounded-md px-2 py-1.5 font-medium hover:bg-white';
+          return link;
+        }),
+      );
+      results.hidden = items.length === 0;
+    });
+  </script>
+</main>
+    <footer class="mt-16 border-t border-line pt-10 pb-10 text-sm">
+  <div class="mx-auto max-w-[1200px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Product
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/pricing?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Pricing
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/features?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Features
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whitelabel?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Whitelabel Service
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Email Verify Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-validator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Validator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/validate-email-address?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Validate Email Address
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/free-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Free Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-spam-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Spam Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/disposable-email-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Disposable Email Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bounce-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bounce Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/catch-all-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Catch-All Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/role-account-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Role Account Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-list-cleaning?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email List Cleaning
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/wordpress?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WordPress Plugin
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Find Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/company-search?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Company Search
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-extractor?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Extractor
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Free Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/spf-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Record Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/mx-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MX Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/spf-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dns-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DNS Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blacklist-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blacklist Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/ip-reputation-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        IP Reputation Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whois-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WHOIS Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/verify-phone-numbers?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Phone Number Validator
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-deliverability-test?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Deliverability Test
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-header-analyzer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Header Analyzer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-bounce-rate-calculator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Bounce Rate Calculator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/reverse-email-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Reverse Email Lookup
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Content Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/linkedin-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Video Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/linkedin-carousel-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Carousel Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/twitter-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Twitter Video Downloader
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Agent Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/mcp?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MCP Server
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/agent-skills?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Agent Skills
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Use Cases
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/google-maps?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Google Maps Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/cold-email?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Cold Email Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-leads?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Leads Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/local-business?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Local Business Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-agency?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Agency Database
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/vs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Comparisons <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/best-email-verification-tools?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification Tools
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-validation-service?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Validation Service
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/neverbounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to NeverBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/zerobounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to ZeroBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/hunter?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Hunter
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/bouncer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Bouncer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/kickbox?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Kickbox
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emaillistverify?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to EmailListVerify
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/verifalia?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Verifalia
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/debounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to DeBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/millionverifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to MillionVerifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emailable?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Emailable
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/snov?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Snov.io
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/findymail?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Findymail
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/validity?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Validity
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Guides
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/glossary?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Glossary
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/guides?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verify Guides
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-marketing-bible?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Marketing Bible
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/benchmark?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Market Report 2026
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Resources
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/about?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        About
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blog?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blog
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/docs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Docs
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/integrations?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Integrations
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/faq?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        FAQ
+                      </a>
+                      
+                    </li><li>
+                      <a href="mailto:support@billionverify.com" class="text-muted hover:text-ink hover:underline">
+                        Contact
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/help?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Help Center
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/partners?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Partners <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://markitdown.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Markitdown AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://mapleads.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        MapLeads.ai
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Video Partners
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://potto.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Potto AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://transcript.im/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        YouTube Transcript Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://aitinydeskmeme.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        AI Tiny Desk Meme
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://ohyoucanmakeitcapai.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Oh You Can Make It Cap AI
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+    </div>
+
+    <div class="mt-10 border-t border-line pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a href="https://billionverify.com/?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" aria-label="BillionVerify">
+          <img src="/logo-text.svg" alt="BillionVerify" width="182" height="40" class="h-10 w-auto" loading="lazy">
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/company/billionverify" aria-label="LinkedIn">
+                <img src="/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" loading="lazy">
+              </a><a href="https://github.com/billionverify" aria-label="GitHub">
+                <img src="/icons/github.svg" alt="GitHub" width="20" height="20" loading="lazy">
+              </a><a href="https://chromewebstore.google.com/detail/email-extractor-by-billio/fplaepdipjjpkngejlakmcjkokghhndj" aria-label="Chrome">
+                <img src="/icons/chrome.svg" alt="Chrome" width="20" height="20" loading="lazy">
+              </a><a href="https://addons.mozilla.org/en-US/firefox/addon/email-extractor-emailverify-ai/" aria-label="Firefox">
+                <img src="/icons/firefox.svg" alt="Firefox" width="20" height="20" loading="lazy">
+              </a><a href="https://wordpress.org/plugins/billionverify-email-validator/" aria-label="WordPress">
+                <img src="/icons/wordpress.svg" alt="WordPress" width="20" height="20" loading="lazy">
+              </a>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap justify-between gap-4 text-muted">
+        <div class="space-y-1">
+          <p>Verify emails in real-time with live SMTP checks.</p><p>Trusted by 10,000+ businesses worldwide.</p>
+          <p>Contact: <a href="mailto:support@billionverify.com" class="hover:text-ink hover:underline">support@billionverify.com</a></p>
+        </div>
+        <div class="space-y-1 sm:text-right">
+          <p>© Copyright 2026 BillionVerify. All Rights Reserved.</p>
+          <p class="flex flex-wrap gap-x-5 sm:justify-end">
+            <a href="https://billionverify.com/trust?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Trust Center</a><a href="https://billionverify.com/privacy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Privacy Policy</a><a href="https://billionverify.com/terms?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Terms of Service</a><a href="https://billionverify.com/cookie-policy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Cookie Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    <script type="module">document.querySelectorAll(`[data-code-tabs]`).forEach(e=>{let t=[...e.querySelectorAll(`:scope > [data-tab]`)],n=document.createElement(`div`);n.className=`code-tabs-bar`,n.setAttribute(`role`,`tablist`),t.forEach((e,r)=>{let i=document.createElement(`button`);i.type=`button`,i.role=`tab`,i.textContent=e.dataset.tab??``,i.setAttribute(`aria-selected`,String(r===0)),e.hidden=r!==0,i.addEventListener(`click`,()=>{t.forEach((e,t)=>{e.hidden=t!==r,n.children[t].setAttribute(`aria-selected`,String(t===r))})}),n.append(i)}),e.prepend(n),e.classList.add(`is-ready`)}),document.querySelectorAll(`.prose-bv pre, pre.code`).forEach(e=>{let t=document.createElement(`div`);t.className=`code-block`,e.replaceWith(t),t.append(e);let n=document.createElement(`button`);n.type=`button`,n.className=`code-copy`,n.textContent=`Copy`,n.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(e.innerText),n.textContent=`Copied`,setTimeout(()=>n.textContent=`Copy`,1500)}),t.append(n)});</script>
+  </body>
+</html>

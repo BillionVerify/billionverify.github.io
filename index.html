@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BillionVerify - Email Verification API &amp; SDKs</title>
+    <meta name="description" content="Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.">
+    
+    
+    <link rel="canonical" href="https://billionverify.github.io/">
+    <link rel="alternate" hreflang="en" href="https://billionverify.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://billionverify.github.io/">
+    <link rel="alternate" type="text/markdown" href="/index.md">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="sitemap" href="/sitemap.xml">
+    <meta property="og:type" content="website">
+    <meta property="article:modified_time" content="2026-10-31">
+    <meta property="og:site_name" content="BillionVerify">
+    <meta property="og:title" content="BillionVerify - Email Verification API &amp; SDKs">
+    <meta property="og:description" content="Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.">
+    <meta property="og:url" content="https://billionverify.github.io/">
+    <meta property="og:image" content="https://billionverify.github.io/og.png">
+    <meta property="og:image:alt" content="BillionVerify email verification">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BillionVerify - Email Verification API &amp; SDKs">
+    <meta name="twitter:description" content="Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.">
+    <meta name="twitter:image" content="https://billionverify.github.io/og.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BillionVerify","url":"https://billionverify.github.io/","publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com","logo":"https://billionverify.com/billionverify.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@billionverify.com"},"sameAs":["https://github.com/BillionVerify","https://x.com/billionvfy","https://www.linkedin.com/company/billionverify"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"BillionVerify - Email Verification API & SDKs","url":"https://billionverify.github.io/","datePublished":"2026-10-31","dateModified":"2026-10-31","author":{"@type":"Organization","name":"BillionVerify Team","url":"https://billionverify.com/about"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebAPI","name":"BillionVerify Email Verification API","description":"Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.","url":"https://billionverify.github.io/","documentation":"https://billionverify.github.io/docs/","provider":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an email verification API?","acceptedAnswer":{"@type":"Answer","text":"An email verification API is a web service that tells your app whether an address can receive mail. You send one address or a list. The API returns a status for each address, and your code decides what to do next."}},{"@type":"Question","name":"Does email verification send an email?","acceptedAnswer":{"@type":"Answer","text":"Email verification does not send a message. The check asks the receiving mail server about the mailbox and stops before any message is sent."}},{"@type":"Question","name":"What does an unknown result mean?","acceptedAnswer":{"@type":"Answer","text":"An unknown result means the mail server gave no definite answer. Unknown results cost nothing, and a re-check within 24 hours is free."}},{"@type":"Question","name":"Is a catch-all address counted as valid?","acceptedAnswer":{"@type":"Answer","text":"Catch-all is reported as its own status. A catch-all domain accepts every address, so nobody can confirm one mailbox on it."}},{"@type":"Question","name":"Which languages have an SDK?","acceptedAnswer":{"@type":"Answer","text":"SDKs cover Node.js, TypeScript, Python, Go, PHP and Java. They are open-source reference implementations on GitHub. The REST API is the source of truth, and any language can call it over HTTPS."}},{"@type":"Question","name":"Can the API block temporary email at sign-up?","acceptedAnswer":{"@type":"Answer","text":"The API flags disposable addresses in its result, so your form can refuse them or tag them as low trust. A separate disposable check endpoint is free and does not use credits."}},{"@type":"Question","name":"Is there a free tier?","acceptedAnswer":{"@type":"Answer","text":"Every account gets 20 free credits on each day you use it, up to 600 a month. Free credits never expire, and you need no credit card."}}]}</script>
+  <link rel="stylesheet" href="/_astro/Layout.Crcko9GI.css"></head>
+  <body class="flex min-h-dvh flex-col">
+    <header class="sticky top-0 z-40 bg-white">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-7 gap-y-2 px-4 py-3.5 sm:px-6">
+    <a href="/" aria-label="BillionVerify home">
+      <img src="/logo-text.svg" alt="BillionVerify" width="136" height="30" class="h-[30px] w-auto">
+    </a>
+    <nav class="order-3 flex w-full gap-6 text-[15px] font-medium sm:order-none sm:w-auto" aria-label="Main">
+      <a href="/docs/" class="text-body hover:text-ink">
+            Docs
+          </a><a href="/guides/" class="text-body hover:text-ink">
+            Guides
+          </a><a href="/benchmark/" class="text-body hover:text-ink">
+            Benchmark
+          </a>
+    </nav>
+    <a href="https://billionverify.com/auth/sign-up?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=header" class="btn ml-auto">Get Started Free</a>
+  </div>
+</header>
+    <main class="flex-1">
+  <section class="mx-auto max-w-[1200px] px-4 pt-9 pb-7 sm:px-6">
+    <h1 class="text-[2.75rem] leading-[1.1] font-extrabold tracking-tight max-sm:text-4xl">Email Verification API &amp; SDKs</h1>
+    <p class="mt-3 max-w-[760px] text-lg leading-relaxed text-muted">
+      Validate email addresses in real-time or clean millions of records with our fast, reliable, and affordable email
+      verification service.
+    </p>
+  </section>
+
+  <section class="mx-auto flex max-w-[1200px] flex-wrap items-stretch gap-4 px-4 sm:px-6">
+    <a href="/docs/" class="flex min-w-0 flex-[3_1_440px] flex-col gap-3.5 rounded-2xl bg-tint p-5.5">
+      <span class="text-2xl font-bold">Docs</span>
+      <span class="block flex-1 overflow-hidden rounded-[10px] bg-black">
+        <span class="block overflow-x-auto px-4.5 py-4 font-mono text-[13px] leading-[1.7] whitespace-pre text-[#e6edf3]">curl -X POST \
+  https://api.billionverify.com/v1/verify/single \
+  -H &quot;BV-API-KEY: YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{&quot;email&quot;: &quot;test@example.com&quot;}&#39;</span>
+      </span>
+      <span class="flex flex-wrap gap-2 text-sm font-medium">
+        <span class="rounded-lg bg-white px-3 py-1.5">REST API</span><span class="rounded-lg bg-white px-3 py-1.5">Node.js</span><span class="rounded-lg bg-white px-3 py-1.5">Python</span><span class="rounded-lg bg-white px-3 py-1.5">Go</span><span class="rounded-lg bg-white px-3 py-1.5">PHP</span><span class="rounded-lg bg-white px-3 py-1.5">Java</span><span class="rounded-lg bg-white px-3 py-1.5">MCP</span>
+      </span>
+    </a>
+
+    <a href="/guides/" class="flex min-w-0 flex-[2_1_320px] flex-col gap-2.5 rounded-2xl bg-tint p-5.5">
+      <span class="text-2xl font-bold">Guides</span>
+      <span class="block rounded-[10px] bg-white px-3.5 py-3 leading-snug font-semibold">Temp Mail in Plain Words: A Short Guide</span><span class="block rounded-[10px] bg-white px-3.5 py-3 leading-snug font-semibold">10 Minute Mail: How Timed Inboxes Differ</span><span class="block rounded-[10px] bg-white px-3.5 py-3 leading-snug font-semibold">YOPmail, Guerrilla Mail and Mailinator Side by Side</span><span class="block rounded-[10px] bg-white px-3.5 py-3 leading-snug font-semibold">Temporary Phone Numbers: What They Can and Cannot Do</span>
+    </a>
+
+    <a href="/benchmark/" class="flex min-w-0 flex-[2_1_320px] flex-col gap-2.5 rounded-2xl bg-tint p-5.5">
+      <span class="text-2xl font-bold">Benchmark</span>
+      <span class="block rounded-[10px] bg-white px-3.5 py-1.5 text-[15px]">
+        <span class="flex justify-between py-2 font-bold text-accent">
+              <span>BillionVerify</span>
+              <span>$10</span>
+            </span><span class="flex justify-between py-2 border-t border-line">
+              <span>Reoon</span>
+              <span>$11.90</span>
+            </span><span class="flex justify-between py-2 border-t border-line">
+              <span>MillionVerifier</span>
+              <span>$39</span>
+            </span><span class="flex justify-between py-2 border-t border-line">
+              <span>NeverBounce</span>
+              <span>$50</span>
+            </span><span class="flex justify-between py-2 border-t border-line">
+              <span>ZeroBounce</span>
+              <span>$129</span>
+            </span>
+      </span>
+      <span class="text-sm font-medium text-body">19 providers · price for 10,000 emails</span>
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">What does an email verification API do?</h2>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      An email verification API tells your app whether an address can receive mail. Your backend sends the address over
+      HTTPS. The API returns one status and the reason behind it. Your code then accepts, flags or rejects the address.
+    </p>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      Run it at sign-up to stop fake accounts. Run it at checkout to catch typos. Run it on a list before a campaign to
+      protect your sender reputation, because email lists decay by about 22.5% a year. The <a class="font-medium text-accent underline underline-offset-2" href="https://billionverify.com/email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=home">BillionVerify email verification API</a>
+      handles one address or a full file.
+    </p>
+
+    <div class="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-[14px] bg-tint p-5">
+            <p class="text-sm font-bold text-accent">Step 1</p>
+            <h3 class="mt-1 text-lg font-bold">Syntax</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Rejects malformed input and common typos before any network call.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <p class="text-sm font-bold text-accent">Step 2</p>
+            <h3 class="mt-1 text-lg font-bold">Domain</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Confirms that the domain exists and is set up to use email.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <p class="text-sm font-bold text-accent">Step 3</p>
+            <h3 class="mt-1 text-lg font-bold">MX records</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Finds the mail servers that receive mail for the domain.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <p class="text-sm font-bold text-accent">Step 4</p>
+            <h3 class="mt-1 text-lg font-bold">SMTP</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Asks the receiving server about the mailbox and stops before any message is sent.</p>
+          </div>
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-[1200px] items-start gap-10 px-4 pt-16 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+    <div class="min-w-0">
+      <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">What does each email status mean?</h2>
+      <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+        Each result carries a single status, so your code stays simple. Read the
+        <a class="font-medium text-accent underline underline-offset-2" href="/docs/api/errors/">status reference</a> and the
+        <a class="font-medium text-accent underline underline-offset-2" href="/docs/verification-reasons/">verification reasons</a> for the full list.
+      </p>
+      <div class="mt-5 overflow-x-auto rounded-xl border border-line">
+        <table class="w-full min-w-[520px] text-left text-[15px]">
+          <thead class="bg-tint">
+            <tr><th class="px-4 py-3">Status</th><th class="px-4 py-3">Meaning</th><th class="px-4 py-3">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">valid</td>
+                  <td class="px-4 py-3">The mailbox accepts mail.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">1 credit</td>
+                </tr><tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">invalid</td>
+                  <td class="px-4 py-3">The address cannot receive mail.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">1 credit</td>
+                </tr><tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">catchall</td>
+                  <td class="px-4 py-3">The domain accepts every address, so one mailbox cannot be confirmed.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">1 credit</td>
+                </tr><tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">role</td>
+                  <td class="px-4 py-3">A shared inbox such as info@ or support@.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">1 credit</td>
+                </tr><tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">disposable</td>
+                  <td class="px-4 py-3">A temporary inbox from a known provider.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">Free unless check_smtp is true</td>
+                </tr><tr class="border-t border-line">
+                  <td class="px-4 py-3 font-mono text-sm font-semibold">unknown</td>
+                  <td class="px-4 py-3">The mail server gave no definite answer.</td>
+                  <td class="px-4 py-3 whitespace-nowrap">Free</td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="prose-bv min-w-0 lg:pt-14">
+      <pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#7EE787">  "code"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"0"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "message"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"Success"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "data"</span><span style="color:#E6EDF3">: {</span></span>
+<span class="line"><span style="color:#7EE787">    "email"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "status"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"valid"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "is_deliverable"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "is_disposable"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "is_catchall"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "is_role"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "reason"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"accepted"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">    "credits_used"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">1</span></span>
+<span class="line"><span style="color:#E6EDF3">  }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+    </div>
+  </section>
+
+  <section id="sdks" class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">How do you verify an email in code?</h2>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      Install a package and verify your first address in a few lines. SDKs cover
+      <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/node/">Node.js</a>, <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/typescript/">TypeScript</a>,
+      <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/python/">Python</a>, <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/go/">Go</a>,
+      <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/php/">PHP</a> and <a class="font-medium text-accent underline underline-offset-2" href="/docs/sdks/java/">Java</a>. They are open-source
+      reference implementations <a class="font-medium text-accent underline underline-offset-2" href="https://github.com/BillionVerify">on GitHub</a>. The
+      <a class="font-medium text-accent underline underline-offset-2" href="/docs/api/">REST API</a> is the source of truth.
+    </p>
+    <div class="prose-bv mt-5 max-w-[860px]">
+      <div data-code-tabs>
+        <div data-tab="Node.js">
+              <pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#8B949E">// npm install billionverify-sdk</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> { BillionVerify } </span><span style="color:#FF7B72">from</span><span style="color:#A5D6FF"> 'billionverify-sdk'</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> client</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> BillionVerify</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">  apiKey: process.env.</span><span style="color:#79C0FF">BV_API_KEY</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> result</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'user@example.com'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">console.</span><span style="color:#D2A8FF">log</span><span style="color:#E6EDF3">(result.status);</span></span></code></pre>
+            </div><div data-tab="Python">
+              <pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#8B949E"># pip install billionverify</span></span>
+<span class="line"><span style="color:#FF7B72">from</span><span style="color:#E6EDF3"> billionverify </span><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> BillionVerify</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> BillionVerify(</span><span style="color:#FFA657">api_key</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">"your-api-key"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client.verify(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#79C0FF">print</span><span style="color:#E6EDF3">(result.status)</span></span>
+<span class="line"><span style="color:#79C0FF">print</span><span style="color:#E6EDF3">(result.is_deliverable)</span></span></code></pre>
+            </div><div data-tab="Go">
+              <pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#8B949E">// go get github.com/BillionVerify/billionverify-go</span></span>
+<span class="line"><span style="color:#E6EDF3">client, err </span><span style="color:#FF7B72">:=</span><span style="color:#E6EDF3"> billionverify.</span><span style="color:#D2A8FF">NewClient</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">billionverify</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">Config</span><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#E6EDF3">    APIKey: </span><span style="color:#A5D6FF">"your-api-key"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">})</span></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> err </span><span style="color:#FF7B72">!=</span><span style="color:#79C0FF"> nil</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    log.</span><span style="color:#D2A8FF">Fatal</span><span style="color:#E6EDF3">(err)</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">result, err </span><span style="color:#FF7B72">:=</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">Verify</span><span style="color:#E6EDF3">(context.</span><span style="color:#D2A8FF">Background</span><span style="color:#E6EDF3">(), </span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">nil</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> err </span><span style="color:#FF7B72">!=</span><span style="color:#79C0FF"> nil</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    log.</span><span style="color:#D2A8FF">Fatal</span><span style="color:#E6EDF3">(err)</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">fmt.</span><span style="color:#D2A8FF">Printf</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Status: </span><span style="color:#FF7B72">%s\n</span><span style="color:#A5D6FF">"</span><span style="color:#E6EDF3">, result.Status)</span></span></code></pre>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">Should you use real-time or bulk verification?</h2>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      Use real-time verification inside a form and bulk verification for lists you already have. Most teams use both.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a href="/docs/api/verify-single/" class="flex-[1_1_300px] rounded-[14px] bg-tint p-5">
+        <span class="font-mono text-sm font-semibold text-accent">POST /verify/single</span>
+        <span class="mt-2 block text-lg font-bold">One address</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Check an address inside a sign-up or checkout request.</span>
+      </a>
+      <a href="/docs/api/verify-bulk/" class="flex-[1_1_300px] rounded-[14px] bg-tint p-5">
+        <span class="font-mono text-sm font-semibold text-accent">POST /verify/bulk</span>
+        <span class="mt-2 block text-lg font-bold">Up to 50 addresses</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Check a small batch in one synchronous request.</span>
+      </a>
+      <a href="/docs/api/upload-file/" class="flex-[1_1_300px] rounded-[14px] bg-tint p-5">
+        <span class="font-mono text-sm font-semibold text-accent">POST /verify/file</span>
+        <span class="mt-2 block text-lg font-bold">A whole list</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Upload CSV, TXT or XLSX with no row limit. A webhook tells you when it is done.</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-[1200px] items-center gap-10 px-4 pt-16 sm:px-6 lg:grid-cols-2">
+    <div class="min-w-0">
+      <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">How do you block temporary email at sign-up?</h2>
+      <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+        Temporary inboxes disappear within minutes or days. Your receipts and reset links go nowhere. The API flags these
+        addresses, so your form can refuse them or tag them as low trust.
+      </p>
+      <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+        Check one address with the free <a class="font-medium text-accent underline underline-offset-2" href="https://billionverify.com/disposable-email-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=home">disposable email checker</a>.
+        For code, use the <a class="font-medium text-accent underline underline-offset-2" href="https://github.com/BillionVerify/disposable">open-source library</a> with Go
+        and Rust packages, or the free <a class="font-medium text-accent underline underline-offset-2" href="/docs/api/disposable-check/">disposable check endpoint</a>. Our
+        <a class="font-medium text-accent underline underline-offset-2" href="/guides/block-temporary-email/">guide to blocking temporary email</a> covers the signals.
+      </p>
+    </div>
+    <div class="prose-bv min-w-0"><pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> disposable.</span><span style="color:#D2A8FF">IsEmail</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@mailinator.com"</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#8B949E">    // refuse, throttle, or tag as low-trust</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre></div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">Connect email verification to your stack</h2>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      You do not have to write code to use the API. Connect an AI agent, a CRM or a form builder, and addresses get checked
+      where you already work.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a href="/docs/connectors/claude/" class="flex-[1_1_240px] rounded-[14px] bg-tint p-5">
+        <span class="block text-lg font-bold">Claude connector</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Connect from Claude's directory and verify addresses in chat, with no API key.</span>
+      </a>
+      <a href="/docs/connectors/vercel/" class="flex-[1_1_240px] rounded-[14px] bg-tint p-5">
+        <span class="block text-lg font-bold">Vercel Connect</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Store your key once and verify addresses from any linked Vercel project.</span>
+      </a>
+      <a href="/docs/ai/mcp/" class="flex-[1_1_240px] rounded-[14px] bg-tint p-5">
+        <span class="block text-lg font-bold">MCP server</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Add the hosted server to Cursor or any MCP client, then verify from a prompt.</span>
+      </a>
+      <a href="/docs/ai/cli/" class="flex-[1_1_240px] rounded-[14px] bg-tint p-5">
+        <span class="block text-lg font-bold">Coding tools</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Use the CLI and Agent Skills in Claude Code, Codex, Gemini CLI and OpenCode.</span>
+      </a>
+      <a href="https://billionverify.com/integrations?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=home" class="flex-[1_1_240px] rounded-[14px] bg-tint p-5">
+        <span class="block text-lg font-bold">25+ integrations</span>
+        <span class="mt-1 block text-[15px] leading-normal text-muted">Mailchimp, HubSpot, Salesforce, Klaviyo, Zapier and Make, plus a free WordPress plugin.</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">How much does email verification cost?</h2>
+    <p class="mt-3 max-w-[760px] text-[17px] leading-relaxed text-muted">
+      Pay-as-you-go starts at $0.001 per email, and annual plans go down to $0.00014 per email. In our October 2026
+      benchmark, 10,000 verifications cost $10 with BillionVerify and $129 with ZeroBounce at list price. See
+      <a class="font-medium text-accent underline underline-offset-2" href="https://billionverify.com/pricing?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=home">BillionVerify pricing</a>, or compare 19 providers in the
+      <a class="font-medium text-accent underline underline-offset-2" href="/benchmark/">2026 benchmark</a>.
+    </p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-[14px] bg-tint p-5">
+            <h3 class="text-lg font-bold">Catch-all, separately</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Catch-all gets its own status. It is never counted as valid.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <h3 class="text-lg font-bold">Unknown costs nothing</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">No definite answer means no charge.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <h3 class="text-lg font-bold">24-hour re-check</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Checking the same address again within 24 hours is not charged twice.</p>
+          </div><div class="rounded-[14px] bg-tint p-5">
+            <h3 class="text-lg font-bold">Credits never expire</h3>
+            <p class="mt-1.5 text-[15px] leading-normal text-muted">Paid and free credits stay until you use them.</p>
+          </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <div class="flex flex-wrap items-baseline justify-between gap-3">
+      <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">Latest guides</h2>
+      <a href="/guides/" class="font-semibold text-accent">All guides</a>
+    </div>
+    <div class="mt-4 flex flex-wrap gap-3.5">
+      <a href="/guides/temp-mail/" class="rounded-[14px] bg-tint p-5 flex-[2_1_400px]">
+            <span class="block text-[13px] font-semibold text-accent">Temp Mail</span>
+            <span class="mt-1.5 block font-bold text-xl">Temp Mail in Plain Words: A Short Guide</span>
+          </a><a href="/guides/10-minute-mail/" class="rounded-[14px] bg-tint p-5 flex-[1_1_260px]">
+            <span class="block text-[13px] font-semibold text-accent">Temp Mail</span>
+            <span class="mt-1.5 block font-bold text-[17px]">10 Minute Mail: How Timed Inboxes Differ</span>
+          </a><a href="/guides/yopmail-guerrilla-mail-mailinator/" class="rounded-[14px] bg-tint p-5 flex-[1_1_260px]">
+            <span class="block text-[13px] font-semibold text-accent">Temp Mail</span>
+            <span class="mt-1.5 block font-bold text-[17px]">YOPmail, Guerrilla Mail and Mailinator Side by Side</span>
+          </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-16 sm:px-6">
+    <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">Email verification API FAQs</h2>
+    <div class="mt-5 gap-10 md:columns-2">
+      <div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">What is an email verification API?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">An email verification API is a web service that tells your app whether an address can receive mail. You send one address or a list. The API returns a status for each address, and your code decides what to do next.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">Does email verification send an email?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">Email verification does not send a message. The check asks the receiving mail server about the mailbox and stops before any message is sent.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">What does an unknown result mean?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">An unknown result means the mail server gave no definite answer. Unknown results cost nothing, and a re-check within 24 hours is free.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">Is a catch-all address counted as valid?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">Catch-all is reported as its own status. A catch-all domain accepts every address, so nobody can confirm one mailbox on it.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">Which languages have an SDK?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">SDKs cover Node.js, TypeScript, Python, Go, PHP and Java. They are open-source reference implementations on GitHub. The REST API is the source of truth, and any language can call it over HTTPS.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">Can the API block temporary email at sign-up?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">The API flags disposable addresses in its result, so your form can refuse them or tag them as low trust. A separate disposable check endpoint is free and does not use credits.</p>
+          </div><div class="mb-6 break-inside-avoid">
+            <h3 class="text-lg font-bold">Is there a free tier?</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-muted">Every account gets 20 free credits on each day you use it, up to 600 a month. Free credits never expire, and you need no credit card.</p>
+          </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pt-10 sm:px-6">
+    <div class="rounded-2xl bg-tint px-6 py-10 text-center">
+      <h2 class="text-[1.875rem] leading-tight font-bold tracking-tight">Start with 20 free credits a day</h2>
+      <p class="mt-2 text-muted">Up to 600 a month. They never expire. No credit card required.</p>
+      <a href="https://billionverify.com/auth/sign-up?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=home" class="btn mt-5">Get Started Free</a>
+    </div>
+    <p class="mt-5 text-center text-sm text-muted">By BillionVerify Team · Updated <time datetime="2026-10-31">October 31, 2026</time></p>
+  </section>
+</main>
+    <footer class="mt-16 border-t border-line pt-10 pb-10 text-sm">
+  <div class="mx-auto max-w-[1200px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Product
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/pricing?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Pricing
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/features?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Features
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whitelabel?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Whitelabel Service
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Email Verify Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-validator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Validator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/validate-email-address?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Validate Email Address
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/free-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Free Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-spam-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Spam Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/disposable-email-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Disposable Email Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bounce-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bounce Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/catch-all-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Catch-All Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/role-account-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Role Account Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-list-cleaning?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email List Cleaning
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/wordpress?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WordPress Plugin
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Find Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/company-search?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Company Search
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-extractor?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Extractor
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Free Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/spf-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Record Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/mx-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MX Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/spf-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dns-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DNS Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blacklist-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blacklist Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/ip-reputation-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        IP Reputation Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whois-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WHOIS Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/verify-phone-numbers?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Phone Number Validator
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-deliverability-test?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Deliverability Test
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-header-analyzer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Header Analyzer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-bounce-rate-calculator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Bounce Rate Calculator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/reverse-email-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Reverse Email Lookup
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Content Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/linkedin-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Video Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/linkedin-carousel-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Carousel Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/twitter-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Twitter Video Downloader
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Agent Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/mcp?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MCP Server
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/agent-skills?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Agent Skills
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Use Cases
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/google-maps?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Google Maps Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/cold-email?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Cold Email Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-leads?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Leads Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/local-business?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Local Business Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-agency?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Agency Database
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/vs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Comparisons <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/best-email-verification-tools?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification Tools
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-validation-service?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Validation Service
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/neverbounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to NeverBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/zerobounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to ZeroBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/hunter?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Hunter
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/bouncer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Bouncer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/kickbox?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Kickbox
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emaillistverify?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to EmailListVerify
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/verifalia?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Verifalia
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/debounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to DeBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/millionverifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to MillionVerifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emailable?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Emailable
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/snov?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Snov.io
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/findymail?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Findymail
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/validity?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Validity
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Guides
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/glossary?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Glossary
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/guides?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verify Guides
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-marketing-bible?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Marketing Bible
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/benchmark?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Market Report 2026
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Resources
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/about?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        About
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blog?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blog
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/docs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Docs
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/integrations?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Integrations
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/faq?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        FAQ
+                      </a>
+                      
+                    </li><li>
+                      <a href="mailto:support@billionverify.com" class="text-muted hover:text-ink hover:underline">
+                        Contact
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/help?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Help Center
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/partners?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Partners <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://markitdown.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Markitdown AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://mapleads.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        MapLeads.ai
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Video Partners
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://potto.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Potto AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://transcript.im/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        YouTube Transcript Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://aitinydeskmeme.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        AI Tiny Desk Meme
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://ohyoucanmakeitcapai.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Oh You Can Make It Cap AI
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+    </div>
+
+    <div class="mt-10 border-t border-line pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a href="https://billionverify.com/?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" aria-label="BillionVerify">
+          <img src="/logo-text.svg" alt="BillionVerify" width="182" height="40" class="h-10 w-auto" loading="lazy">
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/company/billionverify" aria-label="LinkedIn">
+                <img src="/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" loading="lazy">
+              </a><a href="https://github.com/billionverify" aria-label="GitHub">
+                <img src="/icons/github.svg" alt="GitHub" width="20" height="20" loading="lazy">
+              </a><a href="https://chromewebstore.google.com/detail/email-extractor-by-billio/fplaepdipjjpkngejlakmcjkokghhndj" aria-label="Chrome">
+                <img src="/icons/chrome.svg" alt="Chrome" width="20" height="20" loading="lazy">
+              </a><a href="https://addons.mozilla.org/en-US/firefox/addon/email-extractor-emailverify-ai/" aria-label="Firefox">
+                <img src="/icons/firefox.svg" alt="Firefox" width="20" height="20" loading="lazy">
+              </a><a href="https://wordpress.org/plugins/billionverify-email-validator/" aria-label="WordPress">
+                <img src="/icons/wordpress.svg" alt="WordPress" width="20" height="20" loading="lazy">
+              </a>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap justify-between gap-4 text-muted">
+        <div class="space-y-1">
+          <p>Verify emails in real-time with live SMTP checks.</p><p>Trusted by 10,000+ businesses worldwide.</p>
+          <p>Contact: <a href="mailto:support@billionverify.com" class="hover:text-ink hover:underline">support@billionverify.com</a></p>
+        </div>
+        <div class="space-y-1 sm:text-right">
+          <p>© Copyright 2026 BillionVerify. All Rights Reserved.</p>
+          <p class="flex flex-wrap gap-x-5 sm:justify-end">
+            <a href="https://billionverify.com/trust?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Trust Center</a><a href="https://billionverify.com/privacy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Privacy Policy</a><a href="https://billionverify.com/terms?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Terms of Service</a><a href="https://billionverify.com/cookie-policy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Cookie Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    <script type="module">document.querySelectorAll(`[data-code-tabs]`).forEach(e=>{let t=[...e.querySelectorAll(`:scope > [data-tab]`)],n=document.createElement(`div`);n.className=`code-tabs-bar`,n.setAttribute(`role`,`tablist`),t.forEach((e,r)=>{let i=document.createElement(`button`);i.type=`button`,i.role=`tab`,i.textContent=e.dataset.tab??``,i.setAttribute(`aria-selected`,String(r===0)),e.hidden=r!==0,i.addEventListener(`click`,()=>{t.forEach((e,t)=>{e.hidden=t!==r,n.children[t].setAttribute(`aria-selected`,String(t===r))})}),n.append(i)}),e.prepend(n),e.classList.add(`is-ready`)}),document.querySelectorAll(`.prose-bv pre, pre.code`).forEach(e=>{let t=document.createElement(`div`);t.className=`code-block`,e.replaceWith(t),t.append(e);let n=document.createElement(`button`);n.type=`button`,n.className=`code-copy`,n.textContent=`Copy`,n.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(e.innerText),n.textContent=`Copied`,setTimeout(()=>n.textContent=`Copy`,1500)}),t.append(n)});</script>
+  </body>
+</html>

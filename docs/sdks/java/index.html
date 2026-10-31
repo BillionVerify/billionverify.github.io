@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java SDK | BillionVerify Docs</title>
+    <meta name="description" content="Reference Java SDK for the BillionVerify API: build from source, client builder, verify emails, file jobs, webhooks and exceptions, with Spring Boot examples.">
+    
+    
+    <link rel="canonical" href="https://billionverify.github.io/docs/sdks/java/">
+    <link rel="alternate" hreflang="en" href="https://billionverify.github.io/docs/sdks/java/">
+    <link rel="alternate" hreflang="x-default" href="https://billionverify.github.io/docs/sdks/java/">
+    <link rel="alternate" type="text/markdown" href="/docs/sdks/java.md">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="sitemap" href="/sitemap.xml">
+    <meta property="og:type" content="article">
+    <meta property="article:modified_time" content="2026-10-31">
+    <meta property="og:site_name" content="BillionVerify">
+    <meta property="og:title" content="Java SDK | BillionVerify Docs">
+    <meta property="og:description" content="Reference Java SDK for the BillionVerify API: build from source, client builder, verify emails, file jobs, webhooks and exceptions, with Spring Boot examples.">
+    <meta property="og:url" content="https://billionverify.github.io/docs/sdks/java/">
+    <meta property="og:image" content="https://billionverify.github.io/og.png">
+    <meta property="og:image:alt" content="BillionVerify email verification">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Java SDK | BillionVerify Docs">
+    <meta name="twitter:description" content="Reference Java SDK for the BillionVerify API: build from source, client builder, verify emails, file jobs, webhooks and exceptions, with Spring Boot examples.">
+    <meta name="twitter:image" content="https://billionverify.github.io/og.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BillionVerify","url":"https://billionverify.github.io/","publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com","logo":"https://billionverify.com/billionverify.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@billionverify.com"},"sameAs":["https://github.com/BillionVerify","https://x.com/billionvfy","https://www.linkedin.com/company/billionverify"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Java SDK","description":"Reference Java SDK for the BillionVerify API: build from source, client builder, verify emails, file jobs, webhooks and exceptions, with Spring Boot examples.","datePublished":"2026-10-31","dateModified":"2026-10-31","mainEntityOfPage":"https://billionverify.github.io/docs/sdks/java/","author":{"@type":"Organization","name":"BillionVerify Team","url":"https://billionverify.com/about"},"publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Docs","item":"https://billionverify.github.io/docs/"},{"@type":"ListItem","position":2,"name":"Java SDK","item":"https://billionverify.github.io/docs/sdks/java/"}]}</script>
+  <link rel="stylesheet" href="/_astro/Layout.Crcko9GI.css"></head>
+  <body class="flex min-h-dvh flex-col">
+    <header class="sticky top-0 z-40 bg-white">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-7 gap-y-2 px-4 py-3.5 sm:px-6">
+    <a href="/" aria-label="BillionVerify home">
+      <img src="/logo-text.svg" alt="BillionVerify" width="136" height="30" class="h-[30px] w-auto">
+    </a>
+    <nav class="order-3 flex w-full gap-6 text-[15px] font-medium sm:order-none sm:w-auto" aria-label="Main">
+      <a href="/docs/" aria-current="page" class="font-semibold text-accent">
+            Docs
+          </a><a href="/guides/" class="text-body hover:text-ink">
+            Guides
+          </a><a href="/benchmark/" class="text-body hover:text-ink">
+            Benchmark
+          </a>
+    </nav>
+    <a href="https://billionverify.com/auth/sign-up?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=header" class="btn ml-auto">Get Started Free</a>
+  </div>
+</header>
+    <main class="flex-1">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-10 px-4 sm:px-6 xl:grid-cols-[220px_minmax(0,1fr)_220px]">
+    <aside id="docs-aside" class="pt-4 xl:sticky xl:top-[72px] xl:max-h-[calc(100dvh-72px)] xl:self-start xl:overflow-y-auto xl:pt-6 xl:pb-6">
+      <label class="block">
+        <span class="sr-only">Search docs</span>
+        <input id="docs-search" type="search" placeholder="Search docs" autocomplete="off" class="h-11 w-full rounded-[10px] bg-tint px-3.5 text-[15px]">
+      </label>
+      <div id="docs-results" hidden class="mt-2 rounded-[10px] bg-tint p-2 text-sm"></div>
+
+      <details id="docs-nav" class="mt-3 xl:mt-1">
+        <summary class="cursor-pointer text-sm font-semibold xl:hidden">Browse docs</summary>
+        <nav aria-label="Docs" class="text-[15px]">
+          <div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">Getting Started</p>
+                <a href="/docs/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/quickstart/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Quickstart
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">API Reference</p>
+                <a href="/docs/api/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/api/verify-single/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify a single email
+                  </a><a href="/docs/api/verify-bulk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify in bulk
+                  </a><a href="/docs/api/disposable-check/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Disposable email check
+                  </a><a href="/docs/api/upload-file/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Upload a file
+                  </a><a href="/docs/api/file-status/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File job status
+                  </a><a href="/docs/api/file-results/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File results
+                  </a><a href="/docs/api/credits/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Credits
+                  </a><a href="/docs/api/webhooks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Webhooks
+                  </a><a href="/docs/api/errors/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Status and errors
+                  </a><a href="/docs/verification-reasons/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verification reasons
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">SDKs</p>
+                <a href="/docs/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    All SDKs
+                  </a><a href="/docs/sdks/node/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Node.js
+                  </a><a href="/docs/sdks/typescript/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    TypeScript
+                  </a><a href="/docs/sdks/python/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Python
+                  </a><a href="/docs/sdks/go/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Go
+                  </a><a href="/docs/sdks/php/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    PHP
+                  </a><a href="/docs/sdks/java/" aria-current="page" class="block rounded-lg px-2.5 py-1.5 bg-tint font-semibold text-accent">
+                    Java
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Connectors</p>
+                <a href="/docs/connectors/vercel/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel Connect
+                  </a><a href="/docs/connectors/claude/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Integration</p>
+                <a href="/docs/ai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/ai/mcp/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    MCP server
+                  </a><a href="/docs/ai/agent-skills/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Agent Skills
+                  </a><a href="/docs/ai/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    AI SDKs
+                  </a><a href="/docs/ai/sdks/anthropic/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Anthropic
+                  </a><a href="/docs/ai/sdks/openai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenAI
+                  </a><a href="/docs/ai/sdks/langchain/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    LangChain
+                  </a><a href="/docs/ai/sdks/vercel-ai-sdk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel AI SDK
+                  </a><a href="/docs/ai/cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    CLI tools
+                  </a><a href="/docs/ai/cli/claude-code/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude Code
+                  </a><a href="/docs/ai/cli/codex/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Codex
+                  </a><a href="/docs/ai/cli/gemini-cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Gemini CLI
+                  </a><a href="/docs/ai/cli/droid/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Droid
+                  </a><a href="/docs/ai/cli/opencode/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenCode
+                  </a>
+              </div>
+        </nav>
+      </details>
+      <script>
+        (() => {
+          const key = 'docs-nav-scroll';
+          const aside = document.getElementById('docs-aside');
+          const wide = matchMedia('(min-width: 1280px)').matches;
+          document.getElementById('docs-nav').open = wide;
+          if (!wide) return;
+
+          let stored = null;
+          try {
+            stored = sessionStorage.getItem(key);
+          } catch {}
+
+          const current = aside.querySelector('[aria-current="page"]');
+          aside.scrollTop = stored === null ? current.offsetTop - aside.clientHeight / 2 : Number(stored);
+
+          aside.querySelectorAll('nav a').forEach((link) => {
+            link.addEventListener('click', () => {
+              try {
+                sessionStorage.setItem(key, String(aside.scrollTop));
+              } catch {}
+            });
+          });
+        })();
+      </script>
+    </aside>
+
+    <article data-pagefind-body class="min-w-0 pt-6">
+      <p class="text-sm text-muted">SDKs</p>
+      <h1 class="mt-1.5 text-[2.375rem] leading-tight font-extrabold tracking-tight max-sm:text-[2rem]">Java SDK</h1>
+      <p class="mt-2 text-sm text-muted">By BillionVerify Team · Last reviewed <time datetime="2026-10-31">October 31, 2026</time></p>
+      <div class="prose-bv mt-5"><blockquote>
+<p>The REST API is the source of truth. This SDK is a reference implementation, so if it differs from the <a href="/docs/api/">API reference</a>, follow the API.</p>
+</blockquote>
+<p><strong>Source code:</strong> <a href="https://github.com/BillionVerify/billionverify-java">github.com/BillionVerify/billionverify-java</a></p>
+<p>The Java SDK is a small client built on OkHttp and Jackson. Responses are Java records. All methods are blocking and throw the checked <code>BillionVerifyException</code>. The SDK has no Spring Boot starter; the Spring Boot section below shows how to register the client as a bean yourself.</p>
+<h2 id="installation">Installation</h2>
+<p>The Java SDK is not published to a package registry. Build it from <a href="https://github.com/BillionVerify/billionverify-java">source on GitHub</a>, then add it to your project.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FFA657">git</span><span style="color:#A5D6FF"> clone</span><span style="color:#A5D6FF"> https://github.com/BillionVerify/billionverify-java.git</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#A5D6FF"> billionverify-java</span></span>
+<span class="line"><span style="color:#FFA657">mvn</span><span style="color:#A5D6FF"> install</span></span></code></pre>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#E6EDF3">&#x3C;</span><span style="color:#7EE787">dependency</span><span style="color:#E6EDF3">></span></span>
+<span class="line"><span style="color:#E6EDF3">    &#x3C;</span><span style="color:#7EE787">groupId</span><span style="color:#E6EDF3">>io.github.billionverifier&#x3C;/</span><span style="color:#7EE787">groupId</span><span style="color:#E6EDF3">></span></span>
+<span class="line"><span style="color:#E6EDF3">    &#x3C;</span><span style="color:#7EE787">artifactId</span><span style="color:#E6EDF3">>billionverify-java&#x3C;/</span><span style="color:#7EE787">artifactId</span><span style="color:#E6EDF3">></span></span>
+<span class="line"><span style="color:#E6EDF3">    &#x3C;</span><span style="color:#7EE787">version</span><span style="color:#E6EDF3">>1.0.0&#x3C;/</span><span style="color:#7EE787">version</span><span style="color:#E6EDF3">></span></span>
+<span class="line"><span style="color:#E6EDF3">&#x3C;/</span><span style="color:#7EE787">dependency</span><span style="color:#E6EDF3">></span></span></code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Java 17 or higher</li>
+<li>Maven or Gradle</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> Main</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> static</span><span style="color:#FF7B72"> void</span><span style="color:#D2A8FF"> main</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">String</span><span style="color:#E6EDF3">[] </span><span style="color:#FFA657">args</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">throws</span><span style="color:#E6EDF3"> Exception {</span></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> (BillionVerifyClient</span><span style="color:#E6EDF3"> client</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> BillionVerifyClient.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">(System.</span><span style="color:#D2A8FF">getenv</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"BV_API_KEY"</span><span style="color:#E6EDF3">)).</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">            System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Status: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">            System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Score: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">score</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="configuration">Configuration</h2>
+<h3 id="client-builder">Client Builder</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.time.Duration;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">BillionVerifyClient</span><span style="color:#E6EDF3"> client</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> BillionVerifyClient.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">(System.</span><span style="color:#D2A8FF">getenv</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"BV_API_KEY"</span><span style="color:#E6EDF3">))</span></span>
+<span class="line"><span style="color:#E6EDF3">    .</span><span style="color:#D2A8FF">timeout</span><span style="color:#E6EDF3">(Duration.</span><span style="color:#D2A8FF">ofSeconds</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">30</span><span style="color:#E6EDF3">))</span></span>
+<span class="line"><span style="color:#E6EDF3">    .</span><span style="color:#D2A8FF">retries</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">3</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#E6EDF3">    .</span><span style="color:#D2A8FF">baseUrl</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"https://api.billionverify.com"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#E6EDF3">    .</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">();</span></span></code></pre>
+<p><code>builder()</code> throws <code>IllegalArgumentException</code> if the API key is null or empty.</p>
+<h3 id="configuration-properties">Configuration Properties</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>apiKey</code></td><td>String</td><td>Required</td><td>Your API key (argument of <code>builder()</code>)</td></tr><tr><td><code>timeout</code></td><td>Duration</td><td>30s</td><td>Connect, read and write timeout</td></tr><tr><td><code>retries</code></td><td>int</td><td>3</td><td>Maximum attempts for retryable errors</td></tr><tr><td><code>baseUrl</code></td><td>String</td><td><code>https://api.billionverify.com</code></td><td>API host, without <code>/v1</code>; the SDK adds <code>/v1</code> to every path</td></tr></tbody></table>
+<h2 id="types">Types</h2>
+<h3 id="verifyresponse">VerifyResponse</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> record</span><span style="color:#FFA657"> VerifyResponse</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">    String email,</span></span>
+<span class="line"><span style="color:#E6EDF3">    Status status,            </span><span style="color:#8B949E">// VALID, INVALID, UNKNOWN, RISKY, DISPOSABLE, CATCHALL, ROLE</span></span>
+<span class="line"><span style="color:#FF7B72">    double</span><span style="color:#E6EDF3"> score,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> isDeliverable,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> isDisposable,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> isCatchall,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> isRole,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> isFree,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String domain,</span></span>
+<span class="line"><span style="color:#E6EDF3">    Integer domainAge,</span></span>
+<span class="line"><span style="color:#E6EDF3">    List</span><span style="color:#FF7B72">&#x3C;</span><span style="color:#E6EDF3">String</span><span style="color:#FF7B72">></span><span style="color:#E6EDF3"> mxRecords,</span></span>
+<span class="line"><span style="color:#E6EDF3">    DomainReputation domainReputation,</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#E6EDF3"> smtpCheck,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String reason,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String suggestion,</span></span>
+<span class="line"><span style="color:#E6EDF3">    Integer responseTime,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> creditsUsed</span></span>
+<span class="line"><span style="color:#E6EDF3">) {}</span></span></code></pre>
+<h3 id="filejobresponse">FileJobResponse</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> record</span><span style="color:#FFA657"> FileJobResponse</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">    String jobId,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String status,            </span><span style="color:#8B949E">// "pending", "processing", "completed", "failed"</span></span>
+<span class="line"><span style="color:#E6EDF3">    String fileName,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> totalEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> processedEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> progressPercent,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> validEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> invalidEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> unknownEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> roleEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> catchallEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> disposableEmails,</span></span>
+<span class="line"><span style="color:#FF7B72">    int</span><span style="color:#E6EDF3"> creditsUsed,</span></span>
+<span class="line"><span style="color:#E6EDF3">    Double processTimeSeconds,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String resultFilePath,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String downloadUrl,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String createdAt,</span></span>
+<span class="line"><span style="color:#E6EDF3">    String completedAt</span></span>
+<span class="line"><span style="color:#E6EDF3">) {}</span></span></code></pre>
+<h2 id="single-verification">Single Verification</h2>
+<h3 id="basic-verification">Basic Verification</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#E6EDF3">VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Email: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">email</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Status: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Score: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">score</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Deliverable: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">isDeliverable</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Disposable: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">isDisposable</span><span style="color:#E6EDF3">());</span></span></code></pre>
+<h3 id="verification-with-options">Verification with Options</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#8B949E">// Second argument: checkSmtp (default: true)</span></span>
+<span class="line"><span style="color:#E6EDF3">VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">);</span></span></code></pre>
+<h3 id="async-verification">Async Verification</h3>
+<p>The client is blocking and has no async methods. Wrap calls in a <code>CompletableFuture</code> and run them on your own executor:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.concurrent.CompletableFuture;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">CompletableFuture</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#FFA657">> </span><span style="color:#E6EDF3">future</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> CompletableFuture.</span><span style="color:#D2A8FF">supplyAsync</span><span style="color:#E6EDF3">(() </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">    } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (BillionVerifyException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        throw</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> RuntimeException</span><span style="color:#E6EDF3">(e);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">future.</span><span style="color:#D2A8FF">thenAccept</span><span style="color:#E6EDF3">(result </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Status: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">}).</span><span style="color:#D2A8FF">exceptionally</span><span style="color:#E6EDF3">(ex </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Error: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> ex.</span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#FF7B72">    return</span><span style="color:#79C0FF"> null</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">});</span></span></code></pre>
+<h2 id="bulk-verification">Bulk Verification</h2>
+<h3 id="verify-a-batch-synchronously">Verify a Batch Synchronously</h3>
+<p><code>verifyBatch()</code> verifies up to 50 emails in one request and returns the results directly. With more than 50 emails it throws <code>ValidationException</code> before calling the API.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.BatchVerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerificationResult;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.List;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">List</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">String</span><span style="color:#FFA657">> </span><span style="color:#E6EDF3">emails</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> List.</span><span style="color:#D2A8FF">of</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#A5D6FF">    "user1@example.com"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    "user2@example.com"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">    "user3@example.com"</span></span>
+<span class="line"><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">BatchVerifyResponse</span><span style="color:#E6EDF3"> batch</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verifyBatch</span><span style="color:#E6EDF3">(emails); </span><span style="color:#8B949E">// optional second argument: checkSmtp</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Total: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> batch.</span><span style="color:#D2A8FF">totalEmails</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Valid: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> batch.</span><span style="color:#D2A8FF">validEmails</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Invalid: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> batch.</span><span style="color:#D2A8FF">invalidEmails</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Credits used: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> batch.</span><span style="color:#D2A8FF">creditsUsed</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> (VerificationResult</span><span style="color:#E6EDF3"> item</span><span style="color:#FF7B72"> :</span><span style="color:#E6EDF3"> batch.</span><span style="color:#D2A8FF">results</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(item.</span><span style="color:#D2A8FF">email</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">+</span><span style="color:#A5D6FF"> ": "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> item.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="upload-a-file-for-larger-lists">Upload a File for Larger Lists</h3>
+<p>For larger lists, upload a file. The job runs asynchronously.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.FileUploadResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.io.File;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">FileUploadResponse</span><span style="color:#E6EDF3"> upload</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">uploadFile</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">new</span><span style="color:#D2A8FF"> File</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"emails.csv"</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Or with options: checkSmtp, emailColumn (auto-detected if null), preserveOriginal</span></span>
+<span class="line"><span style="color:#E6EDF3">FileUploadResponse</span><span style="color:#E6EDF3"> upload2</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">uploadFile</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">new</span><span style="color:#D2A8FF"> File</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"emails.csv"</span><span style="color:#E6EDF3">), </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"email"</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Task ID: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> upload.</span><span style="color:#D2A8FF">taskId</span><span style="color:#E6EDF3">());</span></span></code></pre>
+<h3 id="check-status">Check Status</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.FileJobResponse;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">FileJobResponse</span><span style="color:#E6EDF3"> status</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">getFileJobStatus</span><span style="color:#E6EDF3">(upload.</span><span style="color:#D2A8FF">taskId</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Status: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> status.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Progress: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> status.</span><span style="color:#D2A8FF">processedEmails</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">+</span><span style="color:#A5D6FF"> "/"</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> status.</span><span style="color:#D2A8FF">totalEmails</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Valid: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> status.</span><span style="color:#D2A8FF">validEmails</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Invalid: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> status.</span><span style="color:#D2A8FF">invalidEmails</span><span style="color:#E6EDF3">());</span></span></code></pre>
+<p><code>getFileJobStatus(jobId, timeoutSeconds)</code> long-polls for up to that many seconds (0 to 300) instead of returning immediately. The client timeout applies to that request too, so keep the client <code>timeout</code> longer than the long-poll value. <code>waitForFileJobCompletion()</code> long-polls in 60-second steps, so build the client with a timeout above 60 seconds (for example <code>Duration.ofSeconds(90)</code>) before you use it.</p>
+<h3 id="get-results">Get Results</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.ResultFilters;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.nio.file.Files;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.nio.file.Path;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.time.Duration;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Waits until the job is completed or failed (default maximum wait: 10 minutes)</span></span>
+<span class="line"><span style="color:#E6EDF3">FileJobResponse</span><span style="color:#E6EDF3"> done</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">waitForFileJobCompletion</span><span style="color:#E6EDF3">(upload.</span><span style="color:#D2A8FF">taskId</span><span style="color:#E6EDF3">(), Duration.</span><span style="color:#D2A8FF">ofMinutes</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">30</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">if</span><span style="color:#E6EDF3"> (</span><span style="color:#A5D6FF">"completed"</span><span style="color:#E6EDF3">.</span><span style="color:#D2A8FF">equals</span><span style="color:#E6EDF3">(done.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">())) {</span></span>
+<span class="line"><span style="color:#8B949E">    // Download the result CSV. Filters are optional.</span></span>
+<span class="line"><span style="color:#E6EDF3">    ResultFilters</span><span style="color:#E6EDF3"> filters</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> ResultFilters.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">().</span><span style="color:#D2A8FF">valid</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">).</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#FF7B72">    byte</span><span style="color:#FFA657">[] </span><span style="color:#E6EDF3">csv</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">downloadFileResults</span><span style="color:#E6EDF3">(upload.</span><span style="color:#D2A8FF">taskId</span><span style="color:#E6EDF3">(), filters);</span></span>
+<span class="line"><span style="color:#E6EDF3">    Files.</span><span style="color:#D2A8FF">write</span><span style="color:#E6EDF3">(Path.</span><span style="color:#D2A8FF">of</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"results.csv"</span><span style="color:#E6EDF3">), csv);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">    // Or only get the download URL</span></span>
+<span class="line"><span style="color:#E6EDF3">    String</span><span style="color:#E6EDF3"> url</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">getFileResultsUrl</span><span style="color:#E6EDF3">(upload.</span><span style="color:#D2A8FF">taskId</span><span style="color:#E6EDF3">(), filters);</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="with-webhook">With Webhook</h3>
+<p>Instead of polling, register a webhook. It is called when a file job finishes (<code>file.completed</code>) or fails (<code>file.failed</code>):</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.Webhook;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.WebhookEvent;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">Webhook</span><span style="color:#E6EDF3"> webhook</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">createWebhook</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#A5D6FF">    "https://your-domain.com/webhooks/billionverify"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    List.</span><span style="color:#D2A8FF">of</span><span style="color:#E6EDF3">(WebhookEvent.FILE_COMPLETED, WebhookEvent.FILE_FAILED)</span></span>
+<span class="line"><span style="color:#E6EDF3">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(webhook.</span><span style="color:#D2A8FF">id</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(webhook.</span><span style="color:#D2A8FF">secret</span><span style="color:#E6EDF3">()); </span><span style="color:#8B949E">// Returned only when the webhook is created. Store it.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">List</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">Webhook</span><span style="color:#FFA657">> </span><span style="color:#E6EDF3">webhooks</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">listWebhooks</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">client.</span><span style="color:#D2A8FF">deleteWebhook</span><span style="color:#E6EDF3">(webhook.</span><span style="color:#D2A8FF">id</span><span style="color:#E6EDF3">());</span></span></code></pre>
+<p>Each delivery is a <code>POST</code> with a JSON body of the form <code>{event, timestamp, data}</code>. The API signs it with HMAC-SHA256 over <code>"&#x3C;timestamp>.&#x3C;raw body>"</code>, using the webhook secret, and sends these headers:</p>
+<ul>
+<li><code>X-Webhook-Signature</code>: <code>sha256=&#x3C;hex digest></code></li>
+<li><code>X-Webhook-Timestamp</code>: Unix time in seconds, the value used in the signature</li>
+<li><code>X-Webhook-Event</code>: the event name</li>
+</ul>
+<p>Verify against the raw body before parsing it:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> javax.crypto.Mac;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> javax.crypto.spec.SecretKeySpec;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.nio.charset.StandardCharsets;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.security.MessageDigest;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.HexFormat;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">static</span><span style="color:#FF7B72"> boolean</span><span style="color:#D2A8FF"> isValidWebhook</span><span style="color:#E6EDF3">(String rawBody, String timestamp, String signatureHeader, String secret)</span></span>
+<span class="line"><span style="color:#E6EDF3">        throws Exception {</span></span>
+<span class="line"><span style="color:#E6EDF3">    Mac</span><span style="color:#E6EDF3"> mac</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> Mac.</span><span style="color:#D2A8FF">getInstance</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"HmacSHA256"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">    mac.</span><span style="color:#D2A8FF">init</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">new</span><span style="color:#D2A8FF"> SecretKeySpec</span><span style="color:#E6EDF3">(secret.</span><span style="color:#D2A8FF">getBytes</span><span style="color:#E6EDF3">(StandardCharsets.UTF_8), </span><span style="color:#A5D6FF">"HmacSHA256"</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"><span style="color:#FF7B72">    byte</span><span style="color:#FFA657">[] </span><span style="color:#E6EDF3">hash</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> mac.</span><span style="color:#D2A8FF">doFinal</span><span style="color:#E6EDF3">((timestamp </span><span style="color:#FF7B72">+</span><span style="color:#A5D6FF"> "."</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> rawBody).</span><span style="color:#D2A8FF">getBytes</span><span style="color:#E6EDF3">(StandardCharsets.UTF_8));</span></span>
+<span class="line"><span style="color:#E6EDF3">    String</span><span style="color:#E6EDF3"> expected</span><span style="color:#FF7B72"> =</span><span style="color:#A5D6FF"> "sha256="</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> HexFormat.</span><span style="color:#D2A8FF">of</span><span style="color:#E6EDF3">().</span><span style="color:#D2A8FF">formatHex</span><span style="color:#E6EDF3">(hash);</span></span>
+<span class="line"><span style="color:#FF7B72">    return</span><span style="color:#E6EDF3"> MessageDigest.</span><span style="color:#D2A8FF">isEqual</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">        expected.</span><span style="color:#D2A8FF">getBytes</span><span style="color:#E6EDF3">(StandardCharsets.UTF_8),</span></span>
+<span class="line"><span style="color:#E6EDF3">        signatureHeader.</span><span style="color:#D2A8FF">getBytes</span><span style="color:#E6EDF3">(StandardCharsets.UTF_8));</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<blockquote>
+<p>The SDK’s <code>BillionVerifyClient.verifyWebhookSignature(payload, signature, secret)</code> signs the body only, without the timestamp prefix, so it does not match what the API sends. Use the method above for real deliveries.</p>
+</blockquote>
+<h2 id="credit-management">Credit Management</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.CreditsResponse;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">CreditsResponse</span><span style="color:#E6EDF3"> credits</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">getCredits</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Balance: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> credits.</span><span style="color:#D2A8FF">creditsBalance</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Consumed: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> credits.</span><span style="color:#D2A8FF">creditsConsumed</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Added: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> credits.</span><span style="color:#D2A8FF">creditsAdded</span><span style="color:#E6EDF3">());</span></span></code></pre>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="exception-types">Exception Types</h3>
+<p>All exceptions are in <code>com.billionverify.sdk.exception</code>, extend the checked <code>BillionVerifyException</code>, and have <code>getErrorCode()</code>, <code>getStatusCode()</code> and <code>getDetails()</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Exception</th><th>HTTP status</th><th>Notes</th></tr></thead><tbody><tr><td><code>AuthenticationException</code></td><td>401</td><td>Missing or invalid API key</td></tr><tr><td><code>InsufficientCreditsException</code></td><td>402</td><td>Not enough credits</td></tr><tr><td><code>NotFoundException</code></td><td>404</td><td>For example an unknown job ID</td></tr><tr><td><code>ValidationException</code></td><td>400</td><td>Also thrown locally for more than 50 emails</td></tr><tr><td><code>RateLimitException</code></td><td>429</td><td><code>getRetryAfter()</code> returns seconds</td></tr><tr><td><code>TimeoutException</code></td><td>504</td><td>Request timed out, or the file job wait ran out of time</td></tr></tbody></table>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.exception.</span><span style="color:#79C0FF">*</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user@example.com"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (AuthenticationException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Invalid API key"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (InsufficientCreditsException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Not enough credits"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (RateLimitException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Rate limited. Retry after "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> e.</span><span style="color:#D2A8FF">getRetryAfter</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">+</span><span style="color:#A5D6FF"> " seconds"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (ValidationException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Invalid input: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> e.</span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (BillionVerifyException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    System.err.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"API error: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> e.</span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p>The SDK retries 429, 500, 502 and 503 responses with exponential backoff before it throws. <code>retries</code> is the maximum number of attempts, including the first one.</p>
+<h3 id="custom-exception-handler">Custom Exception Handler</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> VerificationService</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> Optional&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#E6EDF3">> </span><span style="color:#D2A8FF">safeVerify</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">email</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> Optional.</span><span style="color:#D2A8FF">of</span><span style="color:#E6EDF3">(client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email));</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (RateLimitException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            logger.</span><span style="color:#D2A8FF">warn</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Rate limited, retry after: {}"</span><span style="color:#E6EDF3">, e.</span><span style="color:#D2A8FF">getRetryAfter</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> Optional.</span><span style="color:#D2A8FF">empty</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (BillionVerifyException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">            logger.</span><span style="color:#D2A8FF">error</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Verification failed: {}"</span><span style="color:#E6EDF3">, e.</span><span style="color:#D2A8FF">getMessage</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> Optional.</span><span style="color:#D2A8FF">empty</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="spring-boot-integration">Spring Boot Integration</h2>
+<p>The SDK ships no Spring Boot starter or auto-configuration. Register the client as a bean in your own configuration class.</p>
+<h3 id="dependency">Dependency</h3>
+<p>Build and install the SDK as described above, then add the <code>io.github.billionverifier:billionverify-java:1.0.0</code> dependency to your project. No other BillionVerify artifact is needed.</p>
+<h3 id="configuration-1">Configuration</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#8B949E"># application.yml</span></span>
+<span class="line"><span style="color:#7EE787">billionverify</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#7EE787">  api-key</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">${BV_API_KEY}</span></span>
+<span class="line"><span style="color:#7EE787">  timeout-seconds</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">30</span></span>
+<span class="line"><span style="color:#7EE787">  retries</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">3</span></span></code></pre>
+<p>Or in <code>application.properties</code>:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="properties"><code><span class="line"><span style="color:#FF7B72">billionverify.api-key</span><span style="color:#E6EDF3">=${BV_API_KEY}</span></span>
+<span class="line"><span style="color:#FF7B72">billionverify.timeout-seconds</span><span style="color:#E6EDF3">=30</span></span>
+<span class="line"><span style="color:#FF7B72">billionverify.retries</span><span style="color:#E6EDF3">=3</span></span></code></pre>
+<h3 id="auto-configuration">Auto-Configuration</h3>
+<p>Define the bean yourself. <code>close()</code> is called on shutdown because the client implements <code>AutoCloseable</code>:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.time.Duration;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.beans.factory.annotation.Value;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.context.annotation.Bean;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.context.annotation.Configuration;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Configuration</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> BillionVerifyConfig</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">Bean</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">destroyMethod</span><span style="color:#FF7B72"> =</span><span style="color:#A5D6FF"> "close"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> BillionVerifyClient </span><span style="color:#D2A8FF">billionVerifyClient</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">            @</span><span style="color:#FF7B72">Value</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"${billionverify.api-key}"</span><span style="color:#E6EDF3">) String </span><span style="color:#FFA657">apiKey</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            @</span><span style="color:#FF7B72">Value</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"${billionverify.timeout-seconds:30}"</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">long</span><span style="color:#FFA657"> timeoutSeconds</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            @</span><span style="color:#FF7B72">Value</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"${billionverify.retries:3}"</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">int</span><span style="color:#FFA657"> retries</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> BillionVerifyClient.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">(apiKey)</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">timeout</span><span style="color:#E6EDF3">(Duration.</span><span style="color:#D2A8FF">ofSeconds</span><span style="color:#E6EDF3">(timeoutSeconds))</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">retries</span><span style="color:#E6EDF3">(retries)</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p>Then inject it:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.exception.BillionVerifyException;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.Status;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.stereotype.Service;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Service</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> EmailVerificationService</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> EmailVerificationService</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> boolean</span><span style="color:#D2A8FF"> isValidEmail</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">email</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">throws</span><span style="color:#E6EDF3"> BillionVerifyException {</span></span>
+<span class="line"><span style="color:#E6EDF3">        VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">==</span><span style="color:#E6EDF3"> Status.VALID;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="rest-controller">REST Controller</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.http.ResponseEntity;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.web.bind.annotation.</span><span style="color:#79C0FF">*</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">RestController</span></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">RequestMapping</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"/api/verify"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> VerificationController</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> VerificationController</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">PostMapping</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> ResponseEntity&#x3C;</span><span style="color:#FF7B72">?</span><span style="color:#E6EDF3">> </span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(@</span><span style="color:#FF7B72">RequestBody</span><span style="color:#E6EDF3"> VerifyRequest </span><span style="color:#FFA657">request</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">            VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(request.</span><span style="color:#D2A8FF">email</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> ResponseEntity.</span><span style="color:#D2A8FF">ok</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">new</span><span style="color:#D2A8FF"> VerifyReply</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">                result.</span><span style="color:#D2A8FF">email</span><span style="color:#E6EDF3">(),</span></span>
+<span class="line"><span style="color:#E6EDF3">                result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">().</span><span style="color:#D2A8FF">toString</span><span style="color:#E6EDF3">(),</span></span>
+<span class="line"><span style="color:#E6EDF3">                result.</span><span style="color:#D2A8FF">score</span><span style="color:#E6EDF3">()</span></span>
+<span class="line"><span style="color:#E6EDF3">            ));</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (Exception </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> ResponseEntity.</span><span style="color:#D2A8FF">internalServerError</span><span style="color:#E6EDF3">()</span></span>
+<span class="line"><span style="color:#E6EDF3">                .</span><span style="color:#D2A8FF">body</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">new</span><span style="color:#D2A8FF"> ErrorResponse</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Verification failed"</span><span style="color:#E6EDF3">));</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">record</span><span style="color:#FFA657"> VerifyRequest</span><span style="color:#E6EDF3">(String email) {}</span></span>
+<span class="line"><span style="color:#FF7B72">record</span><span style="color:#FFA657"> VerifyReply</span><span style="color:#E6EDF3">(String email, String status, </span><span style="color:#FF7B72">double</span><span style="color:#E6EDF3"> score) {}</span></span>
+<span class="line"><span style="color:#FF7B72">record</span><span style="color:#FFA657"> ErrorResponse</span><span style="color:#E6EDF3">(String error) {}</span></span></code></pre>
+<h3 id="custom-validator-annotation">Custom Validator Annotation</h3>
+<p>This uses Jakarta Bean Validation (Spring Boot 3). On Spring Boot 2, import <code>javax.validation</code> instead.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#8B949E">// Annotation</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> jakarta.validation.Constraint;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> jakarta.validation.Payload;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.lang.annotation.</span><span style="color:#79C0FF">*</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Documented</span></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Constraint</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">validatedBy</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> ValidEmailValidator.class)</span></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Target</span><span style="color:#E6EDF3">({ElementType.FIELD, ElementType.PARAMETER})</span></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Retention</span><span style="color:#E6EDF3">(RetentionPolicy.RUNTIME)</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#E6EDF3"> @</span><span style="color:#FF7B72">interface</span><span style="color:#FF7B72"> ValidEmail</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    String </span><span style="color:#D2A8FF">message</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">default</span><span style="color:#A5D6FF"> "Invalid email address"</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">    boolean</span><span style="color:#D2A8FF"> rejectDisposable</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">default</span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">    Class</span><span style="color:#FF7B72">&#x3C;?></span><span style="color:#E6EDF3">[] </span><span style="color:#D2A8FF">groups</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">default</span><span style="color:#E6EDF3"> {};</span></span>
+<span class="line"><span style="color:#E6EDF3">    Class</span><span style="color:#FF7B72">&#x3C;?</span><span style="color:#E6EDF3"> extends Payload</span><span style="color:#FF7B72">></span><span style="color:#E6EDF3">[] </span><span style="color:#D2A8FF">payload</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">default</span><span style="color:#E6EDF3"> {};</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Validator</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.Status;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> jakarta.validation.ConstraintValidator;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> jakarta.validation.ConstraintValidatorContext;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> ValidEmailValidator</span><span style="color:#FF7B72"> implements</span><span style="color:#79C0FF"> ConstraintValidator</span><span style="color:#E6EDF3">&#x3C;</span><span style="color:#FF7B72">ValidEmail</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">String</span><span style="color:#E6EDF3">> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> boolean</span><span style="color:#E6EDF3"> rejectDisposable;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> ValidEmailValidator</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">Override</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> void</span><span style="color:#D2A8FF"> initialize</span><span style="color:#E6EDF3">(ValidEmail </span><span style="color:#FFA657">annotation</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.rejectDisposable </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> annotation.</span><span style="color:#D2A8FF">rejectDisposable</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">Override</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> boolean</span><span style="color:#D2A8FF"> isValid</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">email</span><span style="color:#E6EDF3">, ConstraintValidatorContext </span><span style="color:#FFA657">context</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> (email </span><span style="color:#FF7B72">==</span><span style="color:#79C0FF"> null</span><span style="color:#FF7B72"> ||</span><span style="color:#E6EDF3"> email.</span><span style="color:#D2A8FF">isBlank</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">            VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">            if</span><span style="color:#E6EDF3"> (result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">==</span><span style="color:#E6EDF3"> Status.INVALID) {</span></span>
+<span class="line"><span style="color:#FF7B72">                return</span><span style="color:#79C0FF"> false</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#FF7B72"> !</span><span style="color:#E6EDF3">(rejectDisposable </span><span style="color:#FF7B72">&#x26;&#x26;</span><span style="color:#E6EDF3"> result.</span><span style="color:#D2A8FF">isDisposable</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (Exception </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">; </span><span style="color:#8B949E">// Do not block users when the API is unavailable</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Usage</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> RegisterRequest</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">ValidEmail</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">rejectDisposable</span><span style="color:#FF7B72"> =</span><span style="color:#79C0FF"> true</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#E6EDF3"> String</span><span style="color:#E6EDF3"> email;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">    // getters, setters...</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="async-service">Async Service</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.scheduling.annotation.Async;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> org.springframework.stereotype.Service;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.concurrent.CompletableFuture;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">@</span><span style="color:#FF7B72">Service</span></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> AsyncVerificationService</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> AsyncVerificationService</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    @</span><span style="color:#FF7B72">Async</span></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> CompletableFuture&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#E6EDF3">> </span><span style="color:#D2A8FF">verifyAsync</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">email</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> CompletableFuture.</span><span style="color:#D2A8FF">completedFuture</span><span style="color:#E6EDF3">(client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email));</span></span>
+<span class="line"><span style="color:#E6EDF3">        } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (Exception </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> CompletableFuture.</span><span style="color:#D2A8FF">failedFuture</span><span style="color:#E6EDF3">(e);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<p><code>@Async</code> needs <code>@EnableAsync</code> on a configuration class.</p>
+<h2 id="complete-examples">Complete Examples</h2>
+<h3 id="registration-service">Registration Service</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.exception.BillionVerifyException;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.Status;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> RegistrationService</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> RegistrationService</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> ValidationResult </span><span style="color:#D2A8FF">validateEmail</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">email</span><span style="color:#E6EDF3">) </span><span style="color:#FF7B72">throws</span><span style="color:#E6EDF3"> BillionVerifyException {</span></span>
+<span class="line"><span style="color:#E6EDF3">        VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Reject invalid emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> (result.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">==</span><span style="color:#E6EDF3"> Status.INVALID) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> ValidationResult.</span><span style="color:#D2A8FF">invalid</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"invalid_email"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                "This email address is invalid"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Reject disposable emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> (result.</span><span style="color:#D2A8FF">isDisposable</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> ValidationResult.</span><span style="color:#D2A8FF">invalid</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"disposable"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                "Please use a permanent email address"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">        // Warn about role-based emails</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> (result.</span><span style="color:#D2A8FF">isRole</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#FF7B72">            return</span><span style="color:#E6EDF3"> ValidationResult.</span><span style="color:#D2A8FF">warning</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"role_based"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                "Using a personal email is recommended"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">                result.</span><span style="color:#D2A8FF">score</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> ValidationResult.</span><span style="color:#D2A8FF">valid</span><span style="color:#E6EDF3">(result.</span><span style="color:#D2A8FF">score</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">class</span><span style="color:#FFA657"> ValidationResult</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#FF7B72"> boolean</span><span style="color:#E6EDF3"> valid;</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> String</span><span style="color:#E6EDF3"> reason;</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> String</span><span style="color:#E6EDF3"> message;</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> Double</span><span style="color:#E6EDF3"> score;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#D2A8FF"> ValidationResult</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">boolean</span><span style="color:#FFA657"> valid</span><span style="color:#E6EDF3">, String </span><span style="color:#FFA657">reason</span><span style="color:#E6EDF3">, String </span><span style="color:#FFA657">message</span><span style="color:#E6EDF3">, Double </span><span style="color:#FFA657">score</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.valid </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> valid;</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.reason </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> reason;</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.message </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> message;</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.score </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> score;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> static</span><span style="color:#E6EDF3"> ValidationResult </span><span style="color:#D2A8FF">valid</span><span style="color:#E6EDF3">(</span><span style="color:#FF7B72">double</span><span style="color:#FFA657"> score</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> ValidationResult</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">null</span><span style="color:#E6EDF3">, </span><span style="color:#79C0FF">null</span><span style="color:#E6EDF3">, score);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> static</span><span style="color:#E6EDF3"> ValidationResult </span><span style="color:#D2A8FF">invalid</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">reason</span><span style="color:#E6EDF3">, String </span><span style="color:#FFA657">message</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> ValidationResult</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">, reason, message, </span><span style="color:#79C0FF">null</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> static</span><span style="color:#E6EDF3"> ValidationResult </span><span style="color:#D2A8FF">warning</span><span style="color:#E6EDF3">(String </span><span style="color:#FFA657">reason</span><span style="color:#E6EDF3">, String </span><span style="color:#FFA657">message</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">double</span><span style="color:#FFA657"> score</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> ValidationResult</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">, reason, message, score);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">    // Getters...</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="concurrent-verification">Concurrent Verification</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.BillionVerifyClient;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.exception.BillionVerifyException;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> com.billionverify.sdk.model.VerifyResponse;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.Arrays;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.List;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.concurrent.</span><span style="color:#79C0FF">*</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> java.util.stream.Collectors;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">public</span><span style="color:#FF7B72"> class</span><span style="color:#FFA657"> ConcurrentVerifier</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> BillionVerifyClient</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#FF7B72">    private</span><span style="color:#FF7B72"> final</span><span style="color:#E6EDF3"> ExecutorService</span><span style="color:#E6EDF3"> executor;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#D2A8FF"> ConcurrentVerifier</span><span style="color:#E6EDF3">(BillionVerifyClient </span><span style="color:#FFA657">client</span><span style="color:#E6EDF3">, </span><span style="color:#FF7B72">int</span><span style="color:#FFA657"> threads</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client;</span></span>
+<span class="line"><span style="color:#79C0FF">        this</span><span style="color:#E6EDF3">.executor </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> Executors.</span><span style="color:#D2A8FF">newFixedThreadPool</span><span style="color:#E6EDF3">(threads);</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#E6EDF3"> List&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#E6EDF3">> </span><span style="color:#D2A8FF">verifyAll</span><span style="color:#E6EDF3">(List&#x3C;</span><span style="color:#FF7B72">String</span><span style="color:#E6EDF3">> </span><span style="color:#FFA657">emails</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">        List</span><span style="color:#FFA657">&#x3C;</span><span style="color:#E6EDF3">CompletableFuture</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#FFA657">>> </span><span style="color:#E6EDF3">futures</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> emails.</span><span style="color:#D2A8FF">stream</span><span style="color:#E6EDF3">()</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">map</span><span style="color:#E6EDF3">(email </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> CompletableFuture.</span><span style="color:#D2A8FF">supplyAsync</span><span style="color:#E6EDF3">(() </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">                try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#FF7B72">                    return</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"><span style="color:#E6EDF3">                } </span><span style="color:#FF7B72">catch</span><span style="color:#E6EDF3"> (BillionVerifyException </span><span style="color:#FFA657">e</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">                    throw</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> RuntimeException</span><span style="color:#E6EDF3">(e);</span></span>
+<span class="line"><span style="color:#E6EDF3">                }</span></span>
+<span class="line"><span style="color:#E6EDF3">            }, executor))</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">collect</span><span style="color:#E6EDF3">(Collectors.</span><span style="color:#D2A8FF">toList</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> futures.</span><span style="color:#D2A8FF">stream</span><span style="color:#E6EDF3">()</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">map</span><span style="color:#E6EDF3">(CompletableFuture</span><span style="color:#FF7B72">::</span><span style="color:#E6EDF3">join)</span></span>
+<span class="line"><span style="color:#E6EDF3">            .</span><span style="color:#D2A8FF">collect</span><span style="color:#E6EDF3">(Collectors.</span><span style="color:#D2A8FF">toList</span><span style="color:#E6EDF3">());</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    public</span><span style="color:#FF7B72"> void</span><span style="color:#D2A8FF"> shutdown</span><span style="color:#E6EDF3">() {</span></span>
+<span class="line"><span style="color:#E6EDF3">        executor.</span><span style="color:#D2A8FF">shutdown</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Usage</span></span>
+<span class="line"><span style="color:#E6EDF3">ConcurrentVerifier</span><span style="color:#E6EDF3"> verifier</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> ConcurrentVerifier</span><span style="color:#E6EDF3">(client, </span><span style="color:#79C0FF">10</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#FF7B72">try</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    List</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">String</span><span style="color:#FFA657">> </span><span style="color:#E6EDF3">emails</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> Arrays.</span><span style="color:#D2A8FF">asList</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"user1@example.com"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"user2@example.com"</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">    List</span><span style="color:#FFA657">&#x3C;</span><span style="color:#FF7B72">VerifyResponse</span><span style="color:#FFA657">> </span><span style="color:#E6EDF3">results</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> verifier.</span><span style="color:#D2A8FF">verifyAll</span><span style="color:#E6EDF3">(emails);</span></span>
+<span class="line"><span style="color:#E6EDF3">    results.</span><span style="color:#D2A8FF">forEach</span><span style="color:#E6EDF3">(r </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(r.</span><span style="color:#D2A8FF">email</span><span style="color:#E6EDF3">() </span><span style="color:#FF7B72">+</span><span style="color:#A5D6FF"> ": "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> r.</span><span style="color:#D2A8FF">status</span><span style="color:#E6EDF3">()));</span></span>
+<span class="line"><span style="color:#E6EDF3">} </span><span style="color:#FF7B72">finally</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#E6EDF3">    verifier.</span><span style="color:#D2A8FF">shutdown</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-reuse-one-client">1. Reuse One Client</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#8B949E">// Create the client once and share it. It wraps one OkHttpClient,</span></span>
+<span class="line"><span style="color:#8B949E">// which keeps a connection pool for you.</span></span>
+<span class="line"><span style="color:#E6EDF3">BillionVerifyClient</span><span style="color:#E6EDF3"> client</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> BillionVerifyClient.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">(apiKey).</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">();</span></span></code></pre>
+<h3 id="2-handle-nullable-fields">2. Handle Nullable Fields</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#E6EDF3">VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// domainAge, mxRecords, reason and suggestion can be null</span></span>
+<span class="line"><span style="color:#E6EDF3">Optional.</span><span style="color:#D2A8FF">ofNullable</span><span style="color:#E6EDF3">(result.</span><span style="color:#D2A8FF">suggestion</span><span style="color:#E6EDF3">())</span></span>
+<span class="line"><span style="color:#E6EDF3">    .</span><span style="color:#D2A8FF">ifPresent</span><span style="color:#E6EDF3">(suggestion </span><span style="color:#FF7B72">-></span><span style="color:#E6EDF3"> System.out.</span><span style="color:#D2A8FF">println</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">"Did you mean: "</span><span style="color:#FF7B72"> +</span><span style="color:#E6EDF3"> suggestion));</span></span></code></pre>
+<h3 id="3-resource-management">3. Resource Management</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#8B949E">// The client implements AutoCloseable</span></span>
+<span class="line"><span style="color:#FF7B72">try</span><span style="color:#E6EDF3"> (BillionVerifyClient</span><span style="color:#E6EDF3"> client</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> BillionVerifyClient.</span><span style="color:#D2A8FF">builder</span><span style="color:#E6EDF3">(apiKey).</span><span style="color:#D2A8FF">build</span><span style="color:#E6EDF3">()) {</span></span>
+<span class="line"><span style="color:#E6EDF3">    VerifyResponse</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> client.</span><span style="color:#D2A8FF">verify</span><span style="color:#E6EDF3">(email);</span></span>
+<span class="line"><span style="color:#8B949E">    // Process result</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="/docs/api/">API Reference</a>: Detailed API documentation</li>
+<li><a href="https://billionverify.com/docs/integration-guides?utm_source=billionverify.github.io&#x26;utm_medium=referral&#x26;utm_campaign=content-site&#x26;utm_content=java">Integration Guides</a>: Platform integrations</li>
+</ul></div>
+    </article>
+
+    <nav aria-label="On this page" class="hidden pt-6 text-sm xl:sticky xl:top-[72px] xl:block xl:self-start">
+      
+            <p class="mb-2.5 font-bold">On this page</p>
+            <a href="#installation" class="block py-1 text-body hover:text-accent">
+                Installation
+              </a><a href="#requirements" class="block py-1 text-body hover:text-accent">
+                Requirements
+              </a><a href="#quick-start" class="block py-1 text-body hover:text-accent">
+                Quick Start
+              </a><a href="#configuration" class="block py-1 text-body hover:text-accent">
+                Configuration
+              </a><a href="#types" class="block py-1 text-body hover:text-accent">
+                Types
+              </a><a href="#single-verification" class="block py-1 text-body hover:text-accent">
+                Single Verification
+              </a><a href="#bulk-verification" class="block py-1 text-body hover:text-accent">
+                Bulk Verification
+              </a><a href="#credit-management" class="block py-1 text-body hover:text-accent">
+                Credit Management
+              </a><a href="#error-handling" class="block py-1 text-body hover:text-accent">
+                Error Handling
+              </a><a href="#spring-boot-integration" class="block py-1 text-body hover:text-accent">
+                Spring Boot Integration
+              </a><a href="#complete-examples" class="block py-1 text-body hover:text-accent">
+                Complete Examples
+              </a><a href="#best-practices" class="block py-1 text-body hover:text-accent">
+                Best Practices
+              </a><a href="#next-steps" class="block py-1 text-body hover:text-accent">
+                Next Steps
+              </a>
+          
+    </nav>
+  </div>
+
+  <script type="module">
+    const input = document.getElementById('docs-search');
+    const results = document.getElementById('docs-results');
+    let pagefind;
+
+    input.addEventListener('input', async () => {
+      pagefind ??= await import('/pagefind/pagefind.js');
+      const query = input.value.trim();
+      if (!query) {
+        results.hidden = true;
+        return;
+      }
+      const search = await pagefind.search(query);
+      const items = await Promise.all(search.results.slice(0, 6).map((result) => result.data()));
+      results.replaceChildren(
+        ...items.map((item) => {
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.meta.title;
+          link.className = 'block rounded-md px-2 py-1.5 font-medium hover:bg-white';
+          return link;
+        }),
+      );
+      results.hidden = items.length === 0;
+    });
+  </script>
+</main>
+    <footer class="mt-16 border-t border-line pt-10 pb-10 text-sm">
+  <div class="mx-auto max-w-[1200px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Product
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/pricing?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Pricing
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/features?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Features
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whitelabel?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Whitelabel Service
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Email Verify Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-validator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Validator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/validate-email-address?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Validate Email Address
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/free-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Free Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-spam-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Spam Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/disposable-email-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Disposable Email Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bounce-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bounce Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/catch-all-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Catch-All Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/role-account-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Role Account Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-list-cleaning?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email List Cleaning
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/wordpress?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WordPress Plugin
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Find Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/company-search?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Company Search
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-extractor?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Extractor
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Free Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/spf-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Record Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/mx-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MX Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/spf-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dns-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DNS Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blacklist-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blacklist Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/ip-reputation-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        IP Reputation Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whois-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WHOIS Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/verify-phone-numbers?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Phone Number Validator
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-deliverability-test?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Deliverability Test
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-header-analyzer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Header Analyzer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-bounce-rate-calculator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Bounce Rate Calculator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/reverse-email-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Reverse Email Lookup
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Content Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/linkedin-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Video Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/linkedin-carousel-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Carousel Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/twitter-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Twitter Video Downloader
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Agent Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/mcp?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MCP Server
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/agent-skills?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Agent Skills
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Use Cases
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/google-maps?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Google Maps Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/cold-email?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Cold Email Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-leads?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Leads Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/local-business?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Local Business Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-agency?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Agency Database
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/vs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Comparisons <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/best-email-verification-tools?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification Tools
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-validation-service?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Validation Service
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/neverbounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to NeverBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/zerobounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to ZeroBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/hunter?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Hunter
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/bouncer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Bouncer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/kickbox?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Kickbox
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emaillistverify?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to EmailListVerify
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/verifalia?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Verifalia
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/debounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to DeBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/millionverifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to MillionVerifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emailable?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Emailable
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/snov?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Snov.io
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/findymail?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Findymail
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/validity?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Validity
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Guides
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/glossary?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Glossary
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/guides?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verify Guides
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-marketing-bible?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Marketing Bible
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/benchmark?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Market Report 2026
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Resources
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/about?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        About
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blog?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blog
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/docs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Docs
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/integrations?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Integrations
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/faq?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        FAQ
+                      </a>
+                      
+                    </li><li>
+                      <a href="mailto:support@billionverify.com" class="text-muted hover:text-ink hover:underline">
+                        Contact
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/help?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Help Center
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/partners?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Partners <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://markitdown.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Markitdown AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://mapleads.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        MapLeads.ai
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Video Partners
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://potto.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Potto AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://transcript.im/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        YouTube Transcript Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://aitinydeskmeme.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        AI Tiny Desk Meme
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://ohyoucanmakeitcapai.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Oh You Can Make It Cap AI
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+    </div>
+
+    <div class="mt-10 border-t border-line pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a href="https://billionverify.com/?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" aria-label="BillionVerify">
+          <img src="/logo-text.svg" alt="BillionVerify" width="182" height="40" class="h-10 w-auto" loading="lazy">
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/company/billionverify" aria-label="LinkedIn">
+                <img src="/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" loading="lazy">
+              </a><a href="https://github.com/billionverify" aria-label="GitHub">
+                <img src="/icons/github.svg" alt="GitHub" width="20" height="20" loading="lazy">
+              </a><a href="https://chromewebstore.google.com/detail/email-extractor-by-billio/fplaepdipjjpkngejlakmcjkokghhndj" aria-label="Chrome">
+                <img src="/icons/chrome.svg" alt="Chrome" width="20" height="20" loading="lazy">
+              </a><a href="https://addons.mozilla.org/en-US/firefox/addon/email-extractor-emailverify-ai/" aria-label="Firefox">
+                <img src="/icons/firefox.svg" alt="Firefox" width="20" height="20" loading="lazy">
+              </a><a href="https://wordpress.org/plugins/billionverify-email-validator/" aria-label="WordPress">
+                <img src="/icons/wordpress.svg" alt="WordPress" width="20" height="20" loading="lazy">
+              </a>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap justify-between gap-4 text-muted">
+        <div class="space-y-1">
+          <p>Verify emails in real-time with live SMTP checks.</p><p>Trusted by 10,000+ businesses worldwide.</p>
+          <p>Contact: <a href="mailto:support@billionverify.com" class="hover:text-ink hover:underline">support@billionverify.com</a></p>
+        </div>
+        <div class="space-y-1 sm:text-right">
+          <p>© Copyright 2026 BillionVerify. All Rights Reserved.</p>
+          <p class="flex flex-wrap gap-x-5 sm:justify-end">
+            <a href="https://billionverify.com/trust?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Trust Center</a><a href="https://billionverify.com/privacy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Privacy Policy</a><a href="https://billionverify.com/terms?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Terms of Service</a><a href="https://billionverify.com/cookie-policy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Cookie Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    <script type="module">document.querySelectorAll(`[data-code-tabs]`).forEach(e=>{let t=[...e.querySelectorAll(`:scope > [data-tab]`)],n=document.createElement(`div`);n.className=`code-tabs-bar`,n.setAttribute(`role`,`tablist`),t.forEach((e,r)=>{let i=document.createElement(`button`);i.type=`button`,i.role=`tab`,i.textContent=e.dataset.tab??``,i.setAttribute(`aria-selected`,String(r===0)),e.hidden=r!==0,i.addEventListener(`click`,()=>{t.forEach((e,t)=>{e.hidden=t!==r,n.children[t].setAttribute(`aria-selected`,String(t===r))})}),n.append(i)}),e.prepend(n),e.classList.add(`is-ready`)}),document.querySelectorAll(`.prose-bv pre, pre.code`).forEach(e=>{let t=document.createElement(`div`);t.className=`code-block`,e.replaceWith(t),t.append(e);let n=document.createElement(`button`);n.type=`button`,n.className=`code-copy`,n.textContent=`Copy`,n.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(e.innerText),n.textContent=`Copied`,setTimeout(()=>n.textContent=`Copy`,1500)}),t.append(n)});</script>
+  </body>
+</html>

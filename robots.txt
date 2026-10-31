@@ -1,0 +1,9 @@
+# For AI agents:
+# Short index: https://billionverify.github.io/llms.txt
+# Full reference: https://billionverify.github.io/llms-full.txt
+# Markdown: add .md to any page path; the home page is https://billionverify.github.io/index.md
+
+User-agent: *
+Allow: /
+
+Sitemap: https://billionverify.github.io/sitemap.xml

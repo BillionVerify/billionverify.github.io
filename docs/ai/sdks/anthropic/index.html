@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anthropic Claude | BillionVerify Docs</title>
+    <meta name="description" content="Email checker with Anthropic Claude SDK. Verify emails using Claude AI tool calling.">
+    
+    
+    <link rel="canonical" href="https://billionverify.github.io/docs/ai/sdks/anthropic/">
+    <link rel="alternate" hreflang="en" href="https://billionverify.github.io/docs/ai/sdks/anthropic/">
+    <link rel="alternate" hreflang="x-default" href="https://billionverify.github.io/docs/ai/sdks/anthropic/">
+    <link rel="alternate" type="text/markdown" href="/docs/ai/sdks/anthropic.md">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="sitemap" href="/sitemap.xml">
+    <meta property="og:type" content="article">
+    <meta property="article:modified_time" content="2026-10-31">
+    <meta property="og:site_name" content="BillionVerify">
+    <meta property="og:title" content="Anthropic Claude | BillionVerify Docs">
+    <meta property="og:description" content="Email checker with Anthropic Claude SDK. Verify emails using Claude AI tool calling.">
+    <meta property="og:url" content="https://billionverify.github.io/docs/ai/sdks/anthropic/">
+    <meta property="og:image" content="https://billionverify.github.io/og.png">
+    <meta property="og:image:alt" content="BillionVerify email verification">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anthropic Claude | BillionVerify Docs">
+    <meta name="twitter:description" content="Email checker with Anthropic Claude SDK. Verify emails using Claude AI tool calling.">
+    <meta name="twitter:image" content="https://billionverify.github.io/og.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BillionVerify","url":"https://billionverify.github.io/","publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com","logo":"https://billionverify.com/billionverify.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@billionverify.com"},"sameAs":["https://github.com/BillionVerify","https://x.com/billionvfy","https://www.linkedin.com/company/billionverify"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Anthropic Claude","description":"Email checker with Anthropic Claude SDK. Verify emails using Claude AI tool calling.","datePublished":"2026-10-31","dateModified":"2026-10-31","mainEntityOfPage":"https://billionverify.github.io/docs/ai/sdks/anthropic/","author":{"@type":"Organization","name":"BillionVerify Team","url":"https://billionverify.com/about"},"publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Docs","item":"https://billionverify.github.io/docs/"},{"@type":"ListItem","position":2,"name":"Anthropic Claude","item":"https://billionverify.github.io/docs/ai/sdks/anthropic/"}]}</script>
+  <link rel="stylesheet" href="/_astro/Layout.Crcko9GI.css"></head>
+  <body class="flex min-h-dvh flex-col">
+    <header class="sticky top-0 z-40 bg-white">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-7 gap-y-2 px-4 py-3.5 sm:px-6">
+    <a href="/" aria-label="BillionVerify home">
+      <img src="/logo-text.svg" alt="BillionVerify" width="136" height="30" class="h-[30px] w-auto">
+    </a>
+    <nav class="order-3 flex w-full gap-6 text-[15px] font-medium sm:order-none sm:w-auto" aria-label="Main">
+      <a href="/docs/" aria-current="page" class="font-semibold text-accent">
+            Docs
+          </a><a href="/guides/" class="text-body hover:text-ink">
+            Guides
+          </a><a href="/benchmark/" class="text-body hover:text-ink">
+            Benchmark
+          </a>
+    </nav>
+    <a href="https://billionverify.com/auth/sign-up?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=header" class="btn ml-auto">Get Started Free</a>
+  </div>
+</header>
+    <main class="flex-1">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-10 px-4 sm:px-6 xl:grid-cols-[220px_minmax(0,1fr)_220px]">
+    <aside id="docs-aside" class="pt-4 xl:sticky xl:top-[72px] xl:max-h-[calc(100dvh-72px)] xl:self-start xl:overflow-y-auto xl:pt-6 xl:pb-6">
+      <label class="block">
+        <span class="sr-only">Search docs</span>
+        <input id="docs-search" type="search" placeholder="Search docs" autocomplete="off" class="h-11 w-full rounded-[10px] bg-tint px-3.5 text-[15px]">
+      </label>
+      <div id="docs-results" hidden class="mt-2 rounded-[10px] bg-tint p-2 text-sm"></div>
+
+      <details id="docs-nav" class="mt-3 xl:mt-1">
+        <summary class="cursor-pointer text-sm font-semibold xl:hidden">Browse docs</summary>
+        <nav aria-label="Docs" class="text-[15px]">
+          <div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">Getting Started</p>
+                <a href="/docs/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/quickstart/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Quickstart
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">API Reference</p>
+                <a href="/docs/api/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/api/verify-single/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify a single email
+                  </a><a href="/docs/api/verify-bulk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verify in bulk
+                  </a><a href="/docs/api/disposable-check/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Disposable email check
+                  </a><a href="/docs/api/upload-file/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Upload a file
+                  </a><a href="/docs/api/file-status/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File job status
+                  </a><a href="/docs/api/file-results/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    File results
+                  </a><a href="/docs/api/credits/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Credits
+                  </a><a href="/docs/api/webhooks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Webhooks
+                  </a><a href="/docs/api/errors/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Status and errors
+                  </a><a href="/docs/verification-reasons/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Verification reasons
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">SDKs</p>
+                <a href="/docs/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    All SDKs
+                  </a><a href="/docs/sdks/node/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Node.js
+                  </a><a href="/docs/sdks/typescript/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    TypeScript
+                  </a><a href="/docs/sdks/python/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Python
+                  </a><a href="/docs/sdks/go/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Go
+                  </a><a href="/docs/sdks/php/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    PHP
+                  </a><a href="/docs/sdks/java/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Java
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Connectors</p>
+                <a href="/docs/connectors/vercel/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel Connect
+                  </a><a href="/docs/connectors/claude/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude
+                  </a>
+              </div><div class="mt-4">
+                <p class="mb-1.5 text-[13px] font-bold text-muted">AI Integration</p>
+                <a href="/docs/ai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Overview
+                  </a><a href="/docs/ai/mcp/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    MCP server
+                  </a><a href="/docs/ai/agent-skills/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Agent Skills
+                  </a><a href="/docs/ai/sdks/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    AI SDKs
+                  </a><a href="/docs/ai/sdks/anthropic/" aria-current="page" class="block rounded-lg px-2.5 py-1.5 bg-tint font-semibold text-accent">
+                    Anthropic
+                  </a><a href="/docs/ai/sdks/openai/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenAI
+                  </a><a href="/docs/ai/sdks/langchain/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    LangChain
+                  </a><a href="/docs/ai/sdks/vercel-ai-sdk/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Vercel AI SDK
+                  </a><a href="/docs/ai/cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    CLI tools
+                  </a><a href="/docs/ai/cli/claude-code/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Claude Code
+                  </a><a href="/docs/ai/cli/codex/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Codex
+                  </a><a href="/docs/ai/cli/gemini-cli/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Gemini CLI
+                  </a><a href="/docs/ai/cli/droid/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    Droid
+                  </a><a href="/docs/ai/cli/opencode/" class="block rounded-lg px-2.5 py-1.5 text-body hover:text-ink">
+                    OpenCode
+                  </a>
+              </div>
+        </nav>
+      </details>
+      <script>
+        (() => {
+          const key = 'docs-nav-scroll';
+          const aside = document.getElementById('docs-aside');
+          const wide = matchMedia('(min-width: 1280px)').matches;
+          document.getElementById('docs-nav').open = wide;
+          if (!wide) return;
+
+          let stored = null;
+          try {
+            stored = sessionStorage.getItem(key);
+          } catch {}
+
+          const current = aside.querySelector('[aria-current="page"]');
+          aside.scrollTop = stored === null ? current.offsetTop - aside.clientHeight / 2 : Number(stored);
+
+          aside.querySelectorAll('nav a').forEach((link) => {
+            link.addEventListener('click', () => {
+              try {
+                sessionStorage.setItem(key, String(aside.scrollTop));
+              } catch {}
+            });
+          });
+        })();
+      </script>
+    </aside>
+
+    <article data-pagefind-body class="min-w-0 pt-6">
+      <p class="text-sm text-muted">AI Integration</p>
+      <h1 class="mt-1.5 text-[2.375rem] leading-tight font-extrabold tracking-tight max-sm:text-[2rem]">Anthropic Claude</h1>
+      <p class="mt-2 text-sm text-muted">By BillionVerify Team · Last reviewed <time datetime="2026-10-31">October 31, 2026</time></p>
+      <div class="prose-bv mt-5"><p>Use BillionVerify directly with Anthropic’s Claude models through their native tool use feature.</p>
+<h2 id="installation">Installation</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FFA657">npm</span><span style="color:#A5D6FF"> install</span><span style="color:#A5D6FF"> @anthropic-ai/sdk</span></span></code></pre>
+<h2 id="basic-setup">Basic Setup</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> Anthropic </span><span style="color:#FF7B72">from</span><span style="color:#A5D6FF"> '@anthropic-ai/sdk'</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> anthropic</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> Anthropic</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> tools</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">Tool</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">  {</span></span>
+<span class="line"><span style="color:#E6EDF3">    name: </span><span style="color:#A5D6FF">'verify_email'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    description: </span><span style="color:#A5D6FF">'Verify if an email address is valid and deliverable. Returns status, is_deliverable, is_disposable, is_role and score.'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    input_schema: {</span></span>
+<span class="line"><span style="color:#E6EDF3">      type: </span><span style="color:#A5D6FF">'object'</span><span style="color:#FF7B72"> as</span><span style="color:#FF7B72"> const</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      properties: {</span></span>
+<span class="line"><span style="color:#E6EDF3">        email: {</span></span>
+<span class="line"><span style="color:#E6EDF3">          type: </span><span style="color:#A5D6FF">'string'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">          description: </span><span style="color:#A5D6FF">'The email address to verify'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        },</span></span>
+<span class="line"><span style="color:#E6EDF3">      },</span></span>
+<span class="line"><span style="color:#E6EDF3">      required: [</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">  },</span></span>
+<span class="line"><span style="color:#E6EDF3">];</span></span></code></pre>
+<h2 id="implementation">Implementation</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> Anthropic </span><span style="color:#FF7B72">from</span><span style="color:#A5D6FF"> '@anthropic-ai/sdk'</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> anthropic</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> new</span><span style="color:#D2A8FF"> Anthropic</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> tools</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">Tool</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">  {</span></span>
+<span class="line"><span style="color:#E6EDF3">    name: </span><span style="color:#A5D6FF">'verify_email'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    description: </span><span style="color:#A5D6FF">'Verify if an email address is valid and deliverable. Returns status, is_deliverable, is_disposable, is_role and score.'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    input_schema: {</span></span>
+<span class="line"><span style="color:#E6EDF3">      type: </span><span style="color:#A5D6FF">'object'</span><span style="color:#FF7B72"> as</span><span style="color:#FF7B72"> const</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      properties: {</span></span>
+<span class="line"><span style="color:#E6EDF3">        email: {</span></span>
+<span class="line"><span style="color:#E6EDF3">          type: </span><span style="color:#A5D6FF">'string'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">          description: </span><span style="color:#A5D6FF">'The email address to verify'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        },</span></span>
+<span class="line"><span style="color:#E6EDF3">      },</span></span>
+<span class="line"><span style="color:#E6EDF3">      required: [</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">  },</span></span>
+<span class="line"><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> verifyEmail</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">email</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> response</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> fetch</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'https://api.billionverify.com/v1/verify/single'</span><span style="color:#E6EDF3">, {</span></span>
+<span class="line"><span style="color:#E6EDF3">    method: </span><span style="color:#A5D6FF">'POST'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    headers: {</span></span>
+<span class="line"><span style="color:#A5D6FF">      'BV-API-KEY'</span><span style="color:#E6EDF3">: process.env.</span><span style="color:#79C0FF">BV_API_KEY</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">      'Content-Type'</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'application/json'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">    body: </span><span style="color:#79C0FF">JSON</span><span style="color:#E6EDF3">.</span><span style="color:#D2A8FF">stringify</span><span style="color:#E6EDF3">({ email }),</span></span>
+<span class="line"><span style="color:#E6EDF3">  });</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#E6EDF3"> { </span><span style="color:#79C0FF">data</span><span style="color:#E6EDF3"> } </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> response.</span><span style="color:#D2A8FF">json</span><span style="color:#E6EDF3">(); </span><span style="color:#8B949E">// the API wraps results in { success, code, message, data }</span></span>
+<span class="line"><span style="color:#FF7B72">  return</span><span style="color:#E6EDF3"> data;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> chat</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">userMessage</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> messages</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">MessageParam</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">    { role: </span><span style="color:#A5D6FF">'user'</span><span style="color:#E6EDF3">, content: userMessage },</span></span>
+<span class="line"><span style="color:#E6EDF3">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> response</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> anthropic.messages.</span><span style="color:#D2A8FF">create</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">    model: </span><span style="color:#A5D6FF">'claude-sonnet-5-5'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    max_tokens: </span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    tools,</span></span>
+<span class="line"><span style="color:#E6EDF3">    messages,</span></span>
+<span class="line"><span style="color:#E6EDF3">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">  // Handle tool use</span></span>
+<span class="line"><span style="color:#FF7B72">  if</span><span style="color:#E6EDF3"> (response.stop_reason </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'tool_use'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">    const</span><span style="color:#79C0FF"> toolUseBlock</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> response.content.</span><span style="color:#D2A8FF">find</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">      (</span><span style="color:#FFA657">block</span><span style="color:#E6EDF3">)</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> block</span><span style="color:#FF7B72"> is</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">ToolUseBlock</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> block.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'tool_use'</span></span>
+<span class="line"><span style="color:#E6EDF3">    );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> (toolUseBlock </span><span style="color:#FF7B72">&#x26;&#x26;</span><span style="color:#E6EDF3"> toolUseBlock.name </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'verify_email'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">      const</span><span style="color:#79C0FF"> result</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> verifyEmail</span><span style="color:#E6EDF3">((toolUseBlock.input </span><span style="color:#FF7B72">as</span><span style="color:#E6EDF3"> { </span><span style="color:#FFA657">email</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3"> }).email);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">      messages.</span><span style="color:#D2A8FF">push</span><span style="color:#E6EDF3">({ role: </span><span style="color:#A5D6FF">'assistant'</span><span style="color:#E6EDF3">, content: response.content });</span></span>
+<span class="line"><span style="color:#E6EDF3">      messages.</span><span style="color:#D2A8FF">push</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">        role: </span><span style="color:#A5D6FF">'user'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        content: [</span></span>
+<span class="line"><span style="color:#E6EDF3">          {</span></span>
+<span class="line"><span style="color:#E6EDF3">            type: </span><span style="color:#A5D6FF">'tool_result'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            tool_use_id: toolUseBlock.id,</span></span>
+<span class="line"><span style="color:#E6EDF3">            content: </span><span style="color:#79C0FF">JSON</span><span style="color:#E6EDF3">.</span><span style="color:#D2A8FF">stringify</span><span style="color:#E6EDF3">(result),</span></span>
+<span class="line"><span style="color:#E6EDF3">          },</span></span>
+<span class="line"><span style="color:#E6EDF3">        ],</span></span>
+<span class="line"><span style="color:#E6EDF3">      });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">      const</span><span style="color:#79C0FF"> finalResponse</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> anthropic.messages.</span><span style="color:#D2A8FF">create</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">        model: </span><span style="color:#A5D6FF">'claude-sonnet-5-5'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        max_tokens: </span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        tools,</span></span>
+<span class="line"><span style="color:#E6EDF3">        messages,</span></span>
+<span class="line"><span style="color:#E6EDF3">      });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">      const</span><span style="color:#79C0FF"> textBlock</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> finalResponse.content.</span><span style="color:#D2A8FF">find</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">        (</span><span style="color:#FFA657">block</span><span style="color:#E6EDF3">)</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> block</span><span style="color:#FF7B72"> is</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">TextBlock</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> block.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'text'</span></span>
+<span class="line"><span style="color:#E6EDF3">      );</span></span>
+<span class="line"><span style="color:#FF7B72">      return</span><span style="color:#E6EDF3"> textBlock?.text;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> textBlock</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> response.content.</span><span style="color:#D2A8FF">find</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">    (</span><span style="color:#FFA657">block</span><span style="color:#E6EDF3">)</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> block</span><span style="color:#FF7B72"> is</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">TextBlock</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> block.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'text'</span></span>
+<span class="line"><span style="color:#E6EDF3">  );</span></span>
+<span class="line"><span style="color:#FF7B72">  return</span><span style="color:#E6EDF3"> textBlock?.text;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">// Usage</span></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> result</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> chat</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'Verify test@example.com for me'</span><span style="color:#E6EDF3">);</span></span>
+<span class="line"><span style="color:#E6EDF3">console.</span><span style="color:#D2A8FF">log</span><span style="color:#E6EDF3">(result);</span></span></code></pre>
+<h3 id="multiple-tools">Multiple tools</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> tools</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">Tool</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">  {</span></span>
+<span class="line"><span style="color:#E6EDF3">    name: </span><span style="color:#A5D6FF">'verify_email'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    description: </span><span style="color:#A5D6FF">'Verify a single email address'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    input_schema: {</span></span>
+<span class="line"><span style="color:#E6EDF3">      type: </span><span style="color:#A5D6FF">'object'</span><span style="color:#FF7B72"> as</span><span style="color:#FF7B72"> const</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      properties: {</span></span>
+<span class="line"><span style="color:#E6EDF3">        email: {</span></span>
+<span class="line"><span style="color:#E6EDF3">          type: </span><span style="color:#A5D6FF">'string'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">          description: </span><span style="color:#A5D6FF">'The email address to verify'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        },</span></span>
+<span class="line"><span style="color:#E6EDF3">      },</span></span>
+<span class="line"><span style="color:#E6EDF3">      required: [</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">  },</span></span>
+<span class="line"><span style="color:#E6EDF3">  {</span></span>
+<span class="line"><span style="color:#E6EDF3">    name: </span><span style="color:#A5D6FF">'verify_emails_bulk'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    description: </span><span style="color:#A5D6FF">'Verify up to 50 email addresses at once'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    input_schema: {</span></span>
+<span class="line"><span style="color:#E6EDF3">      type: </span><span style="color:#A5D6FF">'object'</span><span style="color:#FF7B72"> as</span><span style="color:#FF7B72"> const</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      properties: {</span></span>
+<span class="line"><span style="color:#E6EDF3">        emails: {</span></span>
+<span class="line"><span style="color:#E6EDF3">          type: </span><span style="color:#A5D6FF">'array'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">          items: { type: </span><span style="color:#A5D6FF">'string'</span><span style="color:#E6EDF3"> },</span></span>
+<span class="line"><span style="color:#E6EDF3">          description: </span><span style="color:#A5D6FF">'Array of email addresses to verify (max 50)'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        },</span></span>
+<span class="line"><span style="color:#E6EDF3">      },</span></span>
+<span class="line"><span style="color:#E6EDF3">      required: [</span><span style="color:#A5D6FF">'emails'</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">  },</span></span>
+<span class="line"><span style="color:#E6EDF3">  {</span></span>
+<span class="line"><span style="color:#E6EDF3">    name: </span><span style="color:#A5D6FF">'check_credits'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    description: </span><span style="color:#A5D6FF">'Check remaining verification credits'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    input_schema: {</span></span>
+<span class="line"><span style="color:#E6EDF3">      type: </span><span style="color:#A5D6FF">'object'</span><span style="color:#FF7B72"> as</span><span style="color:#FF7B72"> const</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      properties: {},</span></span>
+<span class="line"><span style="color:#E6EDF3">    },</span></span>
+<span class="line"><span style="color:#E6EDF3">  },</span></span>
+<span class="line"><span style="color:#E6EDF3">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> headers</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#A5D6FF">  'BV-API-KEY'</span><span style="color:#E6EDF3">: process.env.</span><span style="color:#79C0FF">BV_API_KEY</span><span style="color:#FF7B72">!</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">  'Content-Type'</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'application/json'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> verifyEmailsBulk</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">emails</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">[]) {</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> response</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> fetch</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'https://api.billionverify.com/v1/verify/bulk'</span><span style="color:#E6EDF3">, {</span></span>
+<span class="line"><span style="color:#E6EDF3">    method: </span><span style="color:#A5D6FF">'POST'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    headers,</span></span>
+<span class="line"><span style="color:#E6EDF3">    body: </span><span style="color:#79C0FF">JSON</span><span style="color:#E6EDF3">.</span><span style="color:#D2A8FF">stringify</span><span style="color:#E6EDF3">({ emails }),</span></span>
+<span class="line"><span style="color:#E6EDF3">  });</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#E6EDF3"> { </span><span style="color:#79C0FF">data</span><span style="color:#E6EDF3"> } </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> response.</span><span style="color:#D2A8FF">json</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#FF7B72">  return</span><span style="color:#E6EDF3"> data;</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> checkCredits</span><span style="color:#E6EDF3">() {</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> response</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> fetch</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">'https://api.billionverify.com/v1/credits'</span><span style="color:#E6EDF3">, { headers });</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#E6EDF3"> { </span><span style="color:#79C0FF">data</span><span style="color:#E6EDF3"> } </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> response.</span><span style="color:#D2A8FF">json</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#FF7B72">  return</span><span style="color:#E6EDF3"> data; </span><span style="color:#8B949E">// credits_balance, credits_consumed, credits_added, ...</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="handling-multiple-tool-calls">Handling multiple tool calls</h3>
+<p>Claude may call tools multiple times in a conversation:</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> chatWithMultipleTools</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">userMessage</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">  let</span><span style="color:#E6EDF3"> messages</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">MessageParam</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">    { role: </span><span style="color:#A5D6FF">'user'</span><span style="color:#E6EDF3">, content: userMessage },</span></span>
+<span class="line"><span style="color:#E6EDF3">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  while</span><span style="color:#E6EDF3"> (</span><span style="color:#79C0FF">true</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">    const</span><span style="color:#79C0FF"> response</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> anthropic.messages.</span><span style="color:#D2A8FF">create</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">      model: </span><span style="color:#A5D6FF">'claude-sonnet-5-5'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      max_tokens: </span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">      tools,</span></span>
+<span class="line"><span style="color:#E6EDF3">      messages,</span></span>
+<span class="line"><span style="color:#E6EDF3">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">    // Check if Claude wants to use a tool</span></span>
+<span class="line"><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> (response.stop_reason </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'tool_use'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">      const</span><span style="color:#79C0FF"> toolResults</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">ToolResultBlockParam</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">      for</span><span style="color:#E6EDF3"> (</span><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> block</span><span style="color:#FF7B72"> of</span><span style="color:#E6EDF3"> response.content) {</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#E6EDF3"> (block.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'tool_use'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">          let</span><span style="color:#E6EDF3"> result</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> any</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">          switch</span><span style="color:#E6EDF3"> (block.name) {</span></span>
+<span class="line"><span style="color:#FF7B72">            case</span><span style="color:#A5D6FF"> 'verify_email'</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">              result </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> verifyEmail</span><span style="color:#E6EDF3">((block.input </span><span style="color:#FF7B72">as</span><span style="color:#E6EDF3"> { </span><span style="color:#FFA657">email</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3"> }).email);</span></span>
+<span class="line"><span style="color:#FF7B72">              break</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">            case</span><span style="color:#A5D6FF"> 'verify_emails_bulk'</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">              result </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> verifyEmailsBulk</span><span style="color:#E6EDF3">((block.input </span><span style="color:#FF7B72">as</span><span style="color:#E6EDF3"> { </span><span style="color:#FFA657">emails</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">[] }).emails);</span></span>
+<span class="line"><span style="color:#FF7B72">              break</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#FF7B72">            case</span><span style="color:#A5D6FF"> 'check_credits'</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">              result </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> await</span><span style="color:#D2A8FF"> checkCredits</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"><span style="color:#FF7B72">              break</span><span style="color:#E6EDF3">;</span></span>
+<span class="line"><span style="color:#E6EDF3">          }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">          toolResults.</span><span style="color:#D2A8FF">push</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">            type: </span><span style="color:#A5D6FF">'tool_result'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">            tool_use_id: block.id,</span></span>
+<span class="line"><span style="color:#E6EDF3">            content: </span><span style="color:#79C0FF">JSON</span><span style="color:#E6EDF3">.</span><span style="color:#D2A8FF">stringify</span><span style="color:#E6EDF3">(result),</span></span>
+<span class="line"><span style="color:#E6EDF3">          });</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">      messages.</span><span style="color:#D2A8FF">push</span><span style="color:#E6EDF3">({ role: </span><span style="color:#A5D6FF">'assistant'</span><span style="color:#E6EDF3">, content: response.content });</span></span>
+<span class="line"><span style="color:#E6EDF3">      messages.</span><span style="color:#D2A8FF">push</span><span style="color:#E6EDF3">({ role: </span><span style="color:#A5D6FF">'user'</span><span style="color:#E6EDF3">, content: toolResults });</span></span>
+<span class="line"><span style="color:#E6EDF3">    } </span><span style="color:#FF7B72">else</span><span style="color:#E6EDF3"> {</span></span>
+<span class="line"><span style="color:#8B949E">      // No more tool calls, return the final response</span></span>
+<span class="line"><span style="color:#FF7B72">      const</span><span style="color:#79C0FF"> textBlock</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> response.content.</span><span style="color:#D2A8FF">find</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">        (</span><span style="color:#FFA657">block</span><span style="color:#E6EDF3">)</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> block</span><span style="color:#FF7B72"> is</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">TextBlock</span><span style="color:#FF7B72"> =></span><span style="color:#E6EDF3"> block.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'text'</span></span>
+<span class="line"><span style="color:#E6EDF3">      );</span></span>
+<span class="line"><span style="color:#FF7B72">      return</span><span style="color:#E6EDF3"> textBlock?.text;</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">  }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h3 id="with-streaming">With streaming</h3>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF7B72">async</span><span style="color:#FF7B72"> function</span><span style="color:#D2A8FF"> chatStream</span><span style="color:#E6EDF3">(</span><span style="color:#FFA657">userMessage</span><span style="color:#FF7B72">:</span><span style="color:#79C0FF"> string</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> messages</span><span style="color:#FF7B72">:</span><span style="color:#FFA657"> Anthropic</span><span style="color:#E6EDF3">.</span><span style="color:#FFA657">MessageParam</span><span style="color:#E6EDF3">[] </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">    { role: </span><span style="color:#A5D6FF">'user'</span><span style="color:#E6EDF3">, content: userMessage },</span></span>
+<span class="line"><span style="color:#E6EDF3">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> stream</span><span style="color:#FF7B72"> =</span><span style="color:#E6EDF3"> anthropic.messages.</span><span style="color:#D2A8FF">stream</span><span style="color:#E6EDF3">({</span></span>
+<span class="line"><span style="color:#E6EDF3">    model: </span><span style="color:#A5D6FF">'claude-sonnet-5-5'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    max_tokens: </span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">    tools,</span></span>
+<span class="line"><span style="color:#E6EDF3">    messages,</span></span>
+<span class="line"><span style="color:#E6EDF3">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  for</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> (</span><span style="color:#FF7B72">const</span><span style="color:#79C0FF"> event</span><span style="color:#FF7B72"> of</span><span style="color:#E6EDF3"> stream) {</span></span>
+<span class="line"><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> (event.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'content_block_delta'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#FF7B72">      if</span><span style="color:#E6EDF3"> (event.delta.type </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'text_delta'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#E6EDF3">        process.stdout.</span><span style="color:#D2A8FF">write</span><span style="color:#E6EDF3">(event.delta.text);</span></span>
+<span class="line"><span style="color:#E6EDF3">      }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">  const</span><span style="color:#79C0FF"> finalMessage</span><span style="color:#FF7B72"> =</span><span style="color:#FF7B72"> await</span><span style="color:#E6EDF3"> stream.</span><span style="color:#D2A8FF">finalMessage</span><span style="color:#E6EDF3">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E">  // Handle tool use if needed</span></span>
+<span class="line"><span style="color:#FF7B72">  if</span><span style="color:#E6EDF3"> (finalMessage.stop_reason </span><span style="color:#FF7B72">===</span><span style="color:#A5D6FF"> 'tool_use'</span><span style="color:#E6EDF3">) {</span></span>
+<span class="line"><span style="color:#8B949E">    // Process tool calls...</span></span>
+<span class="line"><span style="color:#E6EDF3">  }</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="python-example">Python Example</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> anthropic</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> requests</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> json</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#E6EDF3"> os</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">client </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> anthropic.Anthropic()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">tools </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span></span>
+<span class="line"><span style="color:#E6EDF3">    {</span></span>
+<span class="line"><span style="color:#A5D6FF">        "name"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"verify_email"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">        "description"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"Verify if an email address is valid and deliverable"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">        "input_schema"</span><span style="color:#E6EDF3">: {</span></span>
+<span class="line"><span style="color:#A5D6FF">            "type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"object"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">            "properties"</span><span style="color:#E6EDF3">: {</span></span>
+<span class="line"><span style="color:#A5D6FF">                "email"</span><span style="color:#E6EDF3">: {</span></span>
+<span class="line"><span style="color:#A5D6FF">                    "type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"string"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                    "description"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"The email address to verify"</span></span>
+<span class="line"><span style="color:#E6EDF3">                }</span></span>
+<span class="line"><span style="color:#E6EDF3">            },</span></span>
+<span class="line"><span style="color:#A5D6FF">            "required"</span><span style="color:#E6EDF3">: [</span><span style="color:#A5D6FF">"email"</span><span style="color:#E6EDF3">]</span></span>
+<span class="line"><span style="color:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#E6EDF3">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">def</span><span style="color:#D2A8FF"> verify_email</span><span style="color:#E6EDF3">(email: </span><span style="color:#79C0FF">str</span><span style="color:#E6EDF3">) -> </span><span style="color:#79C0FF">dict</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">    response </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> requests.post(</span></span>
+<span class="line"><span style="color:#A5D6FF">        'https://api.billionverify.com/v1/verify/single'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">        headers</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#A5D6FF">            'BV-API-KEY'</span><span style="color:#E6EDF3">: os.environ[</span><span style="color:#A5D6FF">"BV_API_KEY"</span><span style="color:#E6EDF3">],</span></span>
+<span class="line"><span style="color:#A5D6FF">            'Content-Type'</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">'application/json'</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#E6EDF3">        },</span></span>
+<span class="line"><span style="color:#FFA657">        json</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">{</span><span style="color:#A5D6FF">'email'</span><span style="color:#E6EDF3">: email}</span></span>
+<span class="line"><span style="color:#E6EDF3">    )</span></span>
+<span class="line"><span style="color:#FF7B72">    return</span><span style="color:#E6EDF3"> response.json()[</span><span style="color:#A5D6FF">'data'</span><span style="color:#E6EDF3">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">def</span><span style="color:#D2A8FF"> chat</span><span style="color:#E6EDF3">(user_message: </span><span style="color:#79C0FF">str</span><span style="color:#E6EDF3">) -> </span><span style="color:#79C0FF">str</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">    messages </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [{</span><span style="color:#A5D6FF">"role"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"user"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"content"</span><span style="color:#E6EDF3">: user_message}]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">    response </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client.messages.create(</span></span>
+<span class="line"><span style="color:#FFA657">        model</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">"claude-sonnet-5-5"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">        max_tokens</span><span style="color:#FF7B72">=</span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">        tools</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">tools,</span></span>
+<span class="line"><span style="color:#FFA657">        messages</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">messages</span></span>
+<span class="line"><span style="color:#E6EDF3">    )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> response.stop_reason </span><span style="color:#FF7B72">==</span><span style="color:#A5D6FF"> "tool_use"</span><span style="color:#E6EDF3">:</span></span>
+<span class="line"><span style="color:#E6EDF3">        tool_use </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> next</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">            block </span><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> block </span><span style="color:#FF7B72">in</span><span style="color:#E6EDF3"> response.content</span></span>
+<span class="line"><span style="color:#FF7B72">            if</span><span style="color:#E6EDF3"> block.type </span><span style="color:#FF7B72">==</span><span style="color:#A5D6FF"> "tool_use"</span></span>
+<span class="line"><span style="color:#E6EDF3">        )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">        result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> verify_email(tool_use.input[</span><span style="color:#A5D6FF">"email"</span><span style="color:#E6EDF3">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">        messages.append({</span><span style="color:#A5D6FF">"role"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"assistant"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"content"</span><span style="color:#E6EDF3">: response.content})</span></span>
+<span class="line"><span style="color:#E6EDF3">        messages.append({</span></span>
+<span class="line"><span style="color:#A5D6FF">            "role"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"user"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">            "content"</span><span style="color:#E6EDF3">: [{</span></span>
+<span class="line"><span style="color:#A5D6FF">                "type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"tool_result"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#A5D6FF">                "tool_use_id"</span><span style="color:#E6EDF3">: tool_use.id,</span></span>
+<span class="line"><span style="color:#A5D6FF">                "content"</span><span style="color:#E6EDF3">: json.dumps(result)</span></span>
+<span class="line"><span style="color:#E6EDF3">            }]</span></span>
+<span class="line"><span style="color:#E6EDF3">        })</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E6EDF3">        final_response </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> client.messages.create(</span></span>
+<span class="line"><span style="color:#FFA657">            model</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">"claude-sonnet-5-5"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">            max_tokens</span><span style="color:#FF7B72">=</span><span style="color:#79C0FF">1024</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#FFA657">            tools</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">tools,</span></span>
+<span class="line"><span style="color:#FFA657">            messages</span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3">messages</span></span>
+<span class="line"><span style="color:#E6EDF3">        )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">        return</span><span style="color:#79C0FF"> next</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">            block.text </span><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> block </span><span style="color:#FF7B72">in</span><span style="color:#E6EDF3"> final_response.content</span></span>
+<span class="line"><span style="color:#FF7B72">            if</span><span style="color:#79C0FF"> hasattr</span><span style="color:#E6EDF3">(block, </span><span style="color:#A5D6FF">"text"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#E6EDF3">        )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF7B72">    return</span><span style="color:#79C0FF"> next</span><span style="color:#E6EDF3">(</span></span>
+<span class="line"><span style="color:#E6EDF3">        block.text </span><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> block </span><span style="color:#FF7B72">in</span><span style="color:#E6EDF3"> response.content</span></span>
+<span class="line"><span style="color:#FF7B72">        if</span><span style="color:#79C0FF"> hasattr</span><span style="color:#E6EDF3">(block, </span><span style="color:#A5D6FF">"text"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#E6EDF3">    )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8B949E"># Usage</span></span>
+<span class="line"><span style="color:#E6EDF3">result </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> chat(</span><span style="color:#A5D6FF">"Is john@google.com a valid email?"</span><span style="color:#E6EDF3">)</span></span>
+<span class="line"><span style="color:#79C0FF">print</span><span style="color:#E6EDF3">(result)</span></span></code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="/docs/ai/mcp/">MCP Integration</a>: Use with Claude Desktop and Code</li>
+<li><a href="/docs/ai/sdks/openai/">OpenAI Functions</a>: OpenAI function calling</li>
+<li><a href="/docs/api/">API Reference</a>: Full API documentation</li>
+</ul></div>
+    </article>
+
+    <nav aria-label="On this page" class="hidden pt-6 text-sm xl:sticky xl:top-[72px] xl:block xl:self-start">
+      
+            <p class="mb-2.5 font-bold">On this page</p>
+            <a href="#installation" class="block py-1 text-body hover:text-accent">
+                Installation
+              </a><a href="#basic-setup" class="block py-1 text-body hover:text-accent">
+                Basic Setup
+              </a><a href="#implementation" class="block py-1 text-body hover:text-accent">
+                Implementation
+              </a><a href="#python-example" class="block py-1 text-body hover:text-accent">
+                Python Example
+              </a><a href="#next-steps" class="block py-1 text-body hover:text-accent">
+                Next Steps
+              </a>
+          
+    </nav>
+  </div>
+
+  <script type="module">
+    const input = document.getElementById('docs-search');
+    const results = document.getElementById('docs-results');
+    let pagefind;
+
+    input.addEventListener('input', async () => {
+      pagefind ??= await import('/pagefind/pagefind.js');
+      const query = input.value.trim();
+      if (!query) {
+        results.hidden = true;
+        return;
+      }
+      const search = await pagefind.search(query);
+      const items = await Promise.all(search.results.slice(0, 6).map((result) => result.data()));
+      results.replaceChildren(
+        ...items.map((item) => {
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.meta.title;
+          link.className = 'block rounded-md px-2 py-1.5 font-medium hover:bg-white';
+          return link;
+        }),
+      );
+      results.hidden = items.length === 0;
+    });
+  </script>
+</main>
+    <footer class="mt-16 border-t border-line pt-10 pb-10 text-sm">
+  <div class="mx-auto max-w-[1200px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Product
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/pricing?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Pricing
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/features?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Features
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-verification?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Verification
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whitelabel?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Whitelabel Service
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Email Verify Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-validator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Validator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/validate-email-address?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Validate Email Address
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/free-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Free Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-spam-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Spam Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/disposable-email-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Disposable Email Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bounce-email-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bounce Email Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/catch-all-verifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Catch-All Verifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/role-account-detection?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Role Account Detection
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-list-cleaning?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email List Cleaning
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/wordpress?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WordPress Plugin
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Find Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/bulk-email-finder?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Bulk Email Finder
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/company-search?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Company Search
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-extractor?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Extractor
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Free Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/spf-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Record Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-generator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/mx-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MX Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/spf-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        SPF Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dkim-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DKIM Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dmarc-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DMARC Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/dns-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        DNS Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blacklist-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blacklist Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/ip-reputation-checker?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        IP Reputation Checker
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/whois-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        WHOIS Lookup
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/verify-phone-numbers?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Phone Number Validator
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/email-deliverability-test?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Deliverability Test
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-header-analyzer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Header Analyzer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-bounce-rate-calculator?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Bounce Rate Calculator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/reverse-email-lookup?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Reverse Email Lookup
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Content Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/linkedin-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Video Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/linkedin-carousel-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        LinkedIn Carousel Downloader
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/twitter-video-downloader?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Twitter Video Downloader
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Agent Tools
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/mcp?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        MCP Server
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/agent-skills?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Agent Skills
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Use Cases
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/google-maps?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Google Maps Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/cold-email?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Cold Email Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-leads?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Leads Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/local-business?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Local Business Database
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/b2b-agency?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        B2B Agency Database
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/vs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Comparisons <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/best-email-verification-tools?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification Tools
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-validation-service?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Validation Service
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/best-email-verification-api?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Best Email Verification API
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/neverbounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to NeverBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/zerobounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to ZeroBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/hunter?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Hunter
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/bouncer?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Bouncer
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/kickbox?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Kickbox
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emaillistverify?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to EmailListVerify
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/verifalia?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Verifalia
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/debounce?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to DeBounce
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/millionverifier?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to MillionVerifier
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/emailable?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Emailable
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/snov?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Snov.io
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/findymail?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Findymail
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/vs/validity?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Alternative to Validity
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div><div class="min-w-0 space-y-6">
+            <div>
+                <p class="text-xs font-semibold">
+                  Email Guides
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/glossary?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Glossary
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/guides?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Verify Guides
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/email-marketing-bible?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Email Marketing Bible
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/benchmark?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Market Report 2026
+                      </a>
+                      <span class="ml-1 rounded bg-tint px-1.5 py-0.5 text-[11px] font-semibold text-accent">New</span>
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  Resources
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://billionverify.com/about?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        About
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/blog?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Blog
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/docs?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Docs
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/integrations?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Integrations
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/faq?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        FAQ
+                      </a>
+                      
+                    </li><li>
+                      <a href="mailto:support@billionverify.com" class="text-muted hover:text-ink hover:underline">
+                        Contact
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://billionverify.com/help?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="text-muted hover:text-ink hover:underline">
+                        Help Center
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  <a href="https://billionverify.com/partners?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:underline">
+                      Partners <span aria-hidden="true">→</span>
+                    </a>
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://markitdown.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Markitdown AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://mapleads.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        MapLeads.ai
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div><div>
+                <p class="text-xs font-semibold">
+                  AI Video Partners
+                </p>
+                <ul class="mt-2 space-y-1.5">
+                  <li>
+                      <a href="https://potto.ai/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Potto AI
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://transcript.im/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        YouTube Transcript Generator
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://aitinydeskmeme.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        AI Tiny Desk Meme
+                      </a>
+                      
+                    </li><li>
+                      <a href="https://ohyoucanmakeitcapai.com/?utm_source=billionverify.github.io&amp;utm_medium=footer" class="text-muted hover:text-ink hover:underline">
+                        Oh You Can Make It Cap AI
+                      </a>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+    </div>
+
+    <div class="mt-10 border-t border-line pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a href="https://billionverify.com/?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" aria-label="BillionVerify">
+          <img src="/logo-text.svg" alt="BillionVerify" width="182" height="40" class="h-10 w-auto" loading="lazy">
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/company/billionverify" aria-label="LinkedIn">
+                <img src="/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" loading="lazy">
+              </a><a href="https://github.com/billionverify" aria-label="GitHub">
+                <img src="/icons/github.svg" alt="GitHub" width="20" height="20" loading="lazy">
+              </a><a href="https://chromewebstore.google.com/detail/email-extractor-by-billio/fplaepdipjjpkngejlakmcjkokghhndj" aria-label="Chrome">
+                <img src="/icons/chrome.svg" alt="Chrome" width="20" height="20" loading="lazy">
+              </a><a href="https://addons.mozilla.org/en-US/firefox/addon/email-extractor-emailverify-ai/" aria-label="Firefox">
+                <img src="/icons/firefox.svg" alt="Firefox" width="20" height="20" loading="lazy">
+              </a><a href="https://wordpress.org/plugins/billionverify-email-validator/" aria-label="WordPress">
+                <img src="/icons/wordpress.svg" alt="WordPress" width="20" height="20" loading="lazy">
+              </a>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap justify-between gap-4 text-muted">
+        <div class="space-y-1">
+          <p>Verify emails in real-time with live SMTP checks.</p><p>Trusted by 10,000+ businesses worldwide.</p>
+          <p>Contact: <a href="mailto:support@billionverify.com" class="hover:text-ink hover:underline">support@billionverify.com</a></p>
+        </div>
+        <div class="space-y-1 sm:text-right">
+          <p>© Copyright 2026 BillionVerify. All Rights Reserved.</p>
+          <p class="flex flex-wrap gap-x-5 sm:justify-end">
+            <a href="https://billionverify.com/trust?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Trust Center</a><a href="https://billionverify.com/privacy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Privacy Policy</a><a href="https://billionverify.com/terms?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Terms of Service</a><a href="https://billionverify.com/cookie-policy?utm_source=billionverify.github.io&amp;utm_medium=referral&amp;utm_campaign=content-site&amp;utm_content=footer" class="hover:text-ink hover:underline">Cookie Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    <script type="module">document.querySelectorAll(`[data-code-tabs]`).forEach(e=>{let t=[...e.querySelectorAll(`:scope > [data-tab]`)],n=document.createElement(`div`);n.className=`code-tabs-bar`,n.setAttribute(`role`,`tablist`),t.forEach((e,r)=>{let i=document.createElement(`button`);i.type=`button`,i.role=`tab`,i.textContent=e.dataset.tab??``,i.setAttribute(`aria-selected`,String(r===0)),e.hidden=r!==0,i.addEventListener(`click`,()=>{t.forEach((e,t)=>{e.hidden=t!==r,n.children[t].setAttribute(`aria-selected`,String(t===r))})}),n.append(i)}),e.prepend(n),e.classList.add(`is-ready`)}),document.querySelectorAll(`.prose-bv pre, pre.code`).forEach(e=>{let t=document.createElement(`div`);t.className=`code-block`,e.replaceWith(t),t.append(e);let n=document.createElement(`button`);n.type=`button`,n.className=`code-copy`,n.textContent=`Copy`,n.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(e.innerText),n.textContent=`Copied`,setTimeout(()=>n.textContent=`Copy`,1500)}),t.append(n)});</script>
+  </body>
+</html>
