@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/php/
 
 The PHP SDK is a thin client built on Guzzle. Methods return the decoded JSON response as a PHP array, so results are read as `$result['data']['status']`. The SDK has no Laravel package; the Laravel section below shows how to wire the client into an app yourself.
 
+Try one address first with [BillionVerify's no-sign-up checker](https://billionverify.com/email-checker).
+
 ## Installation
 
 ```bash
@@ -268,6 +270,8 @@ try {
 ```
 
 The SDK retries 429, 500, 502 and 503 responses with exponential backoff (`2^attempt` seconds, or the `Retry-After` header on 429) before it throws. `retries` is the maximum number of attempts, including the first one.
+
+To compare a Laravel result with the website, run the same address through [billionverify.com's verifier](https://billionverify.com/email-verifier).
 
 ## Laravel Integration
 
@@ -666,4 +670,4 @@ function safeVerify(Client $client, string $email): ?array
 ## Next Steps
 
   - [API Reference](/docs/api/): Detailed API documentation
-  - [Laravel Integration](https://billionverify.com/docs/integration-guides/web-frameworks/laravel): Advanced Laravel patterns
+  - Laravel Integration: Advanced Laravel patterns

@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/sdks/anthropic/
 
 Use BillionVerify directly with Anthropic's Claude models through their native tool use feature.
 
+While you build the tool, the [email checker tool](https://billionverify.com/email-checker) on the website gives you a reference result for one address.
+
 ## Installation
 
 ```bash
@@ -253,6 +255,8 @@ async function chatWithMultipleTools(userMessage: string) {
   }
 }
 ```
+
+When a tool call returns something unexpected, run the same address through [the BillionVerify Email Verifier page](https://billionverify.com/email-verifier) and compare the status.
 
 ### With streaming
 

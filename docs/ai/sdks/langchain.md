@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/sdks/langchain/
 
 Integrate email verification as a custom tool in LangChain for both Python and JavaScript/TypeScript.
 
+To [find out if an address can receive mail](https://billionverify.com/email-checker) before you build the agent, try one on the BillionVerify site.
+
 ## Python
 
 ### Installation
@@ -152,6 +154,8 @@ def verify_email(email: str) -> dict:
     except requests.exceptions.RequestException as e:
         return {'error': f'Request failed: {str(e)}'}
 ```
+
+While you test the error paths, [the verifier at billionverify.com](https://billionverify.com/email-verifier) shows what a clean result looks like for one address.
 
 ## JavaScript/TypeScript
 

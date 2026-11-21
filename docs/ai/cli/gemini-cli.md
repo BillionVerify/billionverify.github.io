@@ -12,6 +12,8 @@ Gemini CLI brings Google's Gemini AI models to your terminal for:
 - File operations and analysis
 - API interactions
 
+Before you ask Gemini to run anything, you can [paste an address and check it](https://billionverify.com/email-checker) on the website to see what a result looks like.
+
 ## Setup
 
 ### Install BillionVerify CLI
@@ -151,6 +153,8 @@ Recommendations:
 - Remove 2 invalid emails
 - Consider if you want role-based addresses (info@, support@)
 ```
+
+To [confirm a contact's address still works](https://billionverify.com/email-verifier) by hand, you can also check one address in the free verifier.
 
 ## Shell Functions
 

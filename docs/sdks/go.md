@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/go/
 
 The Go SDK is a small client built on the standard library only (`net/http`). It requires Go 1.21 or later, and every call takes a `context.Context`. The client is safe to share between goroutines.
 
+If you want to [check an address from a lead list](https://billionverify.com/email-checker) before you write Go code for it, the free checker page takes one address at a time.
+
 ## Installation
 
 ```bash
@@ -334,6 +336,8 @@ func verifyEmails(ctx context.Context, client *billionverify.Client, emails []st
 ```
 
 Failed emails leave a `nil` entry in the slice.
+
+When a lead looks suspicious, [verify the address before you reply](https://billionverify.com/email-verifier) in the free single-address verifier to see its status and flags.
 
 ### With Worker Pool
 
@@ -726,4 +730,3 @@ func init() {
 ## Next Steps
 
   - [API Reference](/docs/api/): Detailed API documentation
-  - [Integration Guides](https://billionverify.com/docs/integration-guides): Platform integrations

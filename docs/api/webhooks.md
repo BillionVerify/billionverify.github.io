@@ -128,6 +128,8 @@ DELETE /webhooks/{webhook_id}
 
 Delivery is at-least-once, so the same event can arrive more than once. Respond with any `2xx` status to confirm it. Other responses and timeouts (30 seconds) count as failures, and the delivery is retried with a growing delay for about 24 hours.
 
+While you wait for a file job to finish, you can look at a single suspicious address with [the free BillionVerify checker](https://billionverify.com/email-checker).
+
 ## Webhook Payload
 
 ```json
@@ -222,3 +224,5 @@ def verify_webhook_signature(raw_body: bytes, timestamp: str, signature: str, se
     ).hexdigest()
     return hmac.compare_digest(signature, expected)
 ```
+
+Webhooks only announce file jobs. For a single address, [BillionVerify's web verifier](https://billionverify.com/email-verifier) returns the result on the page right away.

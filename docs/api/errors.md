@@ -16,6 +16,8 @@ Canonical page: https://billionverify.github.io/docs/api/errors/
 
 New verifications no longer return `risky`. The blocklist check behind it was removed on 2026-09-11, and `risky` never means "retry later". A check that could not finish is returned as `unknown`, which is not charged.
 
+If a status in your logs looks surprising, you can try the same address in [BillionVerify's address checker](https://billionverify.com/email-checker) and compare the status and flags.
+
 ## Error Codes
 
 Every error response has `success: false`, a numeric string in `code`, and the same code in `error.code`. Branch on `code`, not on the message text.
@@ -74,3 +76,5 @@ const apiKey = process.env.BV_API_KEY;
 ### 3. Prefer Webhooks for File Jobs
 
 Polling is supported, but webhooks are a better fit for long-running file verification workflows.
+
+Before you decide how to handle an unknown result, you can [test whether an address is deliverable](https://billionverify.com/email-verifier) in the free single-address verifier and see how the status looks there.

@@ -1,18 +1,18 @@
 # BillionVerify
 
-> Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.
+> Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, developer guides and market benchmark.
 
-- Type: API and SDK documentation, guides and market benchmark for BillionVerify, an email verification service
-- Free credits: 20 credits every day you use your account, up to 600 a month; they never expire; no credit card
-- Billing: valid and invalid results use 1 credit each; unknown results cost nothing
-- Last updated: 2026-10-31
+- Type: API and SDK documentation, developer guides and a market benchmark for BillionVerify, an email verification service
+- Publisher: BillionVerify (https://billionverify.com/), an email verification service
+- Free checks: the BillionVerify Email Checker and Email Verifier on billionverify.com each check one address with a live SMTP check, 20 times per IP every 24 hours, with no sign-up
+- Last updated: 2026-11-21
 
 Every page has a Markdown version: add .md to the path without the trailing slash. The home page is /index.md.
 
 This site is in English only.
 
-- [Docs](https://billionverify.github.io/docs/): API reference and SDK guides
-- [Guides](https://billionverify.github.io/guides/): short summaries that link to the full articles on billionverify.com
+- [Docs](https://billionverify.github.io/docs/): API reference, SDKs and AI integrations
+- [Guides](https://billionverify.github.io/guides/): temp mail, disposable email detection and verification in code
 - [Benchmark](https://billionverify.github.io/benchmark/): 19 email verification services compared
 
 ## Discovery

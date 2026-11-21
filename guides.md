@@ -2,6 +2,7 @@
 
 Canonical page: https://billionverify.github.io/guides/
 
+- [Check an Email Address from the Command Line](https://billionverify.github.io/guides/check-email-from-command-line/): One curl call to the BillionVerify API, the six fields that matter, and what to do with each status.
 - [Temp Mail in Plain Words: A Short Guide](https://billionverify.github.io/guides/temp-mail/): A free inbox with no sign-up that disappears on a timer. How it works, where it fails and why sites block it.
 - [10 Minute Mail: How Timed Inboxes Differ](https://billionverify.github.io/guides/10-minute-mail/): 10 Minute Mail deletes your address after ten minutes. See how other timed inboxes compare on lifespan and privacy.
 - [YOPmail, Guerrilla Mail and Mailinator Side by Side](https://billionverify.github.io/guides/yopmail-guerrilla-mail-mailinator/): Three of the oldest free inbox sites, compared on privacy, retention and sending, from their own pages.

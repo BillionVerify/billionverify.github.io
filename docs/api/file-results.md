@@ -16,6 +16,8 @@ GET /verify/file/{job_id}/results
 - With filters, the endpoint returns a generated CSV directly.
 - Filters are combined with OR semantics.
 
+When a row in the downloaded file looks wrong, paste that address into the [free online email checker](https://billionverify.com/email-checker) to see how it checks out on its own.
+
 ### Query parameters
 
 | Parameter    | Type    | Description               |
@@ -35,3 +37,5 @@ curl -L -o filtered-results.csv \
   "https://api.billionverify.com/v1/verify/file/{job_id}/results?valid=true&catchall=true&role=true" \
   -H "BV-API-KEY: sk_xxx"
 ```
+
+For a quick second look at one address from the file, open [BillionVerify's address verifier](https://billionverify.com/email-verifier). It takes one address at a time.

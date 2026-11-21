@@ -53,6 +53,8 @@ const verifyEmailTool = {
 };
 ```
 
+To see what the tool should return, compare it with [the BillionVerify Email Checker page](https://billionverify.com/email-checker) for the same address.
+
 ## Best Practices
 
 ### 1. Error Handling
@@ -160,6 +162,8 @@ async function verifyWithCache(email: string) {
   return result;
 }
 ```
+
+When you test the cache, [verify a sign-up address by hand](https://billionverify.com/email-verifier) first so you know what the cached value should look like.
 
 ## Next Steps
 

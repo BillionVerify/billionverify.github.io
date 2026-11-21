@@ -14,6 +14,8 @@ Syntax and DNS checks alone cannot tell whether a mailbox exists. The BillionVer
 
 Running this yourself needs outbound port 25, which many cloud providers restrict. With the API, the checks run on BillionVerify's servers and your agent only makes an HTTPS call.
 
+To see what the agent will get back, [check an address for disposable and role flags](https://billionverify.com/email-checker) on the website first. It runs a live SMTP check on one address.
+
 ## What are Agent Skills?
 
 Agent Skills are modular, reusable components that give AI agents specific capabilities:
@@ -40,10 +42,12 @@ The skill calls the REST API with `curl`, so the agent needs shell access and th
 export BILLIONVERIFY_API_KEY=your_api_key_here
 ```
 
-- **ClawHub**: [clawhub.ai/billionverifier/billionverify-skill](https://clawhub.ai/billionverifier/billionverify-skill)
+- **ClawHub**: clawhub.ai/billionverifier/billionverify-skill
 - **GitHub**: [github.com/BillionVerify/billionverify-skill](https://github.com/BillionVerify/billionverify-skill)
 
 On ChatGPT web and claude.ai, the hosted [MCP server](/docs/ai/mcp/) is simpler: it signs in with OAuth and needs no API key.
+
+If you only want to look at one address yourself, [billionverify.com/email-verifier](https://billionverify.com/email-verifier) takes one at a time and needs no API key.
 
 ## Supported Agent Frameworks
 

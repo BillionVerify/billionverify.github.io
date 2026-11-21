@@ -7,12 +7,12 @@ This guide walks you through verifying your first email address with the Billion
 ## Prerequisites
 
 Before you begin, you'll need:
-- A BillionVerify account ([Sign up](https://billionverify.com/auth/sign-up))
+- A BillionVerify account
 - Familiarity with HTTP requests or one of the supported SDK languages
 
 ## Step 1: Create an Account
 
-1. Go to [BillionVerify](https://billionverify.com/auth/sign-up)
+1. Create a BillionVerify account
 2. Sign up and confirm your email address
 
 ## Step 2: Get Your API Key
@@ -210,6 +210,8 @@ A successful verification returns a response like this:
 
 `unknown` results and addresses with invalid syntax are not charged.
 
+Before you run any code, the [free email checker](https://billionverify.com/email-checker) lets you look at a real result for one address, with no account needed.
+
 ## Step 5: Use an SDK (Recommended)
 
 For easier integration, install one of our official SDKs:
@@ -302,7 +304,6 @@ Now that you've verified your first email, explore more features:
 
   - [API Reference](/docs/api/): Complete API documentation with all endpoints
   - [SDK Documentation](/docs/sdks/): Detailed guides for each SDK
-  - [Verification Types](https://billionverify.com/docs/product/verification-types): Understand different result types
   - [Verification Reasons](/docs/verification-reasons/): What each `reason` value means
   - [AI Integration](/docs/ai/): Use the API from Claude, ChatGPT and other AI tools
 
@@ -322,6 +323,8 @@ const onEmailBlur = async (email) => {
   }
 };
 ```
+
+To [prove a mailbox can accept mail](https://billionverify.com/email-verifier) by hand before you build the form, run one address through the free single-address verifier first.
 
 ### List Cleaning
 Check each address before sending a campaign. For long lists, [upload a file](/docs/api/upload-file/) instead of looping over single requests:
@@ -352,5 +355,4 @@ const qualifyLead = (result) => {
 
 ## Need Help?
 
-- Browse our [Integration Guides](https://billionverify.com/docs/integration-guides) for implementation examples
 - Contact [support@billionverify.com](mailto:support@billionverify.com) for assistance

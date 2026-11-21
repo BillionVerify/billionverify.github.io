@@ -6,6 +6,8 @@ Canonical page: https://billionverify.github.io/docs/api/
 
 The BillionVerify API is a REST API for single email verification, synchronous batch checks, asynchronous file jobs, credit balance and webhooks. Use HTTPS for all requests.
 
+Before you send your first request, you can try one address by hand on [BillionVerify's checker page](https://billionverify.com/email-checker).
+
 ## Base URL
 
 ```text
@@ -16,8 +18,8 @@ https://api.billionverify.com/v1
 
 The canonical machine-readable contract is available here:
 
-- **OpenAPI YAML**: [https://api.billionverify.com/openapi.yaml](https://api.billionverify.com/openapi.yaml)
-- **Interactive API Docs**: [https://api.billionverify.com/docs](https://api.billionverify.com/docs)
+- **OpenAPI YAML**: `https://api.billionverify.com/openapi.yaml`
+- **Interactive API Docs**: `https://api.billionverify.com/docs`
 
 ## Authentication
 
@@ -35,7 +37,7 @@ These forms are accepted:
 
 If a request carries more than one, `BILLIONVERIFY-API-KEY` is read first, then `BV-API-KEY`, then the `Authorization` header.
 
-> Get your API key from the [BillionVerify dashboard](https://billionverify.com/auth/sign-in?next=/home).
+> Get your API key from the BillionVerify dashboard.
 
 ### Example
 
@@ -108,3 +110,5 @@ Error responses use the same envelope. `code` is a numeric string, and `error.co
 ```
 
 See [Status and Error Codes](/docs/api/errors/) for the full list.
+
+To [check that an address is valid](https://billionverify.com/email-verifier) by hand and compare it with the API output, paste it into the free single-address verifier.

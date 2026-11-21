@@ -63,6 +63,8 @@ After the connection is approved, you can ask for things like:
 - `Show my recent verification history`
 - `Get a download link for only valid emails from job 36f68e67-ddcb-441a-a407-22f826e72443`
 
+To [spot-check a few addresses](https://billionverify.com/email-checker) before you connect a client, use the website page, which takes one address at a time.
+
 ## Connect From Other MCP Clients
 
 Any MCP client that supports:
@@ -136,6 +138,8 @@ The self-hosted server exposes the same 11 tool names. Its tools also accept an 
 ### Single Email Verification
 
 > `Verify john@google.com`
+
+You can compare the answer with [BillionVerify's online verifier](https://billionverify.com/email-verifier), which checks one address on the web.
 
 ### Batch Verification
 

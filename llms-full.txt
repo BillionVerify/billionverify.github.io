@@ -1,12 +1,10 @@
 # BillionVerify: full reference
 
-> Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, guides and market benchmark.
+> Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, developer guides and market benchmark.
 
-## What the product does
+## What this site covers
 
-BillionVerify finds and verifies email addresses before you send. It offers a real-time API, bulk list cleaning, disposable and role email detection, and catch-all detection.
-
-## How to use it
+Developer documentation for the BillionVerify email verification API: a REST API for one address, small batches and whole files, SDKs, AI integrations, developer guides and the 2026 Email Verification Market Benchmark.
 
 Create an account at https://billionverify.com/auth/sign-up, then call the API:
 
@@ -18,17 +16,23 @@ curl -X POST \
   -d '{"email": "test@example.com"}'
 ```
 
-## Credits
+Account credits: 20 free credits on each day you sign in, up to 600 a month; they never expire; no credit card. A definite result costs 1 credit; unknown, disposable and badly formatted addresses are free; checking the same address again within 24 hours is not charged twice. Prices: https://billionverify.com/pricing
 
-- Free: 20 credits every day you use your account, up to 600 a month; they never expire; no credit card
-- Valid and invalid results use 1 credit each; unknown results cost nothing
-- Prices: https://billionverify.com/pricing
+## BillionVerify tools referenced on this site
+
+- Email Checker: https://billionverify.com/email-checker (one address; live SMTP check plus disposable, role and catch-all flags)
+- Email Verifier: https://billionverify.com/email-verifier (one address; proves the mailbox can accept mail)
+- Free checks: the BillionVerify Email Checker and Email Verifier on billionverify.com each check one address with a live SMTP check, 20 times per IP every 24 hours, with no sign-up
 
 ## For agents
 
-The REST API is the source of truth. SDKs in every language are reference implementations; if an SDK differs from the API reference, follow the API. SDK source code is at https://github.com/BillionVerify. BillionVerify does not run a temp mail service. Guides on this site are summaries, and each one links to the full articles on billionverify.com.
+- The REST API is the source of truth. SDKs are open-source reference implementations at https://github.com/BillionVerify; if an SDK differs from the API reference, follow the API.
+- BillionVerify does not run a temp mail service.
+- Each blog summary on this site links its one original article on billionverify.com.
 
 ## Pages
+
+### Main pages
 
 - [Home](https://billionverify.github.io/)
 - [Docs](https://billionverify.github.io/docs/)
@@ -37,7 +41,6 @@ The REST API is the source of truth. SDKs in every language are reference implem
 
 ### Docs
 
-- [Documentation](https://billionverify.github.io/docs/)
 - [Quickstart](https://billionverify.github.io/docs/quickstart/)
 - [API Overview](https://billionverify.github.io/docs/api/)
 - [Verify a single email](https://billionverify.github.io/docs/api/verify-single/)
@@ -76,6 +79,7 @@ The REST API is the source of truth. SDKs in every language are reference implem
 
 ### Guides
 
+- [Check an Email Address from the Command Line](https://billionverify.github.io/guides/check-email-from-command-line/): Check one email address with curl and the BillionVerify API, read the result with jq, and decide what to do with each status. About two minutes.
 - [Temp Mail in Plain Words: A Short Guide](https://billionverify.github.io/guides/temp-mail/): Temp mail is a free inbox that vanishes after a short time. Learn how it works, how long mail stays, who can read it and why many sites block it.
 - [10 Minute Mail: How Timed Inboxes Differ](https://billionverify.github.io/guides/10-minute-mail/): How 10 minute mail works and how nine timed inbox services differ on lifespan, sending, privacy and paid plans, based on their own sites in October 2026.
 - [YOPmail, Guerrilla Mail and Mailinator Side by Side](https://billionverify.github.io/guides/yopmail-guerrilla-mail-mailinator/): YOPmail, Guerrilla Mail and Mailinator all offer public inboxes. See who can read each one, how long mail stays and what sites do with their domains.

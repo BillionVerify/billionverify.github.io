@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/java/
 
 The Java SDK is a small client built on OkHttp and Jackson. Responses are Java records. All methods are blocking and throw the checked `BillionVerifyException`. The SDK has no Spring Boot starter; the Spring Boot section below shows how to register the client as a bean yourself.
 
+For a one-off look at an address, [billionverify.com's checker](https://billionverify.com/email-checker) needs no sign-up.
+
 ## Installation
 
 The Java SDK is not published to a package registry. Build it from [source on GitHub](https://github.com/BillionVerify/billionverify-java), then add it to your project.
@@ -346,6 +348,8 @@ try {
 ```
 
 The SDK retries 429, 500, 502 and 503 responses with exponential backoff before it throws. `retries` is the maximum number of attempts, including the first one.
+
+You can also [check that an address will not bounce](https://billionverify.com/email-verifier) by hand in the free verifier, which is handy when you debug a Spring Boot flow.
 
 ### Custom Exception Handler
 
@@ -739,4 +743,3 @@ try (BillionVerifyClient client = BillionVerifyClient.builder(apiKey).build()) {
 ## Next Steps
 
   - [API Reference](/docs/api/): Detailed API documentation
-  - [Integration Guides](https://billionverify.com/docs/integration-guides): Platform integrations

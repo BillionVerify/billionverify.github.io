@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/node/
 
 The Node.js SDK is a small TypeScript client for the BillionVerify API. It requires Node.js 18 or later (it uses the built-in `fetch`) and ships both ESM and CommonJS builds with type definitions.
 
+To [check whether a contact's email still works](https://billionverify.com/email-checker) before you script it, use the free page for one address.
+
 ## Installation
 
 ```bash
@@ -309,6 +311,8 @@ const client = new BillionVerify({
 });
 ```
 
+For a manual comparison of one address with your script's output, use an [SMTP email verifier](https://billionverify.com/email-verifier) on the website.
+
 ## Framework Integration
 
 ### Express.js
@@ -476,4 +480,3 @@ const result: VerifyResponse = await client.verify('user@example.com');
 ## Next Steps
 
   - [API Reference](/docs/api/): Detailed API endpoint documentation
-  - [Integration Guides](https://billionverify.com/docs/integration-guides): Platform integrations

@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/python/
 
 The Python SDK has a synchronous client (`BillionVerify`) and an asynchronous client (`AsyncBillionVerify`), both built on `httpx`. It requires Python 3.8 or later.
 
+To [check if an address will bounce](https://billionverify.com/email-checker) before you write the call, the free page checks one address with no account.
+
 ## Installation
 
 ```bash
@@ -328,6 +330,8 @@ client = BillionVerify(
 )
 ```
 
+When a script result surprises you, check the address in [BillionVerify's no-sign-up verifier](https://billionverify.com/email-verifier) and compare the status.
+
 ## Framework Integration
 
 ### Django
@@ -602,4 +606,3 @@ def process_verification(result: VerificationResult) -> Optional[str]:
 ## Next Steps
 
   - [API Reference](/docs/api/): Detailed API endpoint documentation
-  - [Integration Guides](https://billionverify.com/docs/integration-guides): Platform integrations

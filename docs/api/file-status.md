@@ -24,6 +24,8 @@ GET /verify/file/{job_id}
 - `result_file_url` and `result_file_path` are **not** part of the public API contract.
 - `result_download_available` tells you whether the result file can be downloaded. `result_download_expires_at` is currently always `null`.
 
+While a job is still running, you can [check a suspicious address](https://billionverify.com/email-checker) from the file on the website without waiting for the results.
+
 ## Response
 
 ```json
@@ -92,3 +94,5 @@ Some fields appear only in certain states. For example `download_url` and the do
 | `completed_with_warning` | Job finished, but with warnings  |
 | `failed`                 | Job failed                       |
 | `cancelled`              | Job was cancelled                |
+
+To [confirm an inbox exists](https://billionverify.com/email-verifier) for one address in the file, use the free single-address verifier.

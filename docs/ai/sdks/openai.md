@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/sdks/openai/
 
 Integrate BillionVerify directly with OpenAI's function calling API for GPT models.
 
+For a single address, [the checker at billionverify.com](https://billionverify.com/email-checker) gives you a result to compare with your first function call.
+
 ## Installation
 
 ```bash
@@ -179,6 +181,8 @@ const tools: OpenAI.ChatCompletionTool[] = [
   },
 ];
 ```
+
+You can [check if a mailbox accepts mail](https://billionverify.com/email-verifier) by hand with the free single-address verifier, which helps when you test what each tool should return.
 
 ### With streaming
 

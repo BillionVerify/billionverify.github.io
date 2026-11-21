@@ -31,6 +31,8 @@ GET  /verify/disposable?email=user@example.com
 - A malformed address returns a `400` error, not `is_disposable: false`.
 - It only answers whether the domain is on the disposable list. It does not check that the mailbox exists. Use `/verify/single` for that.
 
+This endpoint only reads the disposable list. To [check an address for catch-all risk](https://billionverify.com/email-checker) or to see the role flag next to the disposable flag, use the free checker on the website for one address.
+
 ## Response
 
 ```json
@@ -55,3 +57,5 @@ GET  /verify/disposable?email=user@example.com
 | `domain`        | string  | Domain portion of the email (ASCII / Punycode)          |
 | `is_disposable` | boolean | `true` if the domain is a known disposable provider     |
 | `checked_at`    | string  | UTC timestamp of the check (RFC 3339)                   |
+
+For a quick look at one address with a live SMTP check, [BillionVerify's verification tool](https://billionverify.com/email-verifier) is free to use without signing up.

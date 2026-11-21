@@ -71,6 +71,8 @@ billionverify credits
 
 `--no-smtp` skips the SMTP check on `verify`. `download` accepts `--valid`, `--invalid`, `--catchall`, `--role`, `--unknown`, `--disposable` and `--risky`.
 
+The SMTP check is on by default. To see that check on one address first, open [BillionVerify's verifier page](https://billionverify.com/email-verifier).
+
 ### Output Formats
 
 **Human-readable (default):**
@@ -103,6 +105,8 @@ billionverify verify user@example.com --json
 ```
 
 The JSON output is the `data` object returned by the API, so it may contain more fields than shown here.
+
+To compare a CLI result with a browser result for one address, use [the checker on billionverify.com](https://billionverify.com/email-checker).
 
 ### Exit Codes
 

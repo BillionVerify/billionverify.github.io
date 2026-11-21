@@ -30,6 +30,8 @@ Sending more than 50 emails returns HTTP `400` with code `3103`. Use [file uploa
 
 Billing is the same as for single verification: `unknown` results, addresses with invalid syntax and known disposable domains are not charged. Disposable domains are charged only when you explicitly send `check_smtp: true` and the SMTP check returns a definite result. Every other status costs 1 credit.
 
+Use the free web page to [test an address before the first send](https://billionverify.com/email-checker) when you want one quick result without building a batch.
+
 ## Response
 
 ```json
@@ -76,3 +78,5 @@ Each item in `results` has the same fields as a [single verification](/docs/api/
 `deliverability_buckets` groups the results: `strict_deliverable` is valid plus role, `usable_with_catchall` adds catch-all, `not_deliverable` is invalid plus disposable, and `unknown` counts the unknown results. `anti_verified` and `transient_failure` are subsets of `unknown`.
 
 The response can also include `retryable_emails` (addresses worth retrying with `force_refresh`), `deferred_emails` and `retry_after_seconds`. They are omitted when empty.
+
+If one result in a batch looks wrong, you can [verify a suspicious address](https://billionverify.com/email-verifier) on its own in the free single-address tool.

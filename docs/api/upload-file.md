@@ -26,6 +26,8 @@ POST /verify/file
 - Credits are reserved for the unique email addresses in the file. If your balance is too low, the upload returns `402` with code `3000`.
 - Small files are parsed during the request and the response includes the email counts. Large files are accepted with `status` set to `preparing` and no counts. Poll the status URL for the counts.
 
+The web page for a single address is a separate tool and cannot take a file. If you only need to look at one address from your list first, use [BillionVerify's web checker](https://billionverify.com/email-checker).
+
 ## Response
 
 ```json
@@ -48,3 +50,5 @@ POST /verify/file
   }
 }
 ```
+
+For one-off lookups, an [email address verifier](https://billionverify.com/email-verifier) on the website checks a single address by hand without an account.

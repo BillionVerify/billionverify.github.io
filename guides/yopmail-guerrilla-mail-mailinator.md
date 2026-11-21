@@ -2,7 +2,7 @@
 
 Canonical page: https://billionverify.github.io/guides/yopmail-guerrilla-mail-mailinator/
 
-YOPmail, Guerrilla Mail and Mailinator are three of the oldest [free inbox sites](https://billionverify.com/blog/what-is-temp-mail). None needs an account for basic use. You type a name, or the site picks one, and mail starts to arrive. The facts below come from each service's own site, read in October 2026.
+YOPmail, Guerrilla Mail and Mailinator are three of the oldest free inbox sites. None needs an account for basic use. You type a name, or the site picks one, and mail starts to arrive. The facts below come from each service's own site, read in October 2026.
 
 **Key facts (checked October 2026):**
 
@@ -15,7 +15,7 @@ YOPmail, Guerrilla Mail and Mailinator are three of the oldest [free inbox sites
 
 A public inbox has no owner. There is no account, so there is no password to check. Whoever types the same name sees the same mail.
 
-Each service says so in its own words. [YOPmail](https://yopmail.com/en/) says its "inboxes are public and password free." [Guerrilla Mail](https://www.guerrillamail.com/about) says "anyone who knows your Inbox ID may access your inbox." [Mailinator](https://www.mailinator.com/docs/) states that "All emails are public." These inboxes suit a one-off confirmation, not an account you plan to keep. Our [timed inbox comparison](https://billionverify.com/blog/10-minute-mail-alternatives) covers services with other limits.
+Each service says so in its own words. YOPmail says its "inboxes are public and password free." Guerrilla Mail says "anyone who knows your Inbox ID may access your inbox." Mailinator states that "All emails are public." These inboxes suit a one-off confirmation, not an account you plan to keep. Our timed inbox comparison covers services with other limits.
 
 ## How do YOPmail, Guerrilla Mail and Mailinator work?
 
@@ -43,13 +43,10 @@ Mailinator now describes itself as a platform for testing workflows by email and
 
 Skip it when you want the account later. A password reset goes to the same open box, and a Guerrilla Mail reset can arrive after the hour has passed. Skip it for private messages, since none of the three can promise that nobody else reads them.
 
-Sites also know these domains. [Public lists of disposable providers](https://billionverify.com/blog/disposable-email-detection) include the main domain of each service here, and a site that finds one on its list may refuse the address. A refusal means the site wants a mailbox you own.
+Sites also know these domains. Public lists of disposable providers include the main domain of each service here, and a site that finds one on its list may refuse the address. A refusal means the site wants a mailbox you own. Try one of the three domains in [BillionVerify's free checker](https://billionverify.com/email-checker) and see how a form would flag it.
 
-BillionVerify does not provide temporary inboxes. It publishes an [open domain list on GitHub](https://github.com/BillionVerify/disposable), merged from nine community lists and updated hourly. It held 220,601 entries on 27 October 2026, and all three primary domains are in it. A free [disposable email checker](https://billionverify.com/disposable-email-detection) on the BillionVerify site runs the same domain check on one address.
+BillionVerify does not provide temporary inboxes. It publishes an [open domain list on GitHub](https://github.com/BillionVerify/disposable), merged from nine community lists and updated hourly. It held 220,601 entries on 27 October 2026, and all three primary domains are in it. A free disposable email checker on the BillionVerify site runs the same domain check on one address. You can also test a single address at [billionverify.com](https://billionverify.com/email-verifier), which adds role and catch-all flags and a live SMTP check.
 
-## Read the full guides on BillionVerify
+## Original article
 
 - [YOPmail, Guerrilla Mail and Mailinator: How They Differ](https://billionverify.com/blog/yopmail-guerrilla-mail-mailinator)
-- [10 Minute Mail Alternatives: 9 Temp Mail Services Compared](https://billionverify.com/blog/10-minute-mail-alternatives)
-- [What Is Temp Mail? How Temporary Email Works](https://billionverify.com/blog/what-is-temp-mail)
-- [Temp Mail Not Detected? How Sites Detect Temporary Email](https://billionverify.com/blog/disposable-email-detection)

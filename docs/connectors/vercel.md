@@ -5,11 +5,10 @@ Canonical page: https://billionverify.github.io/docs/connectors/vercel/
 The BillionVerify connector for Vercel Connect stores your API key once at the team level. Linked projects request the key at runtime, so no project keeps its own copy.
 
 - **Listing:** [vercel.com/connect/billionverify](https://vercel.com/connect/billionverify)
-- **Details:** [BillionVerify Is Now a Vercel Connect Connector](https://billionverify.com/blog/billionverify-vercel-connector)
 
 ## Add the connector
 
-1. Create an API key on the [API Keys page](https://billionverify.com/auth/sign-in?next=/settings/api-keys). Give it a name such as `vercel-production`.
+1. Create an API key on the API Keys page. Give it a name such as `vercel-production`.
 2. Open the [BillionVerify listing](https://vercel.com/connect/billionverify), or search for "billionverify" under Connect in your Vercel dashboard.
 3. Name the connector, for example `billionverify-prod`. Your connector ID becomes `billionverify/billionverify-prod`.
 4. Choose Shared API Keys or Per-User API Keys, paste the key and create the connector.
@@ -68,6 +67,8 @@ export async function POST(req: Request) {
 
 The SDK caches the key in memory, so it does not call Vercel Connect again for every address.
 
+To see what a response should look like before you deploy, try one address in [BillionVerify's browser checker](https://billionverify.com/email-checker).
+
 ### Use per-user keys
 
 Pass the signed-in user's ID as the subject.
@@ -88,6 +89,8 @@ The same key works for every endpoint.
 - [Verify in bulk](/docs/api/verify-bulk/), up to 50 addresses per request
 - [Upload a file](/docs/api/upload-file/) for a background job
 
+To [run a live SMTP check on one address](https://billionverify.com/email-verifier) by hand rather than from code, use the free verifier page. It needs no key.
+
 ## Credits
 
-Verifications through the connector use the credits in your BillionVerify account at the normal rate. Unknown results cost nothing. Vercel bills its own token requests separately under [Vercel Connect pricing](https://vercel.com/docs/connect/pricing).
+Verifications through the connector use the credits in your BillionVerify account at the normal rate. Unknown results cost nothing. Vercel bills its own token requests separately under Vercel Connect pricing.

@@ -18,6 +18,8 @@ The `reason` field appears in verification responses alongside the `status` fiel
 
 Reasons are stable string identifiers — you can use them directly in filtering rules or downstream conditional logic.
 
+To see how an address gets its status, run it through [BillionVerify's email risk check](https://billionverify.com/email-checker) on the website.
+
 ## How each mailbox type is verified
 
 The reason you get depends on how the recipient's provider can be checked:
@@ -29,6 +31,8 @@ The reason you get depends on how the recipient's provider can be checked:
 - **Apple iCloud, Proton, and Tuta** allow no reliable check, so their addresses always return `unknown` with `smtp_unverifiable`.
 
 Results with `status: "unknown"` are never billed, whatever the reason. Addresses with `invalid_syntax` are never billed either.
+
+To watch [BillionVerify's live SMTP check](https://billionverify.com/email-verifier) work on one address by hand, use the free verifier page.
 
 ## Reasons by status
 

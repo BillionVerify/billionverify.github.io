@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/cli/codex/
 
 OpenAI Codex CLI provides AI-powered code generation and terminal assistance. Learn how to integrate BillionVerify for email verification tasks.
 
+Codex writes the code for you. When you want to [look up one address without code](https://billionverify.com/email-checker), the free page on the BillionVerify site does that without a sign-up.
+
 ## What is Codex CLI?
 
 Codex CLI is OpenAI's command-line tool that leverages the Codex model for:
@@ -11,6 +13,8 @@ Codex CLI is OpenAI's command-line tool that leverages the Codex model for:
 - Shell command generation
 - Code completion and debugging
 - Task automation
+
+Generated code for a registration form should [verify an address before you store it](https://billionverify.com/email-verifier). Try one address in the free verifier first to see what comes back.
 
 ## Setup
 

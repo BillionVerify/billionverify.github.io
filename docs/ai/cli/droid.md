@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/cli/droid/
 
 Droid is an AI-powered terminal assistant for developers. Learn how to integrate BillionVerify for email verification in your Droid workflows.
 
+Droid runs the `billionverify` command through your shell. For a single address checked by hand, [BillionVerify's SMTP verifier](https://billionverify.com/email-verifier) needs no install.
+
 ## What is Droid?
 
 Droid is a modern AI terminal assistant that provides:
@@ -11,6 +13,8 @@ Droid is a modern AI terminal assistant that provides:
 - Code generation and explanation
 - Shell automation
 - Multi-model support (GPT-4, Claude, local models)
+
+To see the fields your Droid scripts will read, run one address through [BillionVerify's risk checker](https://billionverify.com/email-checker) first.
 
 ## Setup
 

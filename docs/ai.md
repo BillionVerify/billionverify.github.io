@@ -22,6 +22,8 @@ In automation platforms like n8n, Zapier, or Make, AI can act as a decision node
 
 Developers using AI coding assistants (Cursor, Claude Code) can verify test emails directly in their workflow.
 
+Before you wire an assistant up, you can look at one address by hand at [billionverify.com/email-checker](https://billionverify.com/email-checker). It shows the live SMTP result with disposable, role and catch-all flags and needs no sign-up.
+
 ## Integration Methods
 
   - [MCP Server](/docs/ai/mcp/): For Claude Desktop, Claude Code, Cursor, and other MCP clients
@@ -148,6 +150,8 @@ Other clients that support remote MCP over Streamable HTTP with OAuth can use th
 | Data Migration      | Bulk verify imported historical data         | Ensure data quality    |
 | Marketing Campaigns | Verify email lists before sending            | Lower bounce rate      |
 | Development Testing | AI assistant verifies test emails            | Improve dev efficiency |
+
+Sales and form scenarios often start with one doubtful address, which an [online email verifier](https://billionverify.com/email-verifier) can check by hand while you decide what to automate.
 
 ## API Quick Reference
 

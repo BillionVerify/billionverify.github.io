@@ -39,6 +39,8 @@ const result = await response.json();
 const result = await client.verify('user@example.com');
 ```
 
+To see a result before you install anything, use the [email address checker](https://billionverify.com/email-checker) with one address.
+
 ### Type Safety
 
 The TypeScript, Go and Java SDKs have typed responses, and the Python SDK uses typed dataclasses. The PHP SDK returns plain arrays.
@@ -66,6 +68,8 @@ All our SDKs provide:
 | Timeout Configuration | Configurable request timeout |
 
 The webhook signature helper in each SDK signs the request body only, while the API also signs the timestamp. See the webhook section of each SDK page for a working verification snippet.
+
+For a manual look at one address, [BillionVerify's mailbox verifier](https://billionverify.com/email-verifier) returns the same kind of status and flags.
 
 ## Quick Comparison
 
@@ -143,7 +147,7 @@ mvn install
 
 ## Getting Started
 
-1. **Get your API Key** - Sign up at [BillionVerify](https://billionverify.com) and get your API key from the dashboard
+1. **Get your API Key** - Sign up at BillionVerify and get your API key from the dashboard
 2. **Install the SDK** - Use your language's package manager
 3. **Initialize the client** - Pass your API key to the constructor (the SDKs do not read environment variables themselves)
 4. **Start verifying** - Call the verify method
@@ -151,5 +155,4 @@ mvn install
 ## Need Help?
 
 - Check our [API Reference](/docs/api/) for detailed endpoint documentation
-- View [Integration Guides](https://billionverify.com/docs/integration-guides) for platform integrations
 - Contact [support](mailto:support@billionverify.com) for assistance

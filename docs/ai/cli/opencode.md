@@ -51,6 +51,8 @@ $ billionverify verify user@company.com
 The email is valid and safe to use.
 ```
 
+To compare that output with a browser result for the same address, use [BillionVerify's online checker](https://billionverify.com/email-checker).
+
 ### Generate Verification Code
 
 **You:** Create a TypeScript function to verify emails with BillionVerify
@@ -166,6 +168,8 @@ if __name__ == '__main__':
     valid, invalid, unknown = process_users('users.db')
     print(f'Results: {valid} valid, {invalid} invalid, {unknown} unknown')
 ```
+
+Before you run the script, you can also paste one address into an [email verifier tool](https://billionverify.com/email-verifier) on the website to see what it should report.
 
 ### CI/CD Integration
 

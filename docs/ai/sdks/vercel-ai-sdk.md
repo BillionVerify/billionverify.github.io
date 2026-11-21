@@ -4,6 +4,8 @@ Canonical page: https://billionverify.github.io/docs/ai/sdks/vercel-ai-sdk/
 
 The Vercel AI SDK makes it easy to add tools that AI models can call. This guide shows how to integrate BillionVerify email verification as a tool. The examples use AI SDK 7 (`ai@7`); earlier major versions use different names for some of the options shown here.
 
+To [check an address you are unsure about](https://billionverify.com/email-checker) while you build the tool, paste it into the free checker. It needs no account.
+
 ## Installation
 
 ```bash
@@ -194,6 +196,8 @@ export const verifyEmailsBulkTool = tool({
   },
 });
 ```
+
+When a bulk result looks off, [verify an address from an export](https://billionverify.com/email-verifier) by itself in the free verifier.
 
 ## Complete Example
 

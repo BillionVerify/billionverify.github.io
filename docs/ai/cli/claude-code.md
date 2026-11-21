@@ -44,6 +44,8 @@ billionverify config set api_key YOUR_API_KEY
 
 Claude Code can then run the `billionverify` command directly. See [CLI Tools](/docs/ai/cli/) for the commands.
 
+If you just want to see one result before you set anything up, an [online email checker](https://billionverify.com/email-checker) shows it for a single address without a sign-up.
+
 ## Usage Examples
 
 ### Verify a Single Email
@@ -235,6 +237,8 @@ Ask for best practices:
 
 - "How should I validate emails in my signup form?"
 - "What's the best way to clean my mailing list?"
+
+When Claude Code suggests a rule for your signup form, test an example address in [the verifier on billionverify.com](https://billionverify.com/email-verifier) to see the flags it would act on.
 
 ## Next Steps
 

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check an Email Address from the Command Line | BillionVerify</title>
+<meta name="description" content="Check one email address with curl and the BillionVerify API, read the result with jq, and decide what to do with each status. About two minutes.">
+<meta name="keywords" content="check email address command line, curl email verification, verify email curl, email verification api">
+
+<link rel="canonical" href="https://billionverify.github.io/guides/check-email-from-command-line/">
+<link rel="alternate" hreflang="en" href="https://billionverify.github.io/guides/check-email-from-command-line/">
+<link rel="alternate" hreflang="x-default" href="https://billionverify.github.io/guides/check-email-from-command-line/">
+<link rel="alternate" type="text/markdown" href="/guides/check-email-from-command-line.md">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="sitemap" href="/sitemap.xml">
+<meta property="og:type" content="article">
+<meta property="article:modified_time" content="2026-11-21">
+<meta property="og:site_name" content="BillionVerify">
+<meta property="og:title" content="Check an Email Address from the Command Line | BillionVerify">
+<meta property="og:description" content="Check one email address with curl and the BillionVerify API, read the result with jq, and decide what to do with each status. About two minutes.">
+<meta property="og:url" content="https://billionverify.github.io/guides/check-email-from-command-line/">
+<meta property="og:image" content="https://billionverify.github.io/og.png">
+<meta property="og:image:alt" content="BillionVerify, by BillionVerify">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Check an Email Address from the Command Line | BillionVerify">
+<meta name="twitter:description" content="Check one email address with curl and the BillionVerify API, read the result with jq, and decide what to do with each status. About two minutes.">
+<meta name="twitter:image" content="https://billionverify.github.io/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BillionVerify","url":"https://billionverify.github.io/","description":"Validate email addresses in real-time or clean millions of records with the BillionVerify API, SDK docs, developer guides and market benchmark.","publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com/","logo":"https://billionverify.com/billionverify.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@billionverify.com"},"sameAs":["https://github.com/BillionVerify","https://x.com/billionvfy","https://www.linkedin.com/company/billionverify"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Check an Email Address from the Command Line","description":"Check one email address with curl and the BillionVerify API, read the result with jq, and decide what to do with each status. About two minutes.","datePublished":"2026-11-21","dateModified":"2026-11-21","mainEntityOfPage":"https://billionverify.github.io/guides/check-email-from-command-line/","author":{"@type":"Organization","name":"BillionVerify Team","url":"https://billionverify.com/about"},"publisher":{"@type":"Organization","name":"BillionVerify","url":"https://billionverify.com/","logo":"https://billionverify.com/billionverify.png"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides","item":"https://billionverify.github.io/guides/"},{"@type":"ListItem","position":2,"name":"Check an Email Address from the Command Line","item":"https://billionverify.github.io/guides/check-email-from-command-line/"}]}</script>
+  <link rel="stylesheet" href="/_astro/Layout.BzRdnDEq.css"><script type="module" src="/_astro/page.B3sWyS9n.js"></script></head>
+  <body class="flex min-h-dvh flex-col">
+    <a href="#content" class="skip-link">Skip to content</a>
+    <header class="vt-header sticky top-0 z-40 border-b border-line bg-white">
+  <div class="mx-auto flex max-w-(--page-max) flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+    <a href="/" aria-label="BillionVerify developer docs home" class="flex min-w-0 items-center gap-2.5">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="size-8 shrink-0" role="img" aria-label="BillionVerify SDK logo">
+  <defs>
+    <linearGradient id="bvLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="100" fill="url(#bvLogoGradient)"/>
+  <g transform="translate(256, 168) scale(0.8)">
+    <rect x="-144" y="-96" width="288" height="192" rx="24" fill="white" opacity="0.98"/>
+    <path d="M -144 -96 L 0 32 L 144 -96" stroke="#22c55e" stroke-width="26" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <rect x="56" y="304" width="400" height="160" rx="44" fill="#052e16"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="138" font-weight="800" letter-spacing="6" fill="white">SDK</text>
+</svg>
+      <span class="text-[19px] font-bold tracking-tight text-ink">BillionVerify</span>
+      
+    </a>
+    <nav class="order-3 flex w-full gap-5 text-[15px] font-medium sm:order-none sm:w-auto" aria-label="Main">
+      <a href="/docs/" class="py-1 text-body hover:text-ink">
+            Docs
+          </a><a href="/guides/" aria-current="page" class="py-1 font-semibold text-accent">
+            Guides
+          </a><a href="/benchmark/" class="py-1 text-body hover:text-ink">
+            Benchmark
+          </a>
+    </nav>
+    <a href="https://billionverify.com/auth/sign-up" class="btn ml-auto">Get an API key</a>
+  </div>
+</header>
+    <main id="content" class="flex-1">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-12 px-4 sm:px-6 xl:grid-cols-[240px_minmax(0,760px)]">
+    <aside class="vt-side pt-4 xl:sticky xl:top-[64px] xl:self-start xl:pt-9">
+  <button type="button" id="guides-nav-toggle" aria-expanded="false" aria-controls="guides-nav" class="flex min-h-11 w-full items-center justify-between rounded-[10px] border border-line px-3.5 text-sm font-semibold xl:hidden">
+    Browse guides <span aria-hidden="true">▾</span>
+  </button>
+    <nav id="guides-nav" aria-label="Guides" class="hidden text-[15px] xl:block">
+      <div class="mt-4 first:mt-1">
+            <p class="mono-label mb-1.5">email-api</p>
+            <a href="/guides/check-email-from-command-line/" aria-current="page" class="block border-l-2 py-1.5 pl-3 leading-snug border-accent font-semibold text-accent">
+                  Check an Email Address from the Command Line
+                </a><a href="/guides/email-verification-node-python/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  Email Verification in Node.js and Python
+                </a><a href="/guides/email-validation-api/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  Email Validation API: How It Works and How to Use It
+                </a>
+          </div><div class="mt-4 first:mt-1">
+            <p class="mono-label mb-1.5">temp-mail</p>
+            <a href="/guides/temp-mail/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  Temp Mail in Plain Words: A Short Guide
+                </a><a href="/guides/10-minute-mail/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  10 Minute Mail: How Timed Inboxes Differ
+                </a><a href="/guides/yopmail-guerrilla-mail-mailinator/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  YOPmail, Guerrilla Mail and Mailinator Side by Side
+                </a><a href="/guides/temporary-phone-number/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  Temporary Phone Numbers: What They Can and Cannot Do
+                </a><a href="/guides/block-temporary-email/" class="block border-l-2 py-1.5 pl-3 leading-snug border-line text-body hover:border-ink hover:text-ink">
+                  How to Block Temporary Email on a Signup Form
+                </a>
+          </div>
+    </nav>
+  <script>
+    (() => {
+      const nav = document.getElementById('guides-nav');
+      const toggle = document.getElementById('guides-nav-toggle');
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('hidden') === false;
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    })();
+  </script>
+</aside>
+
+    <article data-pagefind-body class="min-w-0 pt-6 xl:pt-9">
+      <p class="mono-label"><a href="/guides/" class="hover:underline">guides</a> / email-api</p>
+      <h1 class="mt-2.5 text-[2.5rem] leading-[1.12] font-extrabold tracking-tight max-sm:text-[2rem]">Check an Email Address from the Command Line</h1>
+      <p class="mt-2.5 text-sm text-muted">
+        By BillionVerify Team · Updated <time datetime="2026-11-21">November 21, 2026</time>
+      </p>
+
+      <div class="prose-bv mt-6"><p>This guide checks one email address with <code>curl</code> and the BillionVerify API, then reads the result with <code>jq</code>. It takes about two minutes. You need an API key from your BillionVerify dashboard.</p>
+<p>If you only want to check a single address by hand, you do not need a key. The <a href="https://billionverify.com/email-checker">BillionVerify Email Checker</a> runs the same checks in the browser, 20 times every 24 hours, with no sign-up.</p>
+<h2 id="1-store-your-key">1. Store your key</h2>
+<p>Keep the key out of your shell history and your scripts.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FF7B72">export</span><span style="color:#E6EDF3"> BV_API_KEY</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">"sk_your_key_here"</span></span></code></pre>
+<h2 id="2-check-one-address">2. Check one address</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FFA657">curl</span><span style="color:#79C0FF"> -s</span><span style="color:#79C0FF"> -X</span><span style="color:#A5D6FF"> POST</span><span style="color:#A5D6FF"> https://api.billionverify.com/v1/verify/single</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -H</span><span style="color:#A5D6FF"> "BV-API-KEY: </span><span style="color:#E6EDF3">$BV_API_KEY</span><span style="color:#A5D6FF">"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -H</span><span style="color:#A5D6FF"> "Content-Type: application/json"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -d</span><span style="color:#A5D6FF"> '{"email":"jane.doe@example.com"}'</span></span></code></pre>
+<p>When you leave out <code>check_smtp</code>, the server default applies, and in production that runs the live mailbox check. Set it to <code>false</code> for a fast syntax and MX check only.</p>
+<h2 id="3-read-the-fields-that-matter">3. Read the fields that matter</h2>
+<p>The response has many fields. Most decisions need six of them.</p>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FFA657">curl</span><span style="color:#79C0FF"> -s</span><span style="color:#79C0FF"> -X</span><span style="color:#A5D6FF"> POST</span><span style="color:#A5D6FF"> https://api.billionverify.com/v1/verify/single</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -H</span><span style="color:#A5D6FF"> "BV-API-KEY: </span><span style="color:#E6EDF3">$BV_API_KEY</span><span style="color:#A5D6FF">"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -H</span><span style="color:#A5D6FF"> "Content-Type: application/json"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">  -d</span><span style="color:#A5D6FF"> '{"email":"jane.doe@example.com"}'</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#FF7B72">  |</span><span style="color:#FFA657"> jq</span><span style="color:#A5D6FF"> '.data | {status, reason, is_disposable, is_catchall, is_role, is_free}'</span></span></code></pre>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E6EDF3">{</span></span>
+<span class="line"><span style="color:#7EE787">  "status"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"valid"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "reason"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"smtp_deliverable"</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "is_disposable"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "is_catchall"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "is_role"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span><span style="color:#E6EDF3">,</span></span>
+<span class="line"><span style="color:#7EE787">  "is_free"</span><span style="color:#E6EDF3">: </span><span style="color:#79C0FF">false</span></span>
+<span class="line"><span style="color:#E6EDF3">}</span></span></code></pre>
+<h2 id="4-decide-what-to-do">4. Decide what to do</h2>
+<table>
+<thead>
+<tr>
+<th><code>status</code></th>
+<th>Meaning</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>valid</code></td>
+<td>The mailbox exists and accepts mail</td>
+<td>Send</td>
+</tr>
+<tr>
+<td><code>invalid</code></td>
+<td>The mailbox does not exist or cannot receive mail</td>
+<td>Remove</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>The server gave no clear answer</td>
+<td>Retry later</td>
+</tr>
+<tr>
+<td><code>disposable</code></td>
+<td>A temporary inbox service</td>
+<td>Usually remove</td>
+</tr>
+<tr>
+<td><code>catchall</code></td>
+<td>The domain accepts every address</td>
+<td>Send with care and watch bounces</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>A shared inbox such as <code>info@</code></td>
+<td>Usually deliverable, may engage less</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>is_*</code> flags are separate from <code>status</code>. An address can be <code>valid</code> and still have <code>is_role: true</code>.</p>
+<p>If a result surprises you, open the Email Verifier on <a href="https://billionverify.com/email-verifier">BillionVerify</a> and run the same address. It shows the mailbox check in the browser, with no key.</p>
+<h2 id="5-a-small-loop-for-a-few-addresses">5. A small loop for a few addresses</h2>
+<pre class="astro-code github-dark-default" style="background-color:#0d1117;color:#e6edf3; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#FF7B72">while</span><span style="color:#79C0FF"> read</span><span style="color:#79C0FF"> -r</span><span style="color:#A5D6FF"> email</span><span style="color:#E6EDF3">; </span><span style="color:#FF7B72">do</span></span>
+<span class="line"><span style="color:#FFA657">  curl</span><span style="color:#79C0FF"> -s</span><span style="color:#79C0FF"> -X</span><span style="color:#A5D6FF"> POST</span><span style="color:#A5D6FF"> https://api.billionverify.com/v1/verify/single</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">    -H</span><span style="color:#A5D6FF"> "BV-API-KEY: </span><span style="color:#E6EDF3">$BV_API_KEY</span><span style="color:#A5D6FF">"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">    -H</span><span style="color:#A5D6FF"> "Content-Type: application/json"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#79C0FF">    -d</span><span style="color:#A5D6FF"> "{</span><span style="color:#FF7B72">\"</span><span style="color:#A5D6FF">email</span><span style="color:#FF7B72">\"</span><span style="color:#A5D6FF">:</span><span style="color:#FF7B72">\"</span><span style="color:#E6EDF3">$email</span><span style="color:#FF7B72">\"</span><span style="color:#A5D6FF">}"</span><span style="color:#FF7B72"> \</span></span>
+<span class="line"><span style="color:#FF7B72">    |</span><span style="color:#FFA657"> jq</span><span style="color:#79C0FF"> -r</span><span style="color:#A5D6FF"> '.data | [.email, .status, .reason] | @tsv'</span></span>
+<span class="line"><span style="color:#FF7B72">done</span><span style="color:#FF7B72"> &lt;</span><span style="color:#E6EDF3"> emails.txt</span></span></code></pre>
+<p>This is fine for a handful of addresses. For a real list, use the batch or file upload endpoints instead. Both are described in the <a href="/docs/api/">API reference</a>, along with rate limits and error codes.</p>
+</div>
+
+      
+    </article>
+  </div>
+</main>
+    <footer class="site-footer mt-20 border-t border-line text-sm">
+  <div class="mx-auto grid max-w-(--page-max) gap-8 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+    <div class="min-w-0">
+      <p class="font-semibold text-ink">BillionVerify</p>
+      <p class="mt-1 max-w-[360px] text-muted">Email verification API docs, SDKs and developer guides.</p>
+      <p class="mt-4 text-muted">
+        <a href="https://billionverify.com/" class="font-semibold text-ink underline-offset-4 hover:underline">by BillionVerify</a>
+        <span aria-hidden="true"> · </span>© 2026
+      </p>
+    </div>
+    <nav aria-label="Developers" class="min-w-0">
+      <p class="font-semibold text-ink">Developers</p>
+      <ul class="mt-2 space-y-1.5">
+        <li><a href="/docs/" class="text-muted hover:text-ink hover:underline">Docs</a></li><li><a href="/guides/" class="text-muted hover:text-ink hover:underline">Guides</a></li><li><a href="/benchmark/" class="text-muted hover:text-ink hover:underline">Benchmark</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Partners" class="min-w-0">
+      <p class="font-semibold text-ink">Partners</p>
+      <ul class="mt-2 space-y-1.5">
+        <li><a href="https://markitdown.ai/" class="text-muted hover:text-ink hover:underline">Markitdown AI</a></li><li><a href="https://potto.ai/" class="text-muted hover:text-ink hover:underline">Potto AI</a></li><li><a href="https://transcript.im/" class="text-muted hover:text-ink hover:underline">YouTube Transcript Generator</a></li><li><a href="https://aitinydeskmeme.com/" class="text-muted hover:text-ink hover:underline">AI Tiny Desk Meme</a></li><li><a href="https://ohyoucanmakeitcapai.com/" class="text-muted hover:text-ink hover:underline">Oh You Can Make It Cap AI</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="More by BillionVerify" class="min-w-0">
+      <p class="font-semibold text-ink">More by BillionVerify</p>
+      <ul class="mt-2 space-y-1.5">
+        <li><a href="https://billionverify.vercel.app/" class="text-muted hover:text-ink hover:underline">Deliverability Desk</a></li><li><a href="https://billionverify.pages.dev/" class="text-muted hover:text-ink hover:underline">B2B Data Review</a></li><li><a href="https://billionverify.netlify.app/" class="text-muted hover:text-ink hover:underline">Outreach Playbook</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+    <script type="module">document.querySelectorAll(`[data-code-tabs]`).forEach(e=>{let t=[...e.querySelectorAll(`:scope > [data-tab]`)],n=document.createElement(`div`);n.className=`code-tabs-bar`,n.setAttribute(`role`,`tablist`),t.forEach((e,r)=>{let i=document.createElement(`button`);i.type=`button`,i.role=`tab`,i.textContent=e.dataset.tab??``,i.setAttribute(`aria-selected`,String(r===0)),e.hidden=r!==0,i.addEventListener(`click`,()=>{t.forEach((e,t)=>{e.hidden=t!==r,n.children[t].setAttribute(`aria-selected`,String(t===r))})}),n.append(i)}),e.prepend(n),e.classList.add(`is-ready`)}),document.querySelectorAll(`.prose-bv pre, pre.code`).forEach(e=>{let t=document.createElement(`div`);t.className=`code-block`,e.replaceWith(t),t.append(e);let n=document.createElement(`button`);n.type=`button`,n.className=`code-copy`,n.textContent=`Copy`,n.setAttribute(`aria-label`,`Copy code`),n.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(e.innerText),n.textContent=`Copied`,setTimeout(()=>n.textContent=`Copy`,1500)}),t.append(n)});</script>
+  </body>
+</html>

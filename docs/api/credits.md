@@ -8,6 +8,8 @@ Get the current credit balance for the account that owns the API key.
 GET /credits
 ```
 
+If you only need to look at one suspicious address before a large run, [BillionVerify's deliverability checker](https://billionverify.com/email-checker) runs a single live check from the website without a sign-up.
+
 ## Response
 
 ```json
@@ -35,3 +37,5 @@ GET /credits
 | `credits_consumed` | Total credits used |
 | `credits_added` | Total credits added |
 | `last_updated` | Last update time of the balance record |
+
+To spot-check one address outside the API, use the [free online email verifier](https://billionverify.com/email-verifier), which allows 20 checks per IP address every 24 hours.

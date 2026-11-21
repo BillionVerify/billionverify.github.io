@@ -8,6 +8,8 @@ Canonical page: https://billionverify.github.io/docs/sdks/typescript/
 
 The TypeScript SDK is the Node.js SDK. It is written in TypeScript and ships its own type definitions, so there is nothing extra to install.
 
+For a quick look at the risk flags on one address, use the [email risk checker](https://billionverify.com/email-checker) on the website.
+
 > The TypeScript SDK shares the same package as the Node.js SDK. It requires Node.js 18 or later.
 
 ## Installation
@@ -37,6 +39,8 @@ console.log(result.status); // Type: 'valid' | 'invalid' | 'unknown' | 'risky' |
 ## Type Definitions
 
 The package exports these types: `BillionVerifyConfig`, `VerifyOptions`, `VerifyResponse`, `VerificationStatus`, `DomainReputation`, `BatchVerifyOptions`, `BatchVerifyResponse`, `BatchVerifyResultItem`, `FileUploadOptions`, `FileUploadResponse`, `FileJobStatusOptions`, `FileJobStatusResponse`, `FileJobResultsOptions`, `CreditsResponse`, `WebhookConfig`, `WebhookEvent`, `Webhook`, `WebhookPayload`, `HealthCheckResponse`, `ApiError` and `ApiResponse`.
+
+To see the values behind those types, [verify an address you typed by hand](https://billionverify.com/email-verifier) in the free verifier and read its status.
 
 ### Client Options
 
@@ -547,4 +551,3 @@ function categorize(result: VerifyResponse) {
 
   - [Node.js SDK](/docs/sdks/node/): Full Node.js SDK documentation
   - [API Reference](/docs/api/): Detailed API documentation
-  - [Integration Guides](https://billionverify.com/docs/integration-guides): Platform integrations

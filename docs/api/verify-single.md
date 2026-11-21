@@ -33,6 +33,8 @@ POST /verify/single
 - `force_refresh` defaults to `false`. Set it to `true` only when you need a fresh result. A billable result is charged even if a cached one exists.
 - Billing: `unknown` results, addresses with invalid syntax and known disposable domains (without explicit `check_smtp: true`) are not charged. Every other status costs 1 credit. See [Verification Reasons](/docs/verification-reasons/) for `reason` values.
 
+The free checker on the BillionVerify site lets you [see if a mailbox exists](https://billionverify.com/email-checker) for one address without writing a request.
+
 ## Response
 
 ```json
@@ -92,3 +94,5 @@ POST /verify/single
 | `retry_after_seconds` | integer | Delay suggested by the remote server for a temporary failure. Omitted when none was given |
 | `smtputf8` | boolean | `true` when the local part has non-ASCII characters, so your mail server must support SMTPUTF8 |
 | `smtp_response` | string | Redacted SMTP response. Returned only to allowlisted accounts |
+
+If you want to [verify one address in real time](https://billionverify.com/email-verifier) by hand and compare it with this response, the free verifier page returns the status and the disposable, role and catch-all flags.

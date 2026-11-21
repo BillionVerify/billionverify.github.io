@@ -5,7 +5,6 @@ Canonical page: https://billionverify.github.io/docs/connectors/claude/
 The BillionVerify connector is listed in Claude's connector directory. Connect it once with your BillionVerify account, then verify email addresses in chat. You do not need an API key or a server URL.
 
 - **Listing:** [claude.ai/directory/billionverify](https://claude.ai/directory/billionverify)
-- **Details:** [BillionVerify Is Now in Claude's Connector Directory](https://billionverify.com/blog/billionverify-claude-connector)
 
 ## Connect BillionVerify
 
@@ -13,7 +12,9 @@ The BillionVerify connector is listed in Claude's connector directory. Connect i
 2. Click Connect, sign in with your BillionVerify account and approve access.
 3. Start a chat and ask something like "Is this address safe to send to?"
 
-If you do not have an account yet, [sign up at billionverify.com](https://billionverify.com/auth/sign-up) first. The connector uses the same account, credits and verification history as your dashboard.
+If you do not have an account yet, sign up at billionverify.com first. The connector uses the same account, credits and verification history as your dashboard.
+
+If you only want to [check a sign-up address by hand](https://billionverify.com/email-checker) before you connect, the website page needs no account.
 
 ## What Claude can do
 
@@ -28,6 +29,8 @@ The connector gives Claude 11 tools that cover four jobs.
 
 Each result says whether the address is valid, invalid, catch-all, disposable, a role account or unknown. See [Status and error codes](/docs/api/errors/) for what each status means.
 
+To see those statuses on one address without Claude, open [the free BillionVerify verifier](https://billionverify.com/email-verifier).
+
 ### Prompts to start with
 
 > Is support@billionverify.com a deliverable email address?
@@ -40,7 +43,7 @@ Each result says whether the address is valid, invalid, catch-all, disposable, a
 
 ### Verify a bigger list
 
-Claude checks up to 50 addresses in a request. For a bigger list, upload the file in the [BillionVerify dashboard](https://billionverify.com/auth/sign-in), then ask Claude to track the job and fetch the results.
+Claude checks up to 50 addresses in a request. For a bigger list, upload the file in the BillionVerify dashboard, then ask Claude to track the job and fetch the results.
 
 ## Other ways to use BillionVerify in an agent
 

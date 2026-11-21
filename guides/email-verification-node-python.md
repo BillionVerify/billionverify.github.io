@@ -2,7 +2,7 @@
 
 Canonical page: https://billionverify.github.io/guides/email-verification-node-python/
 
-Adding email verification to a [Node.js](https://billionverify.com/blog/email-verification-nodejs) or [Python](https://billionverify.com/blog/email-verification-python) app follows the same shape in both. Your backend sends the address to an [email verification API](https://billionverify.com/email-verification-api) over HTTPS and reads a structured result. Your code then decides whether to accept, flag or reject the address. The browser never sees the API key.
+Adding email verification to a Node.js or Python app follows the same shape in both. Your backend sends the address to an email verification API over HTTPS and reads a structured result. Your code then decides whether to accept, flag or reject the address. The browser never sees the API key.
 
 **Key facts (checked October 2026):**
 
@@ -13,9 +13,9 @@ Adding email verification to a [Node.js](https://billionverify.com/blog/email-ve
 
 ## How do you set up the client?
 
-In Node.js, version 18 or higher gives you [native fetch](https://nodejs.org/api/globals.html), so a basic call needs no extra package. Older versions can use node-fetch or axios. In Python, the guide assumes version 3.8 or higher and the [requests library](https://requests.readthedocs.io/en/latest/), with aiohttp for async work. In both cases the key lives in an environment variable loaded from a .env file, never in source control or client-side code.
+In Node.js, version 18 or higher gives you native fetch, so a basic call needs no extra package. Older versions can use node-fetch or axios. In Python, the guide assumes version 3.8 or higher and the requests library, with aiohttp for async work. In both cases the key lives in an environment variable loaded from a .env file, never in source control or client-side code.
 
-The response gives you more than a yes or no. In the newest [BillionVerify guide](https://billionverify.com/blog/real-time-email-validation-api), the result carries a status such as valid, invalid, disposable, catchall, role or unknown, plus a reason and flags such as is_disposable and is_role. Older tutorials in the series show different field names, so copy names from the current [API reference](/docs/api/).
+The response gives you more than a yes or no. In the newest BillionVerify guide, the result carries a status such as valid, invalid, disposable, catchall, role or unknown, plus a reason and flags such as is_disposable and is_role. Older tutorials in the series show different field names, so copy names from the current [API reference](/docs/api/). To see what one response looks like before you write the client, run an address through the [email checker](https://billionverify.com/email-checker).
 
 ## What patterns hold up in production?
 
@@ -43,11 +43,8 @@ For many addresses, BillionVerify documents [POST /verify/bulk](/docs/api/verify
 
 Set a timeout on every call. When it fires, or when the result is unknown or catchall, let the user through, store a flag and re-check later. Block only clear failures, such as invalid syntax or a domain with no mail records. Unknown results cost nothing in BillionVerify, and neither do syntax failures.
 
-Test with mocked HTTP responses so unit tests never spend credits. Log outcomes, response times and error rates, and alert on a spike in authentication failures. A [BillionVerify account](https://billionverify.com/auth/sign-up) gets 20 free credits on each day you use your account, up to 600 a month.
+Test with mocked HTTP responses so unit tests never spend credits. Log outcomes, response times and error rates, and alert on a spike in authentication failures. A BillionVerify account gets 20 free credits on each day you sign in, up to 600 a month. When a test case needs a real address to compare against, [a free online email verification tool](https://billionverify.com/email-verifier) gives you a reference result for one address.
 
-## Read the full guides on BillionVerify
+## Original article
 
 - [Email Verification API with Node.js Tutorial](https://billionverify.com/blog/email-verification-nodejs)
-- [Email Verification API with Python Guide](https://billionverify.com/blog/email-verification-python)
-- [Real-Time Email Validation API: A Developer's Guide](https://billionverify.com/blog/real-time-email-validation-api)
-- [Email Verification API: Developer Guide](https://billionverify.com/blog/email-verification-api)
